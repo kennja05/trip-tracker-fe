@@ -2,14 +2,16 @@ import React from 'react';
 import './App.css';
 import Credentials from './components/Credentials'
 import HomepageContainer from './components/HomepageContainer'
-
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <Credentials />
-      <HomepageContainer />
-    </div>
+    <Router>
+      
+        <Route path='/login' component={Credentials} />
+        <Route path='/main' render={() => <HomepageContainer/>} />
+      
+    </Router>
   );
 }
 
