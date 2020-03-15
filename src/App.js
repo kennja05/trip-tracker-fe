@@ -1,18 +1,14 @@
 import React from 'react';
 import './App.css';
 import Credentials from './components/Credentials'
-import TripContainer from './components/TripContainer'
-import CurrencyContainer from './components/TripContainer'
-import PopularDestinationsContainer from './components/PopularDestinationsContainer'
+import HomepageContainer from './components/HomepageContainer'
 
 
 function App() {
   return (
     <div className="App">
       <Credentials />
-      <TripContainer />
-      <CurrencyContainer />
-      <PopularDestinationsContainer />
+      <HomepageContainer />
     </div>
   );
 }

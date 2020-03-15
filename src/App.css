@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.Sub-Container {
+  border-style: inset;
+  height: 50vh;
+  width: 50vh;
+}
+
+.homepage {
+  display: grid;
+}

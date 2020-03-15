@@ -3,7 +3,7 @@ import React from 'react'
 const PopularDestinationsContainer = (props) => {
 
     return(
-        <div className='container'>
+        <div className='Sub-Container'>
             <ol>
                 <li>1st destination</li>
                 <li>2nd Destination</li>
