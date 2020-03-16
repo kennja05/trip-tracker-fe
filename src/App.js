@@ -8,9 +8,11 @@ class App extends React.Component {
 
 state = {
   loggedIn: false,
+  userId: ''
 }
 
-handleLogin = () => {
+handleLogin = (e) => {
+  e.preventDefalt()
   this.setState({loggedIn: true})
   console.log(this.state.loggedIn)
 }
@@ -19,7 +21,7 @@ handleLogin = () => {
 render(){
   return(
     <Router>  
-        <Route path='/login' render={() => <Credentials handleAuthenticate={this.handleLogin}/>} />
+        <Route path='/login' render={() => <Credentials handleLogin={this.handleLogin}/>} />
         <Route path='/main' render={() => <HomepageContainer/>} />
     </Router>
   );

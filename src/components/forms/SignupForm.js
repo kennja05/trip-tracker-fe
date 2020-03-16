@@ -42,6 +42,10 @@ export default class SignupForm extends React.Component {
 
     render(){
         return(
+            <div>
+            
+            <h2>New User? Sign up below</h2>
+
             <form onSubmit={this.handleAuthenticate}> 
                 <label>First Name:</label>
                 <input onChange={this.handleFormChange} type='text' name='name' value={this.state.name}/>
@@ -59,6 +63,7 @@ export default class SignupForm extends React.Component {
                 <input onChange={this.handleFormChange} type='text' name='email' value={this.state.email} />
                 <input type='submit' value='Create Account' />
             </form>
+            </div>
         )
     }
 
