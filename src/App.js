@@ -10,17 +10,17 @@ state = {
   loggedIn: false,
 }
 
-handleAuthenticate = (e, userInfo) => {
-  e.preventDefault()
-  fetch('http://localhost:3000/api/v1/users',{
-    method: "POST",
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify(userInfo)
-  })
-  .then(this.setState({loggedIn: true}))
-}
+// handleAuthenticate = (e, userInfo) => {
+//   e.preventDefault()
+//   fetch('http://localhost:3000/api/v1/users',{
+//     method: "POST",
+//     headers: {
+//       'content-type': 'application/json'
+//     },
+//     body: JSON.stringify(userInfo)
+//   })
+//   .then(this.setState({loggedIn: true}))
+// }
 
 
 render(){

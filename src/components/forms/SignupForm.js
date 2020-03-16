@@ -16,13 +16,26 @@ export default class SignupForm extends React.Component {
     handleFormChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
-        })
+        })    
     }
 
+    handleAuthenticate = (e) => {
+        e.preventDefault()
+        const {name, username, password, image, phone, email} = this.state
+        const userObj = {name, username, password, image, phone, email}
+        fetch('http://localhost:3000/api/v1/users',{
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(userObj)
+        })
+        // .then(this.setState({loggedIn: true}))
+      }
+
     render(){
-        
         return(
-            <form onSubmit={this.props.handleAuthenticate}> 
+            <form onSubmit={this.handleAuthenticate}> 
                 <label>First Name:</label>
                 <input onChange={this.handleFormChange} type='text' name='name' value={this.state.name}/>
                 <label>Username:</label>
