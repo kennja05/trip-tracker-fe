@@ -10,23 +10,16 @@ state = {
   loggedIn: false,
 }
 
-// handleAuthenticate = (e, userInfo) => {
-//   e.preventDefault()
-//   fetch('http://localhost:3000/api/v1/users',{
-//     method: "POST",
-//     headers: {
-//       'content-type': 'application/json'
-//     },
-//     body: JSON.stringify(userInfo)
-//   })
-//   .then(this.setState({loggedIn: true}))
-// }
+handleLogin = () => {
+  this.setState({loggedIn: true})
+  console.log(this.state.loggedIn)
+}
 
 
 render(){
   return(
     <Router>  
-        <Route path='/login' render={() => <Credentials handleAuthenticate={this.handleAuthenticate}/>} />
+        <Route path='/login' render={() => <Credentials handleAuthenticate={this.handleLogin}/>} />
         <Route path='/main' render={() => <HomepageContainer/>} />
     </Router>
   );

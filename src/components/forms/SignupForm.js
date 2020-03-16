@@ -30,7 +30,14 @@ export default class SignupForm extends React.Component {
           },
           body: JSON.stringify(userObj)
         })
-        // .then(this.setState({loggedIn: true}))
+        .then(this.setState({name: '',
+        username: '',
+        password: '',
+        passwordConfirmation: '',
+        image: '',
+        phone: '',
+        email: ''}))
+        .then(() => this.props.handleLogin)
       }
 
     render(){
