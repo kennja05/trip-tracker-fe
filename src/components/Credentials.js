@@ -6,7 +6,8 @@ export default class Credentials extends React.Component {
     render(){
         return(
             <div>
-                <SignupForm handleLogin={this.props.handleLogin}/>
+                <LoginForm handleLogin={this.props.handleLogin} />
+                <SignupForm handleLogin={this.props.handleLogin} />
             </div>
         )
     }
