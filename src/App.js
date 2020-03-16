@@ -8,20 +8,28 @@ class App extends React.Component {
 
 state = {
   loggedIn: false,
-  userId: ''
+  user: null
 }
 
-handleLogin = (e) => {
-  e.preventDefalt()
+handleLogin = () => {
+  // e.preventDefault()
   this.setState({loggedIn: true})
-  console.log(this.state.loggedIn)
+  console.log('loggin in', this.state.loggedIn)
+}
+
+handleSignup = (newUserObject) => {
+  this.setState({
+    loggedIn: true,
+    user: newUserObject
+  })
+
 }
 
 
 render(){
   return(
     <Router>  
-        <Route path='/login' render={() => <Credentials handleLogin={this.handleLogin}/>} />
+        <Route path='/login' render={() => <Credentials handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
         <Route path='/main' render={() => <HomepageContainer/>} />
     </Router>
   );

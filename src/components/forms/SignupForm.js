@@ -19,7 +19,7 @@ export default class SignupForm extends React.Component {
         })    
     }
 
-    handleAuthenticate = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault()
         const {name, username, password, image, phone, email} = this.state
         const userObj = {name, username, password, image, phone, email}
@@ -30,6 +30,9 @@ export default class SignupForm extends React.Component {
           },
           body: JSON.stringify(userObj)
         })
+        .then(resp => resp.json())
+        .then(newUser => this.props.handleSignup(newUser))
+
         .then(this.setState({name: '',
         username: '',
         password: '',
@@ -37,7 +40,6 @@ export default class SignupForm extends React.Component {
         image: '',
         phone: '',
         email: ''}))
-        .then(() => this.props.handleLogin)
       }
 
     render(){
@@ -46,7 +48,7 @@ export default class SignupForm extends React.Component {
             
             <h2>New User? Sign up below</h2>
 
-            <form onSubmit={this.handleAuthenticate}> 
+            <form onSubmit={this.handleSubmit}> 
                 <label>First Name:</label>
                 <input onChange={this.handleFormChange} type='text' name='name' value={this.state.name}/>
                 <label>Username:</label>
