@@ -7,13 +7,21 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'
 class App extends React.Component {
 
 state = {
-  loggedIn: false
+  loggedIn: false,
 }
 
-handleAuthenticate = (e) => {
+handleAuthenticate = (e, userInfo) => {
   e.preventDefault()
-  this.setState({loggedIn: true}
-)}
+  fetch('http://localhost:3000/api/v1/users',{
+    method: "POST",
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(userInfo)
+  })
+  .then(this.setState({loggedIn: true}))
+}
+
 
 render(){
   return(
