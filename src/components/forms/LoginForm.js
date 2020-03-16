@@ -15,7 +15,7 @@ export default class LoginForm extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className='credential-form'>
                 <h2>Returning User? Log In </h2>
             <form>
                 <label>Username:</label>

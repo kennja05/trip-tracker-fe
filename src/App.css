@@ -39,10 +39,21 @@
 
 .Sub-Container {
   border-style: inset;
+  border-color: green;
+  border-radius: 5%;
   height: 50vh;
   width: 50vh;
 }
 
 .homepage {
   display: grid;
+}
+
+.credential-form {
+  border-style: solid;
+  border-color: green;
+  border-radius: 5%;
+  height: 50vh;
+  width: 100vh;
+
 }
