@@ -53,10 +53,19 @@
   border-style: solid;
   border-color: green;
   border-radius: 5%;
-  height: 45vh;
+  height: 40vh;
   width: 100vh;
 }
 
 input:focus {
-  background-color: rgb(30, 226, 30);
+  background-color: rgb(38, 255, 38);
+}
+
+.form-prof {
+  height: 5%;
+  width: 5%;
+}
+
+#signup-form{
+  height: 55vh
 }

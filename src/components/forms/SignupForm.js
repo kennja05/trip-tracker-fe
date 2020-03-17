@@ -44,7 +44,7 @@ export default class SignupForm extends React.Component {
 
     render(){
         return(
-            <div className='credential-form'>
+            <div className='credential-form' id='signup-form'>
             
             <h2>New User? Sign up below</h2>
 
@@ -58,13 +58,14 @@ export default class SignupForm extends React.Component {
                 <p><label>Re-Typed Password:</label>
                 <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
                 <p><label>Profile Picture URL:</label>
-                <input onChange={this.handleFormChange} type='text' name='image' value={this.state.image} /></p>
+                <input onChange={this.handleFormChange} type='text' name='image' value={this.state.image} /><img alt="" className="form-prof" src={this.state.image !== "" && this.state.image} /></p>
                 <p><label>Phone Number:</label>
                 <input onChange={this.handleFormChange} type='text' name='phone' value={this.state.phone} /></p>
                 <p><label>Email Address:</label>
                 <input onChange={this.handleFormChange} type='text' name='email' value={this.state.email} /></p>
                 <input type='submit' value='Create Account' />
             </form>
+
             </div>
         )
     }
