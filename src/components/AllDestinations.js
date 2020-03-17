@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactLoading from 'react-loading'
+import { Link } from 'react-router-dom'
 
 export default class AllDestinations extends React.Component {
 
@@ -20,14 +21,17 @@ export default class AllDestinations extends React.Component {
     render(){
         return( 
             <div>
-                <h2>All Destinations</h2>
+                <h2>All Destinations - {this.state.loaded ? `${this.state.destinations.length} total` : <ReactLoading type={'spin'} color={'000'}/>} </h2>
+                <Link to='/main'>
+                    <p>Return to Dashboard</p>
+                </Link>
                 <ul>
                     {this.state.destinations.map(destination => <li key={destination.id}>
                         <b>{destination.name}</b> (Native Name: {destination.native_name})
                             <ul>
                                 <li>Capital: {destination.capital}</li>
-                                <li>Currency: {destination.currency_name} ({destination.symbol})</li>
-                                <li>Visits: {destination.trips.length}</li>
+                                <li>Currency: {destination.currency_name} - {destination.code} ({destination.symbol})</li>
+                                <li>Visits by site users: {destination.trips.length}</li>
                             </ul>
                     </li>)}
                 </ul>
