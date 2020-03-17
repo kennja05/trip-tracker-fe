@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Credentials from './components/Credentials'
 import HomepageContainer from './components/HomepageContainer'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -11,10 +11,12 @@ state = {
   user: null
 }
 
-handleLogin = () => {
+handleLogin = (inputUser) => {
   // e.preventDefault()
-  this.setState({loggedIn: true})
-  console.log('loggin in', this.state.loggedIn)
+  this.setState({
+    loggedIn: true,
+    user: inputUser
+  }, () => console.log(this.state.user))
 }
 
 handleSignup = (newUserObject) => {
@@ -33,7 +35,7 @@ render(){
   return(
     <Router>  
         <Route path='/login' render={() => <Credentials handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
-        <Route path='/main' render={() => <HomepageContainer/>} />
+        <Route path='/main' render={() => <HomepageContainer user={this.state.user} />} />
     </Router>
   );
 }
