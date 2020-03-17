@@ -16,7 +16,7 @@ handleLogin = (inputUser) => {
   this.setState({
     loggedIn: true,
     user: inputUser
-  }, () => console.log(this.state.user))
+  })
 }
 
 handleSignup = (newUserObject) => {
