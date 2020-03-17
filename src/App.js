@@ -18,11 +18,14 @@ handleLogin = () => {
 }
 
 handleSignup = (newUserObject) => {
-  this.setState({
-    loggedIn: true,
-    user: newUserObject
-  })
-
+  if (!newUserObject.errors) {
+    this.setState({
+      loggedIn: true,
+      user: newUserObject
+    })
+  } else {
+    alert(newUserObject.errors)
+  }
 }
 
 

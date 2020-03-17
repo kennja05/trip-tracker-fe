@@ -58,7 +58,7 @@ export default class SignupForm extends React.Component {
                 <p><label>Re-Typed Password:</label>
                 <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
                 <p><label>Profile Picture URL:</label>
-                <input onChange={this.handleFormChange} type='text' name='image' value={this.state.image} /><img alt="" className="form-prof" src={this.state.image !== "" && this.state.image} /></p>
+                <input onChange={this.handleFormChange} type='text' name='image' value={this.state.image} /><img alt="" className="form-prof" src={this.state.image !== "" ? this.state.image : undefined} /></p>
                 <p><label>Phone Number:</label>
                 <input onChange={this.handleFormChange} type='text' name='phone' value={this.state.phone} /></p>
                 <p><label>Email Address:</label>
