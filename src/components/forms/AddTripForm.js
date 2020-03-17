@@ -46,8 +46,17 @@ export default class AddTripForm extends React.Component {
             const foundCountry = this.state.destinations.find(dest => dest.name === formattedDestName)
             if (!foundCountry) {
                 alert(`Sorry - we have no currency information for ${formattedDestName}!`)
+            } else if (this.state.startDate > this.state.endDate) {
+                alert('Please look at your selected dates. Make sure they are in the correct order!')
             } else {
-                console.log('start:', this.state.startDate, 'end:', this.state.endDate)
+                const tripObject = {start_date: this.state.startDate, end_date: this.state.endDate, user_id: this.props.user.id, destination_id: foundCountry.id}
+                fetch('http://localhost:3000/api/v1/trips', {
+                    method: 'POST', 
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(tripObject)
+                })
             }
         }
     }
