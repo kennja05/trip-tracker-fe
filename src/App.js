@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Credentials from './components/Credentials'
+import AllDestinations from './components/AllDestinations'
 import HomepageContainer from './components/HomepageContainer'
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
 
@@ -36,6 +37,7 @@ render(){
     <Router>  
         <Route path='/login' render={() => <Credentials handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
         <Route path='/main' render={() => <HomepageContainer user={this.state.user} />} />
+        <Route path='/alldestinations' component={AllDestinations} />
     </Router>
   );
 }
