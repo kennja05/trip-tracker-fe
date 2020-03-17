@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class PopularDestinationsContainer extends React.Component {
 
@@ -17,10 +18,11 @@ class PopularDestinationsContainer extends React.Component {
         console.log(this.state)
         return(
             <div className='Sub-Container'>
-                <h2>Top 5 Destinations</h2>
+                <h2>Top 10 Destinations</h2>
                 <ol>
                 {this.state.topDestinations.map(dest => <li key={dest.id}>{dest.name} - {dest.trips.length} have gone here</li>)}  
                 </ol>
+                <Link to='/alldestinations'>See All</Link>
             </div>
         )
     }
