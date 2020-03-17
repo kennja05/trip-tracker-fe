@@ -10,7 +10,8 @@ export default class AddTripForm extends React.Component {
         destinations: [],
         startDate: new Date(),
         endDate: new Date(),
-        selectedDestination: ''
+        selectedDestination: '',
+        foundDestinaion: null
     }
 
     componentDidMount(){
@@ -37,15 +38,30 @@ export default class AddTripForm extends React.Component {
         })
     }
 
+    handleFormSubmit = e => {
+        e.preventDefault()
+        if (this.state.selectedDestination){
+
+            const formattedDestName = this.state.selectedDestination[0].toUpperCase() + this.state.selectedDestination.slice(1).toLowerCase()
+            const foundCountry = this.state.destinations.find(dest => dest.name === formattedDestName)
+            if (!foundCountry) {
+                alert(`Sorry - we have no currency information for ${formattedDestName}!`)
+            } else {
+                console.log('start:', this.state.startDate, 'end:', this.state.endDate)
+            }
+        }
+    }
+
     render(){
         return(
             <div className='Sub-Container'>
                 <h2>Add A New Trip</h2>
-                <form>
+                <form onSubmit={this.handleFormSubmit}>
 
-                Start Date: <DatePicker name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} /><br></br>
-                End Date: <DatePicker name='endDate' selected={this.state.endDate} onChange={this.handleEndDateChange} /><br></br>
-                Location: <input onChange={this.handleFormChange} type='text' value={this.state.selectedDestination} name='selectedDestination' />
+                Start Date: <DatePicker dateFormat='MM/dd/yy' name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} /><br></br>
+                End Date: <DatePicker dateFormat='MM/dd/yy' name='endDate' selected={this.state.endDate} onChange={this.handleEndDateChange} /><br></br>
+                Location: <input onChange={this.handleFormChange} type='text' value={this.state.selectedDestination} name='selectedDestination' /><br></br>
+                <input type='submit' value='Add Trip' />
                 </form>
 
 
