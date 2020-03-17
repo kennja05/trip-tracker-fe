@@ -1,18 +1,29 @@
 import React from 'react'
 
-const PopularDestinationsContainer = (props) => {
+class PopularDestinationsContainer extends React.Component {
 
-    return(
-        <div className='Sub-Container'>
-            <ol>
-                <li>1st destination</li>
-                <li>2nd Destination</li>
-                <li>3rd place</li>
-                <li>4th</li>
-                <li>Fifth prize</li>
-            </ol>
-        </div>
-    )
+    state = {
+        topDestinations: []
+    }
+
+    componentDidMount(){
+        fetch('http://localhost:3000/api/v1/destinations/top')
+            .then(res => res.json())
+            .then(topDestinations => this.setState({topDestinations}))
+    }
+
+
+    render(){
+        console.log(this.state)
+        return(
+            <div className='Sub-Container'>
+                <h2>Top 5 Destinations</h2>
+                <ol>
+                {this.state.topDestinations.map(dest => <li key={dest.id}>{dest.name} - {dest.trips.length} have gone here</li>)}  
+                </ol>
+            </div>
+        )
+    }
 
 
 }
