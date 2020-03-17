@@ -57,6 +57,8 @@ export default class AddTripForm extends React.Component {
                     },
                     body: JSON.stringify(tripObject)
                 })
+                .then(res => res.json())
+                .then(data => console.log(data)) //this just console logs the new trip object for now - will want to pass a callback function from the props
             }
         }
     }
@@ -67,9 +69,10 @@ export default class AddTripForm extends React.Component {
                 <h2>Add A New Trip</h2>
                 <form onSubmit={this.handleFormSubmit}>
 
-                Start Date: <DatePicker dateFormat='MM/dd/yy' name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} /><br></br>
-                End Date: <DatePicker dateFormat='MM/dd/yy' name='endDate' selected={this.state.endDate} onChange={this.handleEndDateChange} /><br></br>
-                Location: <input onChange={this.handleFormChange} type='text' value={this.state.selectedDestination} name='selectedDestination' /><br></br>
+                <label>Start Date:</label> <DatePicker dateFormat='MM/dd/yy' name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} /><br></br>
+                <label>End Date:</label> <DatePicker dateFormat='MM/dd/yy' name='endDate' selected={this.state.endDate} onChange={this.handleEndDateChange} /><br></br>
+                <label>Location:</label> <input onChange={this.handleFormChange} type='text' value={this.state.selectedDestination} name='selectedDestination' /><br></br> 
+                
                 <input type='submit' value='Add Trip' />
                 </form>
 
