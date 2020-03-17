@@ -53,7 +53,10 @@
   border-style: solid;
   border-color: green;
   border-radius: 5%;
-  height: 50vh;
+  height: 45vh;
   width: 100vh;
+}
 
+input:focus {
+  background-color: rgb(30, 226, 30);
 }
