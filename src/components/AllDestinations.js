@@ -22,7 +22,7 @@ export default class AllDestinations extends React.Component {
         return( 
             <div>
                 <h2>All Destinations - {this.state.loaded ? `${this.state.destinations.length} total` : <ReactLoading type={'spin'} color={'000'}/>} </h2>
-                <Link to='/main'>
+                <Link to='/dashboard'>
                     <p>Return to Dashboard</p>
                 </Link>
                 <ul>
@@ -31,6 +31,9 @@ export default class AllDestinations extends React.Component {
                             <ul>
                                 <li>Capital: {destination.capital}</li>
                                 <li>Currency: {destination.currency_name} - {destination.code} ({destination.symbol})</li>
+                                <ul>
+                                    <li>Current Exchange Rate: {destination.values.slice(-1).pop().rate} {destination.code} : $USD</li>
+                                </ul>
                                 <li>Visits by site users: {destination.trips.length}</li>
                             </ul>
                     </li>)}

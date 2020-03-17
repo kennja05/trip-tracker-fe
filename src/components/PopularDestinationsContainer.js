@@ -1,16 +1,21 @@
 import React from 'react'
+import ReactLoading from 'react-loading' 
 import { Link } from 'react-router-dom'
 
 class PopularDestinationsContainer extends React.Component {
 
     state = {
-        topDestinations: []
+        topDestinations: [],
+        loaded: false
     }
 
     componentDidMount(){
         fetch('http://localhost:3000/api/v1/destinations/top')
             .then(res => res.json())
-            .then(topDestinations => this.setState({topDestinations}))
+            .then(tDestinations => this.setState({
+                topDestinations: tDestinations, 
+                loaded: true
+            }))
     }
 
 
@@ -18,7 +23,7 @@ class PopularDestinationsContainer extends React.Component {
         console.log(this.state)
         return(
             <div className='Sub-Container'>
-                <h2>Top 10 Destinations</h2>
+                <h2>Top 10 Destinations</h2>{this.state.loaded ? null : <ReactLoading type={'spin'} color={'000'}/>}
                 <ol>
                 {this.state.topDestinations.map(dest => <li key={dest.id}>{dest.name} - {dest.trips.length} have gone here</li>)}  
                 </ol>

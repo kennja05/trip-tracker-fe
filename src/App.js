@@ -36,7 +36,7 @@ render(){
   return(
     <Router>  
         <Route path='/login' render={() => <Credentials handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
-        <Route path='/main' render={() => <HomepageContainer user={this.state.user} />} />
+        <Route path='/dashboard' render={() => <HomepageContainer user={this.state.user} />} />
         <Route path='/alldestinations' component={AllDestinations} />
     </Router>
   );

@@ -10,6 +10,7 @@ export default class TripContainer extends React.Component {
     render(){
         return (
             <div className='Sub-Container'>
+                <h2>My Trips</h2>
                 <ol className='list'>
                 {/* gonna do all of our little trippies here */}
                 </ol>
