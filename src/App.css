@@ -69,3 +69,15 @@ input:focus {
 #signup-form{
   height: 55vh
 }
+
+.flag-pic{
+  height: 20vh;
+  width: 40vh;
+}
+
+.trip-show{
+  border-style: solid;
+  border-color: green;
+  border-radius: 5%;
+  width: 75vw;
+}
