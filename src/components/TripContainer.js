@@ -46,7 +46,7 @@ export default class TripContainer extends React.Component {
                 <ul className='list'>
                     {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 5).map(trip => <li key={trip.id}><b>{trip.destination.name}</b>
                     <ul><li>
-                        {trip.start_date} - {trip.end_date}
+                        <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
                         </li></ul>
                     </li>)}
                 </ul>

@@ -7,7 +7,8 @@ export default class TripShow extends React.Component {
 
     state = {
         trip: {},
-        loaded: false
+        loaded: false,
+        plannedExpenses: []
     }
 
 
@@ -36,10 +37,13 @@ export default class TripShow extends React.Component {
                     <li><b>Currency Name: </b>{this.state.trip.destination.currency_name} ({this.state.trip.destination.symbol})</li>
                     <ul><li>Official Currency Code: {this.state.trip.destination.code}</li></ul>
                 </ul>
+                <h2>Planned Expenses: </h2>
+                <PlannedExpenseForm trip={this.state.trip}/>
 
 
 
-            </div> : <ReactLoading type={'spin'} color={'000'} />
+            </div> : 
+            <ReactLoading type={'spin'} color={'000'} />
         )
     }
 
