@@ -32,7 +32,7 @@ export default class AllDestinations extends React.Component {
                                 <li>Capital: {destination.capital}</li>
                                 <li>Currency: {destination.currency_name} - {destination.code} ({destination.symbol})</li>
                                 <ul>
-                                    <li>Current Exchange Rate: {destination.values.slice(-1).pop().rate} {destination.code} : $USD</li>
+                                    <li>Current Exchange Rate: {destination.values.slice(-1).pop().rate} {destination.code} : $1 USD</li>
                                 </ul>
                                 <li>Visits by site users: {destination.trips.length}</li>
                             </ul>
