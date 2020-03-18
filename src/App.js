@@ -4,15 +4,18 @@ import Credentials from './components/Credentials'
 import AllDestinations from './components/AllDestinations'
 import HomepageContainer from './components/HomepageContainer'
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import TripShow from './components/TripShow'
 
 class App extends React.Component {
 
 state = {
   loggedIn: false,
-  user: null
+  user: null, 
+  tripId: null
 }
 
 handleLogin = (inputUser) => {
+  console.log(inputUser)
   // e.preventDefault()
   this.setState({
     loggedIn: true,
@@ -38,6 +41,7 @@ render(){
         <Route path='/login' render={() => <Credentials handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
         <Route path='/dashboard' render={() => <HomepageContainer user={this.state.user} />} />
         <Route path='/alldestinations' component={AllDestinations} />
+        <Route path='/trip/:id' render={() => <TripShow tripId={this.state.tripId}/>} />
     </Router>
   );
 }
