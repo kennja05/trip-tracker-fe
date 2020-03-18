@@ -23,7 +23,6 @@ export default class PlannedExpenseForm extends React.Component {
     }
 
     render(){
-        // console.log(this.state.category)
         return(
             <div className='Sub-Container'>
                 <h2>Input Your Planned Expense(s) Below</h2>

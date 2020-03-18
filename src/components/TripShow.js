@@ -38,12 +38,21 @@ export default class TripShow extends React.Component {
         .then(pe => console.log(pe))
     }
 
+
+    sumPlannedExpenses = () => {
+        const costsArray = this.state.trip.planned_expenses.map(pe => pe.cost)
+        const sum = costsArray.reduce(function(a,b){
+            return a + b
+        }, 0)
+        return sum
+    }
+
     render(){
         return(
             this.state.loaded ? 
             <div className='trip-show'>
                 
-                <h1>Your Trip to {this.state.loaded && this.state.trip.destination.name} </h1>
+                <h1>Your Trip to: {this.state.loaded && this.state.trip.destination.name} </h1>
                 <img className='flag-pic' alt='flag' src={this.state.trip.destination.image} />
                 <h2>Start Date: {this.state.trip.start_date}</h2>
                 <h2>End Date: {this.state.trip.start_date}</h2>
@@ -54,7 +63,11 @@ export default class TripShow extends React.Component {
                     <li><b>Currency Name: </b>{this.state.trip.destination.currency_name} ({this.state.trip.destination.symbol})</li>
                     <ul><li>Official Currency Code: {this.state.trip.destination.code}</li></ul>
                 </ul>
-                <h2>Planned Expenses: [tally up current planned expenses here]</h2>
+                <h2>Current Planned Expenses: </h2>
+                <ul>
+                {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date}</li>)}
+                <li><b>Current Total: {this.sumPlannedExpenses()} {this.state.trip.destination.code}</b></li>
+                </ul>
                 <h2>Current Cost of Planned Expenses in Dollars: [perform conversion based on todays rate]</h2>
                 <h2>Cost of Planned Expenses at time of Trip Pannning: [perform historical conversion]</h2>
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} trip={this.state.trip}/>
