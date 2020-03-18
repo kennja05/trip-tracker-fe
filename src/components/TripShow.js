@@ -18,13 +18,13 @@ export default class TripShow extends React.Component {
             .then(res => res.json())
             .then(trp => this.setState({
                 trip: trp,
-                loaded: true
+                loaded: true,
+                plannedExpenses: trp.planned_expenses
             }))
     }
 
     handleAddPlannedExpense = (e, plannedExp) => {
         e.preventDefault()
-        console.log(plannedExp)
         const peObject = {name: plannedExp.name, trip_id: this.state.trip.id, cost: plannedExp.cost, date: plannedExp.date, category: plannedExp.category}
         console.log(peObject)
         fetch('http://localhost:3000/api/v1/planned_expenses', {
@@ -35,19 +35,23 @@ export default class TripShow extends React.Component {
             body: JSON.stringify(peObject)
         })
         .then(res => res.json())
-        .then(pe => console.log(pe))
+        .then(pe => this.setState({
+            plannedExpenses: [...this.state.plannedExpenses, pe]
+        }))
     }
 
 
     sumPlannedExpenses = () => {
-        const costsArray = this.state.trip.planned_expenses.map(pe => pe.cost)
+        if (this.state.loaded) {
+        const costsArray = this.state.plannedExpenses.map(pe => pe.cost)
         const sum = costsArray.reduce(function(a,b){
             return a + b
         }, 0)
-        return sum
+        return sum}
     }
 
     render(){
+        console.log(this.state.plannedExpenses)
         return(
             this.state.loaded ? 
             <div className='trip-show'>
