@@ -19,7 +19,7 @@ handleLogin = (inputUser) => {
   this.setState({
     loggedIn: true,
     user: inputUser
-  }, () => console.log(this.state))
+  })
 }
 
 handleSignup = (newUserObject) => {
@@ -33,8 +33,16 @@ handleSignup = (newUserObject) => {
   }
 }
 
+handleLogOut = () => {
+  this.setState({
+    loggedIn: false,
+    user: null
+  })
+}
+
 
 render(){
+  console.log(this.state.user)
   return(
     <div className='app'>
       <Switch>

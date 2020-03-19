@@ -6,29 +6,21 @@ import AddTripForm from './forms/AddTripForm'
 
 
 
-export default class HomepageContainer extends React.Component {
+const HomepageContainer = (props) => {
 
-    state = {
-        user: { //hardcoding for now. should really be passed down as a prop from app
-            id: 82,
-            name: 'Jacob',
-            username: 'kennja05',
-            phone: '5707161763',
-            email: 'jacobkenny05@gmail.com',
-            image: "https://humanorigins.si.edu/sites/default/files/styles/full_width/public/images/square/neanderthalensis_JG_Recon_Head_CC_3qtr_lt_sq.jpg?itok=65pnoWxu",
-            password: 123
-        }
-    }
+    
+    return(
 
-    render(){
-        return(
-            <div className='Homepage'>
-                <CurrencyContainer user={this.state.user}/>
-                <PopularDestinationsContainer />
-                <TripContainer user={this.state.user}/>
-                <AddTripForm user={this.state.user} />
-            </div>
+        <div className='Homepage'>
+            <CurrencyContainer user={props.user}/>
+            <PopularDestinationsContainer />
+            <TripContainer user={props.user}/>
+            <AddTripForm user={props.user} />
+        </div>
+
         )
     }
 
-}
+
+
+export default HomepageContainer
