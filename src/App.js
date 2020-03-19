@@ -15,12 +15,11 @@ state = {
 }
 
 handleLogin = (inputUser) => {
-  console.log(inputUser)
   // e.preventDefault()
   this.setState({
     loggedIn: true,
     user: inputUser
-  })
+  }, () => console.log(this.state))
 }
 
 handleSignup = (newUserObject) => {

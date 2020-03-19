@@ -4,7 +4,6 @@ import SignupForm from './forms/SignupForm'
 
 export default class Credentials extends React.Component {
     render(){
-        console.log(this.props)
         return(
             <div>
                 <LoginForm handleLogin={this.props.handleLogin} routerProps={this.props} />

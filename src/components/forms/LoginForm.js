@@ -28,6 +28,7 @@ export default class LoginForm extends React.Component {
             const inputUser = {username, password}
             const foundUser = this.state.users.find(user => user.username === inputUser.username)
             if (foundUser && foundUser.password === inputUser.password) {
+                this.props.routerProps.history.push('/dashboard')
                 this.props.handleLogin(foundUser)
             } else {
                 alert('No Record Found Using Input Information')
