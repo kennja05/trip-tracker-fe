@@ -53,7 +53,9 @@ export default class TripShow extends React.Component {
         return sum}
     }
 
-    componentDidUpdate(totalPlannedExp){
+    componentDidUpdate(prevProps, prevState){
+        console.log('prevstate', prevState)
+        console.log('new state', this.state)
         if (!this.state.convertedAmt) {
             fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=AMD&to=USD&amount=8470`)
             .then(res => res.json())
@@ -62,7 +64,6 @@ export default class TripShow extends React.Component {
     }
 
     render(){
-        console.log(this.state.convertedAmt)
         return(
             this.state.loaded ? 
             <div className='trip-show'>
@@ -83,7 +84,7 @@ export default class TripShow extends React.Component {
                 {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date}</li>)}
                 <li><b>Current Total: {this.sumPlannedExpenses()} {this.state.trip.destination.code}</b></li>
                 </ul>
-                <h2>Current Cost of Planned Expenses ($): [perform conversion based on todays rate]</h2>
+                <h2>Current Cost of Planned Expenses ($): {this.state.convertedAmt}</h2>
                 <h2>Cost of Planned Expenses at time of Trip Pannning ($): [perform historical conversion]</h2>
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} trip={this.state.trip}/>
 
