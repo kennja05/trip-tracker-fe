@@ -59,7 +59,6 @@ export default class AddTripForm extends React.Component {
                 })
                 .then(res => res.json())
                 .then(data => this.props.history.push(`/trip/${data.id}`))
-                 //this just console logs the new trip object for now - will want to pass a callback function from the props
             }
         }
     }
