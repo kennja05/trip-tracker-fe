@@ -43,7 +43,7 @@ export default class AddTripForm extends React.Component {
         e.preventDefault()
         if (this.state.selectedDestination){
 
-            const formattedDestName = this.state.selectedDestination[0].toUpperCase() + this.state.selectedDestination.slice(1).toLowerCase()
+            const formattedDestName = this.state.selectedDestination.toUpperCase()
             const foundCountry = this.state.destinations.find(dest => dest.name === formattedDestName)
             if (!foundCountry) {
                 alert(`Sorry - we have no currency information for ${formattedDestName}!`)
