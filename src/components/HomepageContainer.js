@@ -13,7 +13,7 @@ const HomepageContainer = (props) => {
         <div className='Homepage'>
             <CurrencyContainer user={props.user}/>
             <PopularDestinationsContainer />
-            <TripContainer user={props.user}/>
+            <TripContainer user={props.user} history={props.history} match={props.match}/>
             <AddTripForm user={props.user} history={props.history} match={props.match}/>
         </div>
 
