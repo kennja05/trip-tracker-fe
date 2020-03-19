@@ -11,7 +11,6 @@ class App extends React.Component {
 state = {
   loggedIn: false,
   user: null, 
-  tripId: null
 }
 
 handleLogin = (inputUser) => {
@@ -49,7 +48,7 @@ render(){
         <Route exact path='/' render={(routerProps) => <Credentials {...routerProps} handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
         <Route path='/dashboard' render={(routerProps) => <HomepageContainer user={this.state.user} {...routerProps}/>} />
         <Route path='/alldestinations' render={() => <AllDestinations user={this.state.user}/>} />
-        <Route path='/trip/:id' render={(routerProps) => <TripShow tripId={this.state.tripId} {...routerProps}/>} />
+        <Route path='/trip/:id' render={(routerProps) => <TripShow user={this.state.user} {...routerProps}/>} />
       </Switch>
     </div>
     

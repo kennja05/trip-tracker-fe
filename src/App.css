@@ -81,3 +81,17 @@ input:focus {
   border-radius: 5%;
   width: 75vw;
 }
+
+/* @keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+} */
+
+.unauthorized{
+  color: red; 
+  /* animation: rotation 10s linear infinite; */
+} 

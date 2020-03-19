@@ -55,8 +55,8 @@ export default class TripShow extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        console.log('prevstate', prevState)
-        console.log('new state', this.state)
+        // console.log('prevstate', prevState)
+        // console.log('new state', this.state)
         if (!this.state.convertedAmt) {
             fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=8470`)
             .then(res => res.json())
@@ -66,7 +66,7 @@ export default class TripShow extends React.Component {
 
     render(){
         return(
-            this.state.loaded ? 
+            this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
             <div className='trip-show'>
                 <Link to='/dashboard'>Return to Dashboard</Link>
                 <h1>Your Trip to: {this.state.loaded && this.state.trip.destination.name} </h1>
@@ -90,8 +90,12 @@ export default class TripShow extends React.Component {
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} trip={this.state.trip}/>
 
 
-            </div> : 
-            <ReactLoading type={'spin'} color={'000'} />
+            </div> : <div className='unauthorized'>
+                <h3>Sorry! You Cannot View Trips of Other Users</h3>
+                <ReactLoading type={'spin'} color={'000'} />
+                <Link to='/dashboard'>Return to Dashboard</Link><br></br>
+                <Link to='/'>Log In</Link>
+            </div>
         )
     }
 
