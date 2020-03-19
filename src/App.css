@@ -39,10 +39,11 @@
 
 .Sub-Container {
   border-style: inset;
-  border-color: green;
+  border-color: #85bb65;
   border-radius: 5%;
   height: 50vh;
   width: 50vh;
+  background-color: #f8f7dd;
 }
 
 .homepage {
@@ -51,14 +52,14 @@
 
 .credential-form {
   border-style: solid;
-  border-color: green;
+  border-color: #85bb65;
   border-radius: 5%;
   height: 40vh;
   width: 100vh;
 }
 
 input:focus {
-  background-color: rgb(38, 255, 38);
+  background-color: rgb(38, 255, 38));
 }
 
 .form-prof {
@@ -77,7 +78,7 @@ input:focus {
 
 .trip-show{
   border-style: solid;
-  border-color: green;
+  border-color: #85bb65;
   border-radius: 5%;
   width: 75vw;
 }
