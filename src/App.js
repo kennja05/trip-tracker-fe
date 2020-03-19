@@ -41,13 +41,12 @@ handleLogOut = () => {
 
 
 render(){
-  console.log(this.state.user)
   return(
     <div className='app'>
       <Switch>
         <Route exact path='/' render={(routerProps) => <Credentials {...routerProps} handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
         <Route path='/dashboard' render={(routerProps) => <HomepageContainer user={this.state.user} {...routerProps}/>} />
-        <Route path='/alldestinations' render={() => <AllDestinations user={this.state.user}/>} />
+        <Route path='/alldestinations' render={() => <AllDestinations />} />
         <Route path='/trip/:id' render={(routerProps) => <TripShow user={this.state.user} {...routerProps}/>} />
       </Switch>
     </div>

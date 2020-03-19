@@ -60,11 +60,12 @@ export default class TripShow extends React.Component {
         if (!this.state.convertedAmt) {
             fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=8470`)
             .then(res => res.json())
-            .then(amt => this.setState({convertedAmt: amt.result}))
+            .then(amt => this.setState({convertedAmt: Math.round(amt.result * 100) / 100}))
         }
     }
 
     render(){
+        console.log(this.state.trip.created_at)
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
             <div className='trip-show'>
@@ -74,19 +75,24 @@ export default class TripShow extends React.Component {
                 <h2>Start Date: {this.state.trip.start_date}</h2>
                 <h2>End Date: {this.state.trip.start_date}</h2>
                 <h2>Destination Info</h2>
+                
                 <ul>
                     <li><b>Native Name: </b>{this.state.trip.destination.native_name}</li>
                     <li><b>Capital: </b> {this.state.trip.destination.capital}</li>
                     <li><b>Currency Name: </b>{this.state.trip.destination.currency_name} ({this.state.trip.destination.symbol})</li>
                     <ul><li>Official Currency Code: {this.state.trip.destination.code}</li></ul>
                 </ul>
+                
                 <h2>Current Planned Expenses: </h2>
+                
                 <ul>
-                {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date}</li>)}
-                <li><b>Current Total: {this.sumPlannedExpenses()} {this.state.trip.destination.code}</b></li>
+                    {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date}</li>)}
+                        <li><b>Current Total: {this.sumPlannedExpenses()} {this.state.trip.destination.code}</b></li>
                 </ul>
+
                 <h2>Current Cost of Planned Expenses ($): {this.state.convertedAmt}</h2>
                 <h2>Cost of Planned Expenses at time of Trip Pannning ($): [perform historical conversion]</h2>
+                
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} trip={this.state.trip}/>
 
 
@@ -95,6 +101,7 @@ export default class TripShow extends React.Component {
                 <ReactLoading type={'spin'} color={'000'} />
                 <Link to='/dashboard'>Return to Dashboard</Link><br></br>
                 <Link to='/'>Log In</Link>
+                <Link to='/'>Sign Up</Link>
             </div>
         )
     }

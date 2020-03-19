@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -65,7 +66,7 @@ export default class AddTripForm extends React.Component {
 
     render(){
         return(
-            <div className='Sub-Container'>
+            this.props.user ? <div className='Sub-Container'>
                 <h2>Add A New Trip</h2>
                 <form onSubmit={this.handleFormSubmit}>
 
@@ -77,7 +78,7 @@ export default class AddTripForm extends React.Component {
 
 
 
-            </div>
+            </div> : <div className='Sub-Container'><Link to='/'>Log In to Add New Trips</Link></div>
         )
     }
 
