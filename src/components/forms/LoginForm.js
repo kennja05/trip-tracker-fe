@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 export default class LoginForm extends React.Component {
 
@@ -40,7 +39,7 @@ export default class LoginForm extends React.Component {
 
 
     render(){
-
+        console.log(this.props)
             return(
                 <div className='credential-form'>
                     <h2>Returning User? Log In </h2>

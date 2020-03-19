@@ -3,7 +3,7 @@ import './App.css';
 import Credentials from './components/Credentials'
 import AllDestinations from './components/AllDestinations'
 import HomepageContainer from './components/HomepageContainer'
-import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom'
+import { Route, Switch} from 'react-router-dom'
 import TripShow from './components/TripShow'
 
 class App extends React.Component {
@@ -37,12 +37,15 @@ handleSignup = (newUserObject) => {
 
 render(){
   return(
-    <Router>  
-        <Route path='/login' render={() => <Credentials handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
+    <div className='app'>
+      <Switch>
+        <Route path='/login' render={(routerProps) => <Credentials {...routerProps} handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
         <Route path='/dashboard' render={() => <HomepageContainer user={this.state.user} />} />
-        <Route path='/alldestinations' component={AllDestinations} />
+        <Route path='/alldestinations' render={() => <AllDestinations user={this.state.user}/>} />
         <Route path='/trip/:id' render={() => <TripShow tripId={this.state.tripId}/>} />
-    </Router>
+      </Switch>
+    </div>
+    
   );
 }
 
