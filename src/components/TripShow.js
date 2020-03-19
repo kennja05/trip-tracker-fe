@@ -15,7 +15,7 @@ export default class TripShow extends React.Component {
 
 
     componentDidMount(){
-        fetch('http://localhost:3000/api/v1/trips/5') //the 5 at the end should be obtained from the props - which will be the result of some sort of onclick function for the trips container
+        fetch(`http://localhost:3000/api/v1/trips/${this.props.match.params.id}`) //the 5 at the end should be obtained from the props - which will be the result of some sort of onclick function for the trips container
             .then(res => res.json())
             .then(trp => this.setState({
                 trip: trp,

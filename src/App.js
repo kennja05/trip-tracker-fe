@@ -46,10 +46,10 @@ render(){
   return(
     <div className='app'>
       <Switch>
-        <Route path='/login' render={(routerProps) => <Credentials {...routerProps} handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
-        <Route path='/dashboard' render={() => <HomepageContainer user={this.state.user} />} />
+        <Route exact path='/' render={(routerProps) => <Credentials {...routerProps} handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
+        <Route path='/dashboard' render={(routerProps) => <HomepageContainer user={this.state.user} {...routerProps}/>} />
         <Route path='/alldestinations' render={() => <AllDestinations user={this.state.user}/>} />
-        <Route path='/trip/:id' render={() => <TripShow tripId={this.state.tripId}/>} />
+        <Route path='/trip/:id' render={(routerProps) => <TripShow tripId={this.state.tripId} {...routerProps}/>} />
       </Switch>
     </div>
     

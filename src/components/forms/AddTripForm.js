@@ -58,7 +58,8 @@ export default class AddTripForm extends React.Component {
                     body: JSON.stringify(tripObject)
                 })
                 .then(res => res.json())
-                .then(data => console.log(data)) //this just console logs the new trip object for now - will want to pass a callback function from the props
+                .then(data => console.log(data))
+                 //this just console logs the new trip object for now - will want to pass a callback function from the props
             }
         }
     }
