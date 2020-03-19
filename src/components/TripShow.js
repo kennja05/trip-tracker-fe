@@ -57,7 +57,7 @@ export default class TripShow extends React.Component {
         console.log('prevstate', prevState)
         console.log('new state', this.state)
         if (!this.state.convertedAmt) {
-            fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=AMD&to=USD&amount=8470`)
+            fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=8470`)
             .then(res => res.json())
             .then(amt => this.setState({convertedAmt: amt.result}))
         }
