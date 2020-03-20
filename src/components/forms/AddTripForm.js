@@ -78,7 +78,7 @@ export default class AddTripForm extends React.Component {
 
 
 
-            </div> : <div className='Sub-Container'><Link to='/'>Log In to Add New Trips</Link></div>
+            </div> : <div className='Sub-Container'><Link to='/'><b>Log In to Add New Trips</b></Link></div>
         )
     }
 

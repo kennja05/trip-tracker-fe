@@ -56,7 +56,7 @@ export default class TripShow extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
         if (!this.state.convertedAmt || prevState.plannedExpenses.count !== this.state.plannedExpenses.count) {
-            fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=8470`)
+            fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=${this.state.convertedAmt ? this.state.convertedAmt : 0}`)
             .then(res => res.json())
             .then(amt => this.setState({convertedAmt: Math.round(amt.result * 100) / 100}))
         }
@@ -67,12 +67,22 @@ export default class TripShow extends React.Component {
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
             <div className='trip-show'>
-                <Link to='/dashboard'>Return to Dashboard</Link>
-                <h1>Your Trip to: {this.state.loaded && this.state.trip.destination.name} </h1>
+                <Link to='/dashboard'>
+                    Return to Dashboard
+                </Link>
+                <h1>
+                    Your Trip to: {this.state.loaded && this.state.trip.destination.name} 
+                </h1>
                 <img className='flag-pic' alt='flag' src={this.state.trip.destination.image} />
-                <h2>Start Date: {this.state.trip.start_date}</h2>
-                <h2>End Date: {this.state.trip.start_date}</h2>
-                <h2>Destination Info</h2>
+                <h2>
+                    Start Date: {this.state.trip.start_date}
+                </h2>
+                <h2>
+                    End Date: {this.state.trip.start_date}
+                </h2>
+                <h2>
+                    Destination Info
+                </h2>
                 
                 <ul>
                     <li><b>Native Name: </b>{this.state.trip.destination.native_name}</li>
