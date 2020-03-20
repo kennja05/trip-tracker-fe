@@ -13,7 +13,6 @@ export default class TripShow extends React.Component {
         beginningAmt: null
     }
 
-
     componentDidMount(){
         fetch(`http://localhost:3000/api/v1/trips/${this.props.match.params.id}`) 
             .then(res => res.json())
@@ -43,6 +42,15 @@ export default class TripShow extends React.Component {
         }))}
     }
 
+    handleDeletePlannedExpense = (plannedExp) => {
+        console.log(plannedExp)
+        fetch(`http://localhost:3000/api/v1/planned_expenses/${plannedExp.id}`, {
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+    }
+
 
     sumPlannedExpenses = () => {
         if (this.state.loaded) {
@@ -52,14 +60,6 @@ export default class TripShow extends React.Component {
         }, 0)
         return sum}
     }
-
-    // componentDidUpdate(prevProps, prevState){
-    //     if (!this.state.convertedAmt || prevState.plannedExpenses.count !== this.state.plannedExpenses.count) {
-    //         fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=0`)
-    //         .then(res => res.json())
-    //         .then(amt => this.setState({convertedAmt: Math.round(amt.result * 100) / 100}))
-    //     }
-    // }
 
     render(){
         // if (this.state.trip.created_at !== undefined) {console.log(this.state.trip.values[this.state.trip.values.length-1].rate)}
@@ -94,7 +94,7 @@ export default class TripShow extends React.Component {
                 <h2>Current Planned Expenses: </h2>
                 
                 <ul>
-                    {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date} <button className='delete-button'>x</button></li>)}
+                    {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date} <button onClick={() => this.handleDeletePlannedExpense(pe)}className='delete-button'>x</button></li>)}
                         <li><b>Current Total: {this.sumPlannedExpenses()} {this.state.trip.destination.code}</b></li>
                 </ul>
 
