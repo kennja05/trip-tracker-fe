@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ReactLoading from 'react-loading'
 import PlannedExpenseForm from './forms/PlannedExpenseForm'
 
 
@@ -56,7 +55,7 @@ export default class TripShow extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
         if (!this.state.convertedAmt || prevState.plannedExpenses.count !== this.state.plannedExpenses.count) {
-            fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=${this.state.convertedAmt ? this.state.convertedAmt : 0}`)
+            fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=0`)
             .then(res => res.json())
             .then(amt => this.setState({convertedAmt: Math.round(amt.result * 100) / 100}))
         }
@@ -108,7 +107,7 @@ export default class TripShow extends React.Component {
                 <h3>Sorry! You Cannot View Trips of Other Users</h3>
                 {/* <ReactLoading type={'spin'} color={'000'} /> */}
                 <Link to='/dashboard'>Return to Dashboard</Link><br></br>
-                <Link to='/'>Log In</Link>
+                <Link to='/'>Log In</Link><br></br>
                 <Link to='/'>Sign Up</Link>
             </div>
         )

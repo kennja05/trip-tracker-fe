@@ -73,7 +73,7 @@ input:focus {
 
 .flag-pic{
   height: 20vh;
-  width: 40vh;
+  width: 35vh;
   border-style: solid;
 }
 
@@ -101,11 +101,11 @@ input:focus {
 .trip{
   border-style: ridge;
   border-color: 85bb65;
-  width
-  : 75%;
+  width: 75%;
 }
 
 .trip:hover{
   color: green;
   cursor: pointer;
+  border-style: solid;
 }
