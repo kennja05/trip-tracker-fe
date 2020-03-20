@@ -22,11 +22,32 @@ export default class PlannedExpenseForm extends React.Component {
         })
     }
 
+    handleAddPlannedExpense = (e) => {
+        e.preventDefault()
+        
+        const peObject = {name: this.state.name, trip_id: this.props.trip.id, cost: this.state.cost, date: this.state.date, category: this.state.category}
+        if (peObject.cost <= 0){
+            alert('Please input an amount greater than or equal to 0')
+        } else if (peObject.date < this.props.trip.start_date || peObject.date > this.props.trip.end_date){
+            alert(`Please only add expenses for the trip beginning on ${this.props.trip.start_date} and ending ${this.props.trip.end_date}`)
+        } else {
+        fetch('http://localhost:3000/api/v1/planned_expenses', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(peObject)
+        })
+        .then(res => res.json())
+        .then(pe => console.log(pe))}
+    }
+
+
     render(){
         return(
             <div className='Sub-Container'>
                 <h2>Input Your Planned Expense(s) Below</h2>
-                <form onSubmit={(e) => this.props.handleSubmit(e, this.state)}>  
+                <form onSubmit={this.handleAddPlannedExpense}>  
                     
                         <label>Expense Name: </label>
                         <input onChange={this.handleFormChange} type='text' name='name' value={this.state.name} />
