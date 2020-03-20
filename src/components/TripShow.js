@@ -78,7 +78,7 @@ export default class TripShow extends React.Component {
                     Start Date: {this.state.trip.start_date}
                 </h2>
                 <h2>
-                    End Date: {this.state.trip.start_date}
+                    End Date: {this.state.trip.end_date}
                 </h2>
                 <h2>
                     Destination Info
@@ -106,14 +106,14 @@ export default class TripShow extends React.Component {
 
             </div> : <div className='unauthorized'>
                 <h3>Sorry! You Cannot View Trips of Other Users</h3>
-                <ReactLoading type={'spin'} color={'000'} />
+                {/* <ReactLoading type={'spin'} color={'000'} /> */}
                 <Link to='/dashboard'>Return to Dashboard</Link><br></br>
                 <Link to='/'>Log In</Link>
                 <Link to='/'>Sign Up</Link>
             </div>
         )
     }
-
+ 
 
 
 }
