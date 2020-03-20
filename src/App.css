@@ -59,7 +59,7 @@
 }
 
 input:focus {
-  background-color: rgb(38, 255, 38));
+  background-color: rgb(38, 255, 38);
 }
 
 .form-prof {
@@ -108,4 +108,14 @@ input:focus {
   color: green;
   cursor: pointer;
   border-style: solid;
+}
+
+.delete-button{
+  color: red;
+  border-color: gray;
+  border-radius: 50%;
+}
+
+.delete-button:hover{
+  cursor: pointer;
 }

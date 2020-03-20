@@ -53,16 +53,17 @@ export default class TripShow extends React.Component {
         return sum}
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if (!this.state.convertedAmt || prevState.plannedExpenses.count !== this.state.plannedExpenses.count) {
-            fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=0`)
-            .then(res => res.json())
-            .then(amt => this.setState({convertedAmt: Math.round(amt.result * 100) / 100}))
-        }
-    }
+    // componentDidUpdate(prevProps, prevState){
+    //     if (!this.state.convertedAmt || prevState.plannedExpenses.count !== this.state.plannedExpenses.count) {
+    //         fetch(`http://data.fixer.io/api/convert?access_key=${process.env.REACT_APP_CURRENCY_CONVERTER_API_KEY}&from=${this.state.trip.destination.code}&to=USD&amount=0`)
+    //         .then(res => res.json())
+    //         .then(amt => this.setState({convertedAmt: Math.round(amt.result * 100) / 100}))
+    //     }
+    // }
 
     render(){
-        if (this.state.trip.created_at !== undefined) {console.log(this.state.trip.created_at.slice(0,10))}
+        // if (this.state.trip.created_at !== undefined) {console.log(this.state.trip.values[this.state.trip.values.length-1].rate)}
+        // if (this.state.trip.created_at !== undefined) {console.log(this.state.trip.created_at.slice(0,10))}
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
             <div className='trip-show'>
@@ -93,7 +94,7 @@ export default class TripShow extends React.Component {
                 <h2>Current Planned Expenses: </h2>
                 
                 <ul>
-                    {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date}</li>)}
+                    {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date} <button className='delete-button'>x</button></li>)}
                         <li><b>Current Total: {this.sumPlannedExpenses()} {this.state.trip.destination.code}</b></li>
                 </ul>
 
@@ -103,12 +104,20 @@ export default class TripShow extends React.Component {
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} trip={this.state.trip}/>
 
 
-            </div> : <div className='unauthorized'>
+            </div> 
+            
+            
+            
+            : 
+            
+            
+            
+            
+            <div className='unauthorized'>
                 <h3>Sorry! You Cannot View Trips of Other Users</h3>
-                {/* <ReactLoading type={'spin'} color={'000'} /> */}
+                <p>You may return to the Dashboard, or if you think this is your trip please log in to view it</p>
                 <Link to='/dashboard'>Return to Dashboard</Link><br></br>
                 <Link to='/'>Log In</Link><br></br>
-                <Link to='/'>Sign Up</Link>
             </div>
         )
     }

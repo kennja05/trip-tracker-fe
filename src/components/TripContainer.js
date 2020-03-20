@@ -53,7 +53,9 @@ export default class TripContainer extends React.Component {
                     {this.state.loaded ? this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 5).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
                     <ul><li>Dates: 
                         <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
-                        </li></ul>
+                        </li>
+                        <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'red' : 'green'}`}}>Exchange Rate: {trip.values[trip.values.length - 1].rate} : $1</li>
+                        </ul>
                     </li>) : <Link to='/'><b>Log In to See Your Trips</b></Link>}
                 </ul>
                 <button onClick={this.handlePrevClick}><span id='prev' role='img' aria-label='arrow'>⬅️</span></button><button onClick={this.handleNextClick}><span role='img' aria-label='arrow'>➡️</span></button>
