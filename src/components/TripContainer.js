@@ -54,7 +54,7 @@ export default class TripContainer extends React.Component {
                     <ul><li>Dates: 
                         <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
                         </li>
-                        <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'red' : 'green'}`}}>Exchange Rate: {trip.values[trip.values.length - 1].rate} : $1</li>
+                        <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'red' : 'green'}`}}>Exchange Rate: {trip.destination.symbol} {trip.values[trip.values.length - 1].rate} : $1</li>
                         </ul>
                     </li>) : <Link to='/'><b>Log In to See Your Trips</b></Link>}
                 </ul>

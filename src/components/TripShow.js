@@ -9,7 +9,7 @@ export default class TripShow extends React.Component {
         trip: {},
         loaded: false,
         plannedExpenses: [],
-        convertedAmt: null,
+        totalPe: null,
         beginningAmt: null
     }
 
@@ -43,7 +43,6 @@ export default class TripShow extends React.Component {
     }
 
     handleDeletePlannedExpense = (plannedExp) => {
-        console.log(plannedExp)
         fetch(`http://localhost:3000/api/v1/planned_expenses/${plannedExp.id}`, {
             method: "DELETE"
         })
@@ -62,6 +61,7 @@ export default class TripShow extends React.Component {
     }
 
     render(){
+        console.log(this.state.totalPe)
         // if (this.state.trip.created_at !== undefined) {console.log(this.state.trip.values[this.state.trip.values.length-1].rate)}
         // if (this.state.trip.created_at !== undefined) {console.log(this.state.trip.created_at.slice(0,10))}
         return(
@@ -99,7 +99,7 @@ export default class TripShow extends React.Component {
                 </ul>
 
                 <h2>Current Cost of Planned Expenses ($): {this.state.convertedAmt}</h2>
-                <h2>Cost of Planned Expenses at time of Trip Pannning ($): [perform historical conversion]</h2>
+                <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.trip.values.find(value => value.date === this.state.trip.created_at)}</h2>
                 
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} trip={this.state.trip}/>
 

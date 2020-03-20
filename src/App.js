@@ -21,6 +21,13 @@ handleLogin = (inputUser) => {
   })
 }
 
+handleLogout = () => {
+  this.setState({
+    loggedIn: false, 
+    user: null
+  })
+}
+
 handleSignup = (newUserObject) => {
   if (!newUserObject.errors) {
     this.setState({
@@ -36,7 +43,7 @@ handleLogOut = () => {
   this.setState({
     loggedIn: false,
     user: null
-  })
+  }, () => console.log(this.state))
 }
 
 
@@ -45,7 +52,7 @@ render(){
     <div className='app'>
       <Switch>
         <Route exact path='/' render={(routerProps) => <Credentials {...routerProps} handleSignup={this.handleSignup} handleLogin={this.handleLogin}/>} />
-        <Route path='/dashboard' render={(routerProps) => <HomepageContainer user={this.state.user} {...routerProps}/>} />
+        <Route path='/dashboard' render={(routerProps) => <HomepageContainer logout={this.handleLogOut} user={this.state.user} {...routerProps}/>} />
         <Route path='/alldestinations' render={() => <AllDestinations />} />
         <Route path='/trip/:id' render={(routerProps) => <TripShow user={this.state.user} {...routerProps}/>} />
       </Switch>
