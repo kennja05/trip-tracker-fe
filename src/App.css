@@ -96,3 +96,9 @@ input:focus {
   color: red; 
   /* animation: rotation 10s linear infinite; */
 } 
+
+.trip{
+  border-style: ridge;
+  border-color: 85bb65;
+  width: 75%;
+}

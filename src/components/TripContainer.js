@@ -50,7 +50,7 @@ export default class TripContainer extends React.Component {
             <div className='Sub-Container'>
                 <h2>My Trips</h2> 
                 <ul className='list'>
-                    {this.state.loaded ? this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 5).map(trip => <li key={trip.id}><b onClick={() => this.handleTripClick(trip)}>{trip.destination.name}</b>
+                    {this.state.loaded ? this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 5).map(trip => <li className='trip' key={trip.id}><b onClick={() => this.handleTripClick(trip)}>{trip.destination.name}</b>
                     <ul><li>Dates: 
                         <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
                         </li></ul>
