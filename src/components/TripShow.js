@@ -21,26 +21,15 @@ export default class TripShow extends React.Component {
                 loaded: true,
                 plannedExpenses: trp.planned_expenses
             }))
+            .then(() => this.sumPlannedExpenses(this.state.plannedExpenses))
     }
 
-    // handleAddPlannedExpense = (e, plannedExp) => {
-    //     e.preventDefault()
-    //     const peObject = {name: plannedExp.name, trip_id: this.state.trip.id, cost: plannedExp.cost, date: plannedExp.date, category: plannedExp.category}
-    //     if (peObject.cost <= 0){
-    //         alert('Please input an amount greater than or equal to 0')
-    //     } else {
-    //     fetch('http://localhost:3000/api/v1/planned_expenses', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(peObject)
-    //     })
-    //     .then(res => res.json())
-    //     .then(pe => this.setState({
-    //         plannedExpenses: [...this.state.plannedExpenses, pe]
-    //     }))}
-    // }
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.plannedExpenses.length !== 0 && prevState.plannedExpenses.length !== this.state.plannedExpenses.length){
+            // this.sumPlannedExpenses(this.state.plannedExpenses)
+            console.log(prevState.plannedExpenses, 'new state:', this.state.plannedExpenses)
+        }
+    }
 
     handleDeletePlannedExpense = (plannedExp) => {
         fetch(`http://localhost:3000/api/v1/planned_expenses/${plannedExp.id}`, {
@@ -51,19 +40,16 @@ export default class TripShow extends React.Component {
     }
 
     addPe = (plannedExp) => {
-        console.log('original', this.state.plannedExpenses)
         this.setState({plannedExpenses: [...this.state.plannedExpenses, plannedExp]})
-        this.sumPlannedExpenses()
-        console.log('tryin to update state', this.state.plannedExpenses)
+        this.sumPlannedExpenses(this.state.plannedExpenses)
     }
 
-    sumPlannedExpenses = () => {
-        if (this.state.loaded) {
-        const costsArray = this.state.plannedExpenses.map(pe => pe.cost)
+    sumPlannedExpenses = (peList) => {
+        const costsArray = peList.map(pe => pe.cost)
         const sum = costsArray.reduce(function(a,b){
             return a + b
         }, 0)
-        this.setState({totalPe: sum})}
+        this.setState({totalPe: sum}, () => console.log(this.state.totalPe))
     }
 
     render(){
@@ -96,14 +82,15 @@ export default class TripShow extends React.Component {
                     <ul><li>Official Currency Code: {this.state.trip.destination.code}</li></ul>
                 </ul>
                 
-                <h2>Current Planned Expenses (Name || Cost || Date): </h2>
-                
+                <h2>Current Planned Expenses (Name || Cost || Date): </h2>  
                 <ul>
-                    {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} <b>||</b> {pe.cost} {this.state.trip.destination.code} <b>||</b> {pe.date} <button onClick={() => this.handleDeletePlannedExpense(pe)}className='delete-button'>x</button></li>)}
-                        <li><b>Current Total: {this.state.totalPe} {this.state.trip.destination.code}</b></li>
+                    {this.state.plannedExpenses.length !==0 && this.state.plannedExpenses.map(pe => <li key={pe.id}>{pe.name} <b>||</b> {pe.cost} {this.state.trip.destination.code} <b>||</b> {pe.date} <button onClick={() => this.handleDeletePlannedExpense(pe)}className='delete-button'>x</button></li>)}
                 </ul>
-
-                <h2>Current Cost of Planned Expenses ($): {this.state.convertedAmt}</h2>
+                    
+                <hr></hr>
+                
+                <h2>Current Total: {this.state.totalPe} {this.state.trip.destination.code}</h2>
+                <h2>Current Cost of Planned Expenses ($): 0</h2>
                 <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.trip.values.find(value => value.date === this.state.trip.created_at)}</h2>
                 
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
