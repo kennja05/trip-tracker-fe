@@ -51,8 +51,10 @@ export default class TripShow extends React.Component {
     }
 
     addPe = (plannedExp) => {
+        console.log('original', this.state.plannedExpenses)
         this.setState({plannedExpenses: [...this.state.plannedExpenses, plannedExp]})
         this.sumPlannedExpenses()
+        console.log('tryin to update state', this.state.plannedExpenses)
     }
 
     sumPlannedExpenses = () => {
@@ -94,12 +96,11 @@ export default class TripShow extends React.Component {
                     <ul><li>Official Currency Code: {this.state.trip.destination.code}</li></ul>
                 </ul>
                 
-                <h2>Current Planned Expenses: </h2>
+                <h2>Current Planned Expenses (Name || Cost || Date): </h2>
                 
                 <ul>
-                    <li><b>Name - Cost - Date</b></li>
-                    {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} - {pe.cost} {this.state.trip.destination.code} - {pe.date} <button onClick={() => this.handleDeletePlannedExpense(pe)}className='delete-button'>x</button></li>)}
-                        <li><b>Current Total: {this.sumPlannedExpenses()} {this.state.trip.destination.code}</b></li>
+                    {this.state.trip.planned_expenses.map(pe => <li key={pe.id}>{pe.name} <b>||</b> {pe.cost} {this.state.trip.destination.code} <b>||</b> {pe.date} <button onClick={() => this.handleDeletePlannedExpense(pe)}className='delete-button'>x</button></li>)}
+                        <li><b>Current Total: {this.state.totalPe} {this.state.trip.destination.code}</b></li>
                 </ul>
 
                 <h2>Current Cost of Planned Expenses ($): {this.state.convertedAmt}</h2>

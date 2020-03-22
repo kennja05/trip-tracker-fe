@@ -39,7 +39,7 @@ export default class PlannedExpenseForm extends React.Component {
             body: JSON.stringify(peObject)
         })
         .then(res => res.json())
-        .then(pe => console.log(pe))}
+        .then(pe => this.props.addPe(pe))}
     }
 
 
