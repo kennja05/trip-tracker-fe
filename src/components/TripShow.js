@@ -41,7 +41,9 @@ export default class TripShow extends React.Component {
             method: "DELETE"
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => this.setState({
+            plannedExpenses: this.state.plannedExpenses.filter(pe => pe.id !== data.id)
+        }))
     }
 
     addPe = (plannedExp) => {
@@ -54,11 +56,11 @@ export default class TripShow extends React.Component {
         const sum = costsArray.reduce(function(a,b){
             return a + b
         }, 0)
-        this.setState({totalPe: sum}, () => console.log(this.state.totalPe))
+        this.setState({totalPe: sum})
     }
 
     currentCostInDollars = () => {
-        console.log('total:',this.state.totalPe, 'latest rate: ', this.state.trip.values[this.state.trip.values.length-1].rate)
+        // console.log('total:',this.state.totalPe, 'latest rate: ', this.state.trip.values[this.state.trip.values.length-1].rate)
         const currentCost = (this.state.totalPe / this.state.trip.values[this.state.trip.values.length-1].rate).toFixed(2)
         this.setState({currentDollarAmt: currentCost})
     }
