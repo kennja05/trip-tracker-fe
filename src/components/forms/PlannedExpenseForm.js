@@ -39,7 +39,9 @@ export default class PlannedExpenseForm extends React.Component {
             body: JSON.stringify(peObject)
         })
         .then(res => res.json())
-        .then(pe => this.props.addPe(pe))}
+        .then(pe => this.props.addPe(pe))
+        .then(() => this.setState({name: '', cost: 0, date: new Date(), category: 'Other'}))    
+    }
     }
 
 
