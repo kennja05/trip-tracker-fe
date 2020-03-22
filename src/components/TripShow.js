@@ -10,7 +10,8 @@ export default class TripShow extends React.Component {
         loaded: false,
         plannedExpenses: [],
         totalPe: null,
-        beginningAmt: null
+        beginningDollarAmt: null,
+        currentDollarAmt: null
     }
 
     componentDidMount(){
@@ -22,12 +23,16 @@ export default class TripShow extends React.Component {
                 plannedExpenses: trp.planned_expenses
             }))
             .then(() => this.sumPlannedExpenses(this.state.plannedExpenses))
+            .then(() => this.currentCostInDollars())
     }
 
     componentDidUpdate(prevProps, prevState){
         if (prevState.plannedExpenses.length !== 0 && prevState.plannedExpenses.length !== this.state.plannedExpenses.length){
             // this.sumPlannedExpenses(this.state.plannedExpenses)
             console.log(prevState.plannedExpenses, 'new state:', this.state.plannedExpenses)
+        }
+        if (prevState.totalPe !== this.state.totalPe) {
+            this.currentCostInDollars()
         }
     }
 
@@ -52,9 +57,14 @@ export default class TripShow extends React.Component {
         this.setState({totalPe: sum}, () => console.log(this.state.totalPe))
     }
 
+    currentCostInDollars = () => {
+        console.log('total:',this.state.totalPe, 'latest rate: ', this.state.trip.values[this.state.trip.values.length-1].rate)
+        const currentCost = (this.state.totalPe / this.state.trip.values[this.state.trip.values.length-1].rate).toFixed(2)
+        this.setState({currentDollarAmt: currentCost})
+    }
+
+
     render(){
-        // if (this.state.trip.created_at !== undefined) {console.log(this.state.trip.values[this.state.trip.values.length-1].rate)}
-        // if (this.state.trip.created_at !== undefined) {console.log(this.state.trip.created_at.slice(0,10))}
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
             <div className='trip-show'>
@@ -89,9 +99,9 @@ export default class TripShow extends React.Component {
                     
                 <hr></hr>
                 
-                <h2>Current Total: {this.state.totalPe} {this.state.trip.destination.code}</h2>
-                <h2>Current Cost of Planned Expenses ($): 0</h2>
-                <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.trip.values.find(value => value.date === this.state.trip.created_at)}</h2>
+                <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
+                <h2>Current Cost of Planned Expenses ($): {this.state.currentDollarAmt} USD</h2>
+                <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.trip.values.find(value => value.date === this.state.trip.created_at)} USD</h2>
                 
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
 
