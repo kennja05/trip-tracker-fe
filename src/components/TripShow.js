@@ -46,7 +46,6 @@ export default class TripShow extends React.Component {
         }))
         .then(() => this.sumPlannedExpenses(this.state.plannedExpenses))
         .then(() => this.currentCostInDollars())
-        .then(() => this.costInDollarsAtCreation(this.state.trip))
     }
 
     addPe = (plannedExp) => {
@@ -64,17 +63,13 @@ export default class TripShow extends React.Component {
 
     currentCostInDollars = () => {
         const currentCost = (this.state.totalPe / this.state.trip.values[this.state.trip.values.length-1].rate).toFixed(2)
-        this.setState({currentDollarAmt: currentCost})
+        const valAtCreation = this.state.trip.values.find(val => val.date === this.state.trip.created_at.slice(0,10))
+        const origCost = (this.state.totalPe / valAtCreation.rate).toFixed(2)
+        this.setState({
+            currentDollarAmt: currentCost,
+            beginningDollarAmt: origCost
+        })
     }
-
-    costInDollarsAtCreation = (tripObj) => {
-        
-            const valAtCreation = tripObj.values.find(val => val.date === this.state.trip.created_at.slice(0,10))
-            this.setState({beginningDollarAmt: valAtCreation})
-        
-    }
-
-
 
 
     render(){
@@ -114,8 +109,8 @@ export default class TripShow extends React.Component {
                 <hr></hr>
                 
                 <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
-                <h2>Current Cost of Planned Expenses ($): {this.state.currentDollarAmt} USD</h2>
-                <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.trip.values.find(value => value.date === this.state.trip.created_at)} USD</h2>
+                <h2>Current Cost of Planned Expenses ($): <span style={{color: `${this.state.currentDollarAmt <= this.state.beginningDollarAmt ? 'green' : 'red'}`}}>{this.state.currentDollarAmt}</span> USD</h2>
+                <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.beginningDollarAmt} USD</h2>
                 
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
 
