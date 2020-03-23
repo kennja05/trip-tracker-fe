@@ -27,14 +27,14 @@ export default class AllDestinations extends React.Component {
                 </Link> : <Link className='link' to='/'>Log In / Sign Up</Link>}
                 <ul>
                     {this.state.destinations.map(destination => <li key={destination.id}>
-                        <b>{destination.name}</b> (Native Name: {destination.native_name})
+                        <b>{destination.name}</b> (Local Name: {destination.native_name})
                             <ul>
-                                <li>Capital: {destination.capital}</li>
-                                <li>Currency: {destination.currency_name} - {destination.code} ({destination.symbol})</li>
+                                <li><u>Capital</u>: {destination.capital}</li>
+                                <li><u>Trips Planned To Here By Site Users</u>: {destination.trips.length}</li>
+                                <li><u>Currency Code/Symbol</u>: {destination.currency_name} / {destination.code} ({destination.symbol})</li>
                                 <ul>
                                     <li>Current Exchange Rate: {destination.values.slice(-1).pop().rate} {destination.code} : $1 USD</li>
                                 </ul>
-                                <li>Visits by site users: {destination.trips.length}</li>
                             </ul>
                     </li>)}
                 </ul>
