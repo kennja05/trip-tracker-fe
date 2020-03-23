@@ -6,7 +6,8 @@ export default class TripContainer extends React.Component {
     state = {
         myTrips: [],
         loaded: false,
-        startIndex: 0
+        startIndex: 0,
+        currentDate: null
     }
 
 
@@ -16,6 +17,7 @@ export default class TripContainer extends React.Component {
             .then(res => res.json())
             .then(userTrips => this.setState({
                 myTrips: userTrips,
+                currentDate: new Date().toISOString().slice(0,10),
                 loaded: true
             }))
         }
@@ -45,12 +47,13 @@ export default class TripContainer extends React.Component {
         this.props.history.push(`/trip/${trip.id}`)
     }
 
+
     render(){
         return (
             <div className='Sub-Container'>
                 <h2><u>My Trips</u></h2> 
                 <ul className='list'>
-                    {this.state.loaded ? this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 5).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
+                    {this.state.loaded ? this.state.myTrips.filter(trip => trip.end_date > this.state.currentDate).slice(this.state.startIndex, this.state.startIndex + 5).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
                     <ul><li>Dates: 
                         <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
                         </li>
