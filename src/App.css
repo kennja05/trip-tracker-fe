@@ -157,3 +157,8 @@ input:focus {
   font-weight: bolder;
   font-family: "Times New Roman";
 }
+
+.all-countries-li{
+  margin: 5px;
+  font-family: 'Times New Roman'
+}
