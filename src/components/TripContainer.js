@@ -22,7 +22,7 @@ export default class TripContainer extends React.Component {
     }
 
     handleNextClick = () => {
-        if (this.state.startIndex < this.state.myTrips.length) {
+        if (this.state.startIndex + 5 < this.state.myTrips.length) {
             this.setState({
                 startIndex: this.state.startIndex + 5
             })
