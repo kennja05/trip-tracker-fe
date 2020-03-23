@@ -11,7 +11,7 @@ export default class TripShow extends React.Component {
         plannedExpenses: [],
         totalPe: null,
         beginningDollarAmt: null,
-        currentDollarAmt: null
+        currentDollarAmt: null,
     }
 
     componentDidMount(){
@@ -44,6 +44,9 @@ export default class TripShow extends React.Component {
         .then(data => this.setState({
             plannedExpenses: this.state.plannedExpenses.filter(pe => pe.id !== data.id)
         }))
+        .then(() => this.sumPlannedExpenses(this.state.plannedExpenses))
+        .then(() => this.currentCostInDollars())
+        .then(() => this.costInDollarsAtCreation(this.state.trip))
     }
 
     addPe = (plannedExp) => {
@@ -60,13 +63,22 @@ export default class TripShow extends React.Component {
     }
 
     currentCostInDollars = () => {
-        // console.log('total:',this.state.totalPe, 'latest rate: ', this.state.trip.values[this.state.trip.values.length-1].rate)
         const currentCost = (this.state.totalPe / this.state.trip.values[this.state.trip.values.length-1].rate).toFixed(2)
         this.setState({currentDollarAmt: currentCost})
     }
 
+    costInDollarsAtCreation = (tripObj) => {
+        
+            const valAtCreation = tripObj.values.find(val => val.date === this.state.trip.created_at.slice(0,10))
+            this.setState({beginningDollarAmt: valAtCreation})
+        
+    }
+
+
+
 
     render(){
+        console.log(this.state)
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
             <div className='trip-show'>
