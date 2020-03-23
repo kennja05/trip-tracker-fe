@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PlannedExpenseForm from './forms/PlannedExpenseForm'
+import HistoricalRates from './HistoricalRates'
 
 
 export default class TripShow extends React.Component {
@@ -73,9 +74,9 @@ export default class TripShow extends React.Component {
 
 
     render(){
-        console.log(this.state)
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
+            <div>
             <div className='trip-show'>
                 <Link to='/dashboard'>
                     Return to Dashboard
@@ -114,9 +115,9 @@ export default class TripShow extends React.Component {
                 
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
 
-
-            </div> 
-            
+            </div>
+            <span><HistoricalRates startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span> 
+            </div>
             
             
             : 
