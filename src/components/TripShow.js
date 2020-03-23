@@ -13,6 +13,7 @@ export default class TripShow extends React.Component {
         totalPe: null,
         beginningDollarAmt: null,
         currentDollarAmt: null,
+        showHistoricalRates: false
     }
 
     componentDidMount(){
@@ -72,6 +73,11 @@ export default class TripShow extends React.Component {
         })
     }
 
+    handleViewRates = () => {
+        this.setState({
+            showHistoricalRates: !this.state.showHistoricalRates
+        })
+    }
 
     render(){
         return(
@@ -112,11 +118,11 @@ export default class TripShow extends React.Component {
                 <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
                 <h2>Current Cost of Planned Expenses ($): <span style={{color: `${this.state.currentDollarAmt <= this.state.beginningDollarAmt ? 'green' : 'red'}`}}>{this.state.currentDollarAmt}</span> USD</h2>
                 <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.beginningDollarAmt} USD</h2>
-                
+                <span className='link' onClick={this.handleViewRates}>{this.state.showHistoricalRates ? 'HIDE RATES' : 'VIEW MORE RATE INFO'}</span>
                 <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
 
             </div>
-            <span><HistoricalRates startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span> 
+                {this.state.showHistoricalRates && <span><HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span>} 
             </div>
             
             
