@@ -42,7 +42,7 @@
   border-color: #85bb65;
   border-radius: 5%;
   height: 50vh;
-  width: 50vh;
+  width: 65vh;
   background-color: #f8f7dd;
 }
 
@@ -118,4 +118,16 @@ input:focus {
 
 .delete-button:hover{
   cursor: pointer;
+}
+
+.link{
+  color: black;
+  /* border-style: underline; */
+  /* border-color: black; */
+  border-radius: 5%;
+}
+
+.link:hover{
+  color: #85bb65;
+  border-style: solid;
 }

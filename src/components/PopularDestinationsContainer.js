@@ -18,13 +18,6 @@ class PopularDestinationsContainer extends React.Component {
             }))
     }
 
-    // getPercentChangeOfEr = (destination) => {
-    //     const diff = 100 * Math.abs(((destination.values.slice(-2).pop().rate) - (destination.values.slice(-1).pop().rate))/ ((destination.values.slice(-2).pop().rate) + (destination.values.slice(-1).pop().rate))/2)
-    //     // console.log(diff)
-    //     return diff   //currently returns 0? 
-    // }
-
-
     render(){
         return(
             <div className='Sub-Container'>
@@ -32,7 +25,7 @@ class PopularDestinationsContainer extends React.Component {
                 <ol>
                 {this.state.topDestinations.map(dest => <li key={dest.id}>{dest.name} - {dest.trips.length} users have gone here</li>)}  
                 </ol>
-                <Link to='/alldestinations'>See All</Link>
+                <Link className='link' to='/alldestinations'>See All</Link>
             </div>
         )
     }

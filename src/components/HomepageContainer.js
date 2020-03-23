@@ -1,5 +1,5 @@
 import React from 'react'
-import CurrencyContainer from './CurrencyContainer'
+// import CurrencyContainer from './CurrencyContainer'
 import PopularDestinationsContainer from './PopularDestinationsContainer'
 import TripContainer from './TripContainer'
 import AddTripForm from './forms/AddTripForm'

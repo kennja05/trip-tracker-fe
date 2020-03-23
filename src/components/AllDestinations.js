@@ -22,9 +22,9 @@ export default class AllDestinations extends React.Component {
         return( 
             <div>
                 <h2>All Destinations - {this.state.loaded ? `${this.state.destinations.length} total` : <ReactLoading type={'spin'} color={'000'}/>} </h2>
-                {this.props.user ? <Link to='/dashboard'>
+                {this.props.user ? <Link className='link' to='/dashboard'>
                     <p>Return to Dashboard</p>
-                </Link> : <Link to='/'>Log In / Sign Up</Link>}
+                </Link> : <Link className='link' to='/'>Log In / Sign Up</Link>}
                 <ul>
                     {this.state.destinations.map(destination => <li key={destination.id}>
                         <b>{destination.name}</b> (Native Name: {destination.native_name})

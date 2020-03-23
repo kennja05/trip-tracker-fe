@@ -127,8 +127,8 @@ export default class TripShow extends React.Component {
             <div className='unauthorized'>
                 <h3>Sorry! You Cannot View Trips of Other Users</h3>
                 <p>You may return to the Dashboard, or if you think this is your trip please log in to view it</p>
-                <Link to='/dashboard'>Return to Dashboard</Link><br></br>
-                <Link to='/'>Log In</Link><br></br>
+                <Link className='link' to='/dashboard'>Return to Dashboard</Link><br></br>
+                <Link className='link' to='/'>Log In</Link><br></br>
             </div>
         )
     }
