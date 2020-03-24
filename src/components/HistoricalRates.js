@@ -22,7 +22,6 @@ export default class HistoricalRates extends React.Component {
     }
 
     render(){
-        console.log(this.state)
         return(
             <div className='historical-rates'>
                 <h2>This trip was planned on {this.props.startDate}</h2>
