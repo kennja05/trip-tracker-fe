@@ -43,19 +43,36 @@
   border-style: solid;
   border-color: #61892f;
   border-radius: 5%;
-  height: 50vh;
-  width: 65vh;
+  height: 45vh;
+  width: 45vw;
   background-color: #222629;
   color: #86c232;
   font-family: Cochin;
   line-height: 1.1;
 }
 
+.navbar{
+  background-color: #252024;
+  color: #86c232;
+  text-align: right;
+  padding-right: 10vh;
+}
+
 .Homepage {
-  background-color: #222629;
+  padding: 1%;
+  margin: 0%;
+  background-color: #252024;
+  display: grid;
+  grid-column-gap: 1px;
+  grid-row-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  height: 90vh;
+  position: relative;
 }
 
 .credential-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   background-color: #474b4f;
   margin: 0%;
   background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
