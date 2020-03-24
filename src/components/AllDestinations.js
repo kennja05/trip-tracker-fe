@@ -27,7 +27,7 @@ export default class AllDestinations extends React.Component {
 
     render(){
         return( 
-            <div>
+            <div className='all-destinations-list'>
                 <h2>All Destinations - {this.state.loaded ? `${this.state.destinations.length} total` : <ReactLoading type={'spin'} color={'000'}/>} </h2>
                 {!this.props.user && <Link className='link' to='/'>Log In / Sign Up</Link>}<br></br>
                 <Link className='link' to='/dashboard'>Return to Dashboard</Link>

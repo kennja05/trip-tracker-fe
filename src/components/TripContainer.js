@@ -50,7 +50,7 @@ export default class TripContainer extends React.Component {
 
     render(){
         return (
-            <div className='Sub-Container'>
+            <div className='Dashboard-Container'>
                 <h2><u>My Trips</u></h2> 
                 <ul className='list'>
                     {this.state.loaded ? this.state.myTrips.filter(trip => trip.end_date >= this.state.currentDate).slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>

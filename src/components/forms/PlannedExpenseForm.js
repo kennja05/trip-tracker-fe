@@ -47,7 +47,7 @@ export default class PlannedExpenseForm extends React.Component {
 
     render(){
         return(
-            <div className='Sub-Container'>
+            <div className='planned-expense-form'>
                 <h2>Input Your Planned Expense(s) Below</h2>
                 <form onSubmit={this.handleAddPlannedExpense}>  
                     
