@@ -1,5 +1,5 @@
 import React from 'react'
-import CurrencyContainer from './CurrencyContainer'
+import PastTrips from './PastTrips'
 import PopularDestinationsContainer from './PopularDestinationsContainer'
 import TripContainer from './TripContainer'
 import AddTripForm from './forms/AddTripForm'
@@ -13,7 +13,7 @@ const HomepageContainer = (props) => {
             <NavBar />
         <div className='Homepage'>
             <PopularDestinationsContainer />
-            <CurrencyContainer user={props.user}/>
+            <PastTrips user={props.user} history={props.history} match={props.match}/>
             <AddTripForm user={props.user} history={props.history} match={props.match}/>
             <TripContainer user={props.user} history={props.history} match={props.match}/>
         </div>
