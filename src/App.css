@@ -229,12 +229,21 @@ input:focus {
   border-style: solid;
 }
 
+.title-div{
+  text-align: center;
+  position: relative;
+}
+
 .title{
-  color: #86c232;
-  padding: 1%;
-  margin: 0%;
-  font-weight: bold;
   font-family: monospace;
+  color: #86c232;
+  position: absolute;
+  top: 50%;
+  margin: auto;
+  font-size: 70px;
+  border-style: solid;
+  border-radius: 5%;
+  background-color: #474b4f;
 }
 
 .all-countries-li{
