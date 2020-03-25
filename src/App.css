@@ -235,15 +235,17 @@ input:focus {
 }
 
 .title{
-  font-family: monospace;
+  font-family: impact;
   color: #86c232;
   position: absolute;
   top: 50%;
   margin: auto;
-  font-size: 70px;
+  font-size: 80px;
   border-style: solid;
   border-radius: 5%;
-  background-color: #474b4f;
+  border-color: #474b4f;
+  background-color: #222629;
+  box-shadow: 5px 5px;
 }
 
 .all-countries-li{
