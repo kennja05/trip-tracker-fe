@@ -118,7 +118,7 @@ export default class TripShow extends React.Component {
                 <hr></hr>
                 
                 <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
-                <h2>Current Cost of Planned Expenses ($): <span style={{color: `${this.state.currentDollarAmt <= this.state.beginningDollarAmt ? 'green' : 'red'}`}}>{this.state.currentDollarAmt}</span> USD</h2>
+                <h2>Current Cost of Planned Expenses ($): <span style={{color: `${this.state.currentDollarAmt <= this.state.beginningDollarAmt ? '#86c232' : 'red'}`}}>{this.state.currentDollarAmt}</span> USD</h2>
                 <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.beginningDollarAmt} USD</h2>
                 <span className='link' style={{color: 'black'}} onClick={this.handleViewRates}>{this.state.showHistoricalRates ? 'HIDE RATES' : 'VIEW MORE RATE INFO'}</span>
             </div>
