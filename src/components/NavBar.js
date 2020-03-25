@@ -10,11 +10,15 @@ export default class NavBar extends React.Component {
     handleLogin = () => {
         this.props.history.push('/')
     }
+
+    handleDashboardClick = () => {
+        this.props.history.push('/dashboard')
+    }
     
     render(){
         return(
             <div className='navbar'>
-                {this.props.user ? <span className='link' onClick={this.handleLogout}>Logout</span> : <span className='link' onClick={this.handleLogin}>Log In</span>}
+                <span className='link' onClick={this.handleDashboardClick}>Dashboard</span> {this.props.user ? <span className='link' onClick={this.handleLogout}>Logout</span> : <span className='link' onClick={this.handleLogin}>Log In</span>}
             </div>
         )
     }
