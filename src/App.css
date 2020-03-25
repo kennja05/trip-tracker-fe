@@ -66,7 +66,7 @@
 .Homepage {
   padding: 1%;
   margin: 0%;
-  /* background-color: #252024; */
+  /* background-color: #474b4f; */
   background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
   /* background-image: linear-gradient(rgb(37,32,36), rgba(255, 255, 255, 0));  */
   display: grid;
@@ -156,6 +156,7 @@ input:focus {
 }
 
 .trip-show-container{
+  background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
   display: grid;
   grid-template-columns: 1fr 1fr;
 }

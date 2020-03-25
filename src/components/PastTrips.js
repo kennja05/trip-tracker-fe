@@ -43,9 +43,9 @@ export default class PastTrips extends React.Component {
         }
     }
 
-    handleTripClick = (trip) => {
-        this.props.history.push(`/trip/${trip.id}`)
-    }
+    // handleTripClick = (trip) => {
+    //     this.props.history.push(`/trip/${trip.id}`)
+    // }
 
 
     render(){
@@ -53,7 +53,7 @@ export default class PastTrips extends React.Component {
             <div className='Dashboard-Container'>
                 <h2><u>Past Trips</u></h2> 
                 <ul className='list'>
-                    {this.state.loaded ? this.state.myTrips.filter(trip => trip.end_date < this.state.currentDate).slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
+                    {this.state.loaded ? this.state.myTrips.filter(trip => trip.end_date < this.state.currentDate).slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li className='trip' key={trip.id}><b>{trip.destination.name}</b>
                     <ul><li>Dates: 
                         <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
                         </li>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PlannedExpenseForm from './forms/PlannedExpenseForm'
 import HistoricalRates from './HistoricalRates'
+import NavBar from './NavBar'
 
 
 export default class TripShow extends React.Component {
@@ -30,7 +31,6 @@ export default class TripShow extends React.Component {
 
     componentDidUpdate(prevProps, prevState){
         if (prevState.plannedExpenses.length !== 0 && prevState.plannedExpenses.length !== this.state.plannedExpenses.length){
-            // this.sumPlannedExpenses(this.state.plannedExpenses)
             console.log(prevState.plannedExpenses, 'new state:', this.state.plannedExpenses)
         }
         if (prevState.totalPe !== this.state.totalPe) {
@@ -82,6 +82,8 @@ export default class TripShow extends React.Component {
     render(){
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
+            <div>
+            <NavBar user={this.props.user} history={this.props.history} logout={this.props.logout}/>
             <div className='trip-show-container'>
             <div className='trip-show'>
                 <Link style={{color: 'black'}} className='link' to='/dashboard'>
@@ -126,7 +128,7 @@ export default class TripShow extends React.Component {
             {this.state.showHistoricalRates && <span><HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span>} 
             </div>
             </div>
-            
+            </div>
             
             : 
             
