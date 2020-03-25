@@ -21,7 +21,7 @@ class PopularDestinationsContainer extends React.Component {
     render(){
         return(
             <div className='Dashboard-Container'>
-                <h2><u>Top 15 Destinations</u></h2>{this.state.loaded ? null : <ReactLoading type={'spin'} color={'000'}/>}
+                <h2><u>Top 15 Destinations</u></h2>{this.state.loaded ? null : <ReactLoading type={'spin'} color={'#6b6e70'}/>}
                 <ol>
                 {this.state.topDestinations.map(dest => <li key={dest.id}>{dest.name} - {dest.trips.length} users have gone here</li>)}  
                 </ol>

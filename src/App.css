@@ -265,9 +265,16 @@ input:focus {
   box-shadow: 5px 5px;
 }
 
-.all-countries-li{
+.all-countries-li-gray{
   margin: 5px;
-  font-family: 'Times New Roman'
+  font-family: 'Times New Roman';
+  color: #6b6e70;
+}
+
+.all-countries-li-green{
+  margin: 5px;
+  font-family: 'Times New Roman';
+  color: #86c232;
 }
 
 /* i tag and .right/.left for the prev/next buttons */

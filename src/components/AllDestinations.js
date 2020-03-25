@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactLoading from 'react-loading'
-import { Link } from 'react-router-dom'
 import Navbar from './NavBar'
 
 export default class AllDestinations extends React.Component {
@@ -31,8 +30,8 @@ export default class AllDestinations extends React.Component {
             <div className='all-dest'>
                 <Navbar user={this.props.user} history={this.props.history}/>
             <div className='all-destinations-list'>
-                <h2>All Destinations - {this.state.loaded ? `${this.state.destinations.length} total` : <ReactLoading type={'spin'} color={'000'}/>} </h2>
-                <Link className='link' to='/dashboard'>Return to Dashboard</Link>
+                <h2>All Destinations: {this.state.loaded ? `${this.state.destinations.length} total` : <ReactLoading type={'spin'} color={'#6b6e70'}/>} </h2>
+                
                 
                 {this.state.loaded && <div>
                     <p><u>Search for a Country: </u>
@@ -40,7 +39,7 @@ export default class AllDestinations extends React.Component {
                 </div>}
                 
                 <ul>
-                    {this.state.destinations.filter(dest => dest.name.includes(this.state.searchTerm.toUpperCase())).map(destination => <li className='all-countries-li' key={destination.id}>
+                    {this.state.destinations.filter(dest => dest.name.includes(this.state.searchTerm.toUpperCase())).map((destination, index) => <li className={index % 2 === 0 ? 'all-countries-li-gray' : 'all-countries-li-green'} key={destination.id}>
                         <b>{destination.name}</b> (Local Name: {destination.native_name})
                             <ul>
                                 <li><u>Capital</u>: {destination.capital}</li>
