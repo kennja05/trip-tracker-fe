@@ -61,7 +61,7 @@ export default class TripContainer extends React.Component {
                         </ul>
                     </li>) : <Link className='link' to='/'><b>Log In to See Your Trips</b></Link>}
                 </ul>
-                <button onClick={this.handlePrevClick}><span id='prev' role='img' aria-label='arrow'>⬅️</span></button><button onClick={this.handleNextClick}><span role='img' aria-label='arrow'>➡️</span></button>
+                <button onClick={this.handlePrevClick}><i className='arrow left'></i></button><button onClick={this.handleNextClick}><i className='arrow right'></i></button>
             </div>
         )
     }

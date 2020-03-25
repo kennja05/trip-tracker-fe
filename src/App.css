@@ -226,3 +226,22 @@ input:focus {
   margin: 5px;
   font-family: 'Times New Roman'
 }
+
+/* i tag and .right/.left for the prev/next buttons */
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}

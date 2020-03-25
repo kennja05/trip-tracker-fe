@@ -13,9 +13,9 @@ const HomepageContainer = (props) => {
             <NavBar user={props.user} logout={props.logout} history={props.history}/>
         <div className='Homepage'>
             <PopularDestinationsContainer />
-            <PastTrips user={props.user} history={props.history} match={props.match}/>
-            <AddTripForm user={props.user} history={props.history} match={props.match}/>
             <TripContainer user={props.user} history={props.history} match={props.match}/>
+            <AddTripForm user={props.user} history={props.history} match={props.match}/>
+            <PastTrips user={props.user} history={props.history} match={props.match}/>
         </div>
         </div>
 
