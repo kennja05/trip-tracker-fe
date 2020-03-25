@@ -47,13 +47,26 @@ export default class PastTrips extends React.Component {
     //     this.props.history.push(`/trip/${trip.id}`)
     // }
 
+    deleteTrip = (tripId) => {
+        const decision = prompt("You are about to remove this trip. Press 'y' to continue")
+        if (decision === 'y' || decision === "Y" || decision === "yes"){
+        fetch(`http://localhost:3000/api/v1/trips/${tripId}`,{
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(deletedTrip => this.setState({
+            myTrips: this.state.myTrips.filter(trip => trip.id !== deletedTrip.id)
+        }))
+    }
+    }
+
 
     render(){
         return (
             <div className='Dashboard-Container'>
                 <h2><u>Past Trips</u></h2> 
                 <ul className='list'>
-                    {this.state.loaded ? this.state.myTrips.filter(trip => trip.end_date < this.state.currentDate).slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li className='trip' key={trip.id}><b>{trip.destination.name}</b>
+                    {this.state.loaded ? this.state.myTrips.filter(trip => trip.end_date < this.state.currentDate).slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li className='trip' key={trip.id}><b>{trip.destination.name}</b> - <button className='delete-past-trip' onClick={() => this.deleteTrip(trip.id)}>×</button>
                     <ul><li>Dates: 
                         <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
                         </li>

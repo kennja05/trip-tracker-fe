@@ -6,20 +6,25 @@ import AddTripForm from './forms/AddTripForm'
 import NavBar from './NavBar'
 
 
-const HomepageContainer = (props) => {
-
+class HomepageContainer extends React.Component {
+   
+    
+    
+    
+    render(){
     return(
         <div>
-            <NavBar user={props.user} logout={props.logout} history={props.history}/>
+            <NavBar user={this.props.user} logout={this.props.logout} history={this.props.history}/>
         <div className='Homepage'>
             <PopularDestinationsContainer />
-            <TripContainer user={props.user} history={props.history} match={props.match}/>
-            <AddTripForm user={props.user} history={props.history} match={props.match}/>
-            <PastTrips user={props.user} history={props.history} match={props.match}/>
+            <TripContainer user={this.props.user} history={this.props.history} match={this.props.match}/>
+            <AddTripForm user={this.props.user} history={this.props.history} match={this.props.match}/>
+            <PastTrips user={this.props.user} history={this.props.history} match={this.props.match}/>
         </div>
         </div>
 
         )
+    }
     }
 
 

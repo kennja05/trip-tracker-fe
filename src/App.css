@@ -56,6 +56,20 @@
   box-shadow: 5px 5px;
 }
 
+.delete-past-trip{
+  border-style: solid;
+  color: red;
+  border-radius: 45%;
+  border-width: 1px;
+  border-color: gray;
+  height: 15px;
+  width: 20px;
+}
+
+.delete-past-trip:hover{
+  cursor: pointer;
+}
+
 .navbar{
   background-color: #252024;
   color: #86c232;
