@@ -66,9 +66,9 @@ export default class AddTripForm extends React.Component {
 
     render(){
         return(
-            this.props.user ? <div className='Sub-Container'>
+            this.props.user ? <div className='Add-Trip-Div'>
                 <h2>Add A New Trip</h2>
-                <form onSubmit={this.handleFormSubmit}>
+                <form className='Add-Trip-Form' onSubmit={this.handleFormSubmit}>
 
                 <label>Start Date:</label> <DatePicker dateFormat='MM/dd/yy' name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} /><br></br>
                 <label>End Date:</label> <DatePicker dateFormat='MM/dd/yy' name='endDate' selected={this.state.endDate} onChange={this.handleEndDateChange} /><br></br>
@@ -78,7 +78,7 @@ export default class AddTripForm extends React.Component {
 
 
 
-            </div> : <div className='Sub-Container'><h2>Add A New Trip</h2><ul><Link className='link' to='/'><b>Log In to Add New Trips</b></Link></ul></div>
+            </div> : <div className='Dashboard-Container'><h2>Add A New Trip</h2><Link className='link' to='/'><b>Log In to Add New Trips</b></Link></div>
         )
     }
 

@@ -10,7 +10,7 @@ const HomepageContainer = (props) => {
 
     return(
         <div>
-            <NavBar />
+            <NavBar user={props.user} logout={props.logout} history={props.history}/>
         <div className='Homepage'>
             <PopularDestinationsContainer />
             <PastTrips user={props.user} history={props.history} match={props.match}/>

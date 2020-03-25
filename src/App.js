@@ -43,7 +43,7 @@ handleLogOut = () => {
   this.setState({
     loggedIn: false,
     user: null
-  }, () => console.log(this.state))
+  })
 }
 
 

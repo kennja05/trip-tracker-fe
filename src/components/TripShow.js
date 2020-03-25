@@ -13,7 +13,7 @@ export default class TripShow extends React.Component {
         totalPe: null,
         beginningDollarAmt: null,
         currentDollarAmt: null,
-        showHistoricalRates: false
+        showHistoricalRates: true
     }
 
     componentDidMount(){
@@ -82,9 +82,9 @@ export default class TripShow extends React.Component {
     render(){
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
-            <div>
+            <div className='trip-show-container'>
             <div className='trip-show'>
-                <Link to='/dashboard'>
+                <Link style={{color: 'black'}} className='link' to='/dashboard'>
                     Return to Dashboard
                 </Link>
                 <h1>
@@ -118,11 +118,13 @@ export default class TripShow extends React.Component {
                 <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
                 <h2>Current Cost of Planned Expenses ($): <span style={{color: `${this.state.currentDollarAmt <= this.state.beginningDollarAmt ? 'green' : 'red'}`}}>{this.state.currentDollarAmt}</span> USD</h2>
                 <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.beginningDollarAmt} USD</h2>
-                <span className='link' onClick={this.handleViewRates}>{this.state.showHistoricalRates ? 'HIDE RATES' : 'VIEW MORE RATE INFO'}</span>
-                <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
-
+                <span className='link' style={{color: 'black'}} onClick={this.handleViewRates}>{this.state.showHistoricalRates ? 'HIDE RATES' : 'VIEW MORE RATE INFO'}</span>
             </div>
-                {this.state.showHistoricalRates && <span><HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span>} 
+            <div className='pe-form-and-trip-rates'>    
+            <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
+                
+            {this.state.showHistoricalRates && <span><HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span>} 
+            </div>
             </div>
             
             
