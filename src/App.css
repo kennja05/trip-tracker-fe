@@ -260,3 +260,16 @@ i {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
+
+.all-destinations-list{
+  background-color: #252024;
+  color: #86c232
+}
+
+.all-dest{
+  background-color: #252024;
+}
+
+body{
+  background-color: #252024
+}
