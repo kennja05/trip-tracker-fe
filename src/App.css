@@ -99,9 +99,9 @@
   background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
 }
 
-.login-form {
-  margin: 1%;
-  padding: 1%;
+.login-form-div {
+  margin: auto;
+  /* padding: 1%; */
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
@@ -111,6 +111,13 @@
   width: 45vw;
   text-align: center;
   box-shadow: 5px 5px;
+}
+
+.login-form{
+  /* margin: auto; */
+  font-family: Cochin;
+  font-size: 25px;
+  line-height: 1.4;
 }
 
 input:focus {
@@ -125,7 +132,7 @@ input:focus {
 }
 
 .signup-form{
-  margin: 1%;
+  margin: auto;
   padding: 1%;
   height: 55vh;
   width: 45vw;
@@ -249,12 +256,13 @@ input:focus {
 .title-div{
   text-align: center;
   position: relative;
+  margin: auto;
 }
 
 .title{
   font-family: impact;
   color: #86c232;
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
   margin: auto;
   font-size: 80px;

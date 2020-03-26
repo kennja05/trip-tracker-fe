@@ -41,8 +41,8 @@ export default class LoginForm extends React.Component {
 
     render(){
             return(
-                <div className='login-form'>
-                <form onSubmit={this.handleSubmit}>
+                <div className='login-form-div'>
+                <form className='login-form' onSubmit={this.handleSubmit}>
                     <p><label>Username:</label>
                     <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/></p>
                     <p><label>Password:</label>
