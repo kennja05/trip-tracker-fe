@@ -59,11 +59,9 @@
 .delete-past-trip{
   border-style: solid;
   color: red;
-  border-radius: 45%;
+  border-radius: 40%;
   border-width: 1px;
-  border-color: gray;
-  height: 15px;
-  width: 20px;
+  border-color: red;
 }
 
 .delete-past-trip:hover{
@@ -223,6 +221,7 @@ input:focus {
 
 .historical-rates{
   border-style: solid;
+  border-color: #6b6e70;
   color: #86c232;
   border-radius: 2%;
   width: 35vw;
@@ -251,7 +250,7 @@ input:focus {
   color: red;
   border-color: gray;
   border-radius: 50%;
-  background-color: green;
+  background-color: black;
 }
 
 .delete-button:hover{
