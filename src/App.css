@@ -54,6 +54,7 @@
   font-family: Cochin;
   line-height: 1.1;
   box-shadow: 5px 5px;
+  margin-bottom: 5%;
 }
 
 .sub-dash-container-div{
@@ -86,8 +87,21 @@
   background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
   /* background-image: linear-gradient(rgb(37,32,36), rgba(255, 255, 255, 0));  */
   display: flex;
-  height: 90vh;
+  height: 100vh;
+  justify-content: space-evenly;
   position: relative;
+}
+
+.popular-add-trip{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.present-past-trips{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 
