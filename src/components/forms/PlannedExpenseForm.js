@@ -47,9 +47,9 @@ export default class PlannedExpenseForm extends React.Component {
 
     render(){
         return(
-            <div className='planned-expense-form'>
-                <h2>Input Your Planned Expense(s) Below</h2>
-                <form onSubmit={this.handleAddPlannedExpense}>  
+            <div className='planned-expense-div'>
+                <h2 className='pe-h2'>Input Your Planned Expense(s) Below</h2>
+                <form className='planned-expense-form' onSubmit={this.handleAddPlannedExpense}>  
                     
                         <label>Expense Name: </label>
                         <input onChange={this.handleFormChange} type='text' name='name' value={this.state.name} />
