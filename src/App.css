@@ -92,22 +92,37 @@
 }
 
 .credential-page {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   background-color: #474b4f;
   margin: 0%;
   background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
 }
 
+.title-div{
+  text-align: center;
+  /* position: relative; */
+  margin: auto;
+  height: 20vh;
+  width: 45vw;
+}
+
+.title{
+  font-family: impact;
+  color: #86c232;
+  margin-top: 5%;
+  font-size: 80px;
+}
+
 .login-form-div {
   margin: auto;
-  /* padding: 1%; */
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
   background-color: #222629;
   color: #86c232;
-  height: 35vh;
+  height: 25vh;
   width: 45vw;
   text-align: center;
   box-shadow: 5px 5px;
@@ -115,9 +130,8 @@
 
 .login-form{
   /* margin: auto; */
-  font-family: Cochin;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;
-  line-height: 1.4;
 }
 
 input:focus {
@@ -133,8 +147,7 @@ input:focus {
 
 .signup-form{
   margin: auto;
-  padding: 1%;
-  height: 55vh;
+  height: 50vh;
   width: 45vw;
   border-style: solid;
   border-color: #6b6e70;
@@ -144,6 +157,7 @@ input:focus {
   color: #86c232;
   text-align: center;
   box-shadow: 5px 5px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .Add-Trip-Div{
@@ -237,6 +251,7 @@ input:focus {
   color: red;
   border-color: gray;
   border-radius: 50%;
+  background-color: green;
 }
 
 .delete-button:hover{
@@ -251,26 +266,6 @@ input:focus {
 .link:hover{
   color: #85bb65;
   border-style: solid;
-}
-
-.title-div{
-  text-align: center;
-  position: relative;
-  margin: auto;
-}
-
-.title{
-  font-family: impact;
-  color: #86c232;
-  /* position: absolute; */
-  top: 50%;
-  margin: auto;
-  font-size: 80px;
-  border-style: solid;
-  border-radius: 5%;
-  border-color: #474b4f;
-  background-color: #222629;
-  box-shadow: 5px 5px;
 }
 
 .all-countries-li-gray{

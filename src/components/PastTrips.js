@@ -25,9 +25,12 @@ export default class PastTrips extends React.Component {
 
     handleNextClick = () => {
         if (this.state.startIndex + 3 < this.state.myTrips.length) {
+            console.log(this.state.startIndex, this.state.myTrips.length)
             this.setState({
                 startIndex: this.state.startIndex + 3
             })
+        } else {
+            console.log('no')
         }
     }
 

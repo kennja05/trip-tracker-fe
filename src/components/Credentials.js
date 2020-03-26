@@ -7,8 +7,8 @@ export default class Credentials extends React.Component {
     render(){
         return(
             <div className='credential-page'>
-                <LoginForm handleLogin={this.props.handleLogin} routerProps={this.props} />
                 <Title />
+                <LoginForm handleLogin={this.props.handleLogin} routerProps={this.props} />
                 <SignupForm handleSignup={this.props.handleSignup} routerProps={this.props}/>
             </div>
         )
