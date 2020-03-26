@@ -232,7 +232,12 @@ input:focus {
 }
 
 .unauthorized{
-  color: red; 
+  color: red;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 99vh;
 } 
 
 .trip{
@@ -264,7 +269,17 @@ input:focus {
 }
 
 .link:hover{
-  color: #85bb65;
+  color: #86c232;
+  border-style: solid;
+}
+
+.unauthorized-link{
+  color: red;
+  border-radius: 5%;
+}
+
+.unauthorized-link:hover{
+  color: #86c232;
   border-style: solid;
 }
 
