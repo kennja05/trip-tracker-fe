@@ -85,12 +85,14 @@
   /* background-color: #474b4f; */
   background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
   /* background-image: linear-gradient(rgb(37,32,36), rgba(255, 255, 255, 0));  */
-  display: grid;
-  grid-column-gap: 1px;
-  grid-row-gap: 10px;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   height: 90vh;
   position: relative;
+}
+
+
+#popular-destinations-container{
+  height: 55vh;
 }
 
 .credential-page {
@@ -169,7 +171,7 @@ input:focus {
   color: #86c232;
   text-align: left;
   box-shadow: 5px 5px;
-  height: 45vh;
+  height: 35vh;
   width: 45vw;
   font-family: Cochin;
   background-color: #222629;

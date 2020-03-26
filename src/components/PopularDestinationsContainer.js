@@ -17,10 +17,10 @@ class PopularDestinationsContainer extends React.Component {
                 loaded: true
             }))
     }
-
+ 
     render(){
         return(
-            <div className='Dashboard-Container'>
+            <div id='popular-destinations-container' className='Dashboard-Container'>
                 <div className='sub-dash-container-div'>
                     <h2><u>Top 15 Destinations</u></h2>{this.state.loaded ? null : <ReactLoading type={'spin'} color={'#6b6e70'}/>}
                     <ol>

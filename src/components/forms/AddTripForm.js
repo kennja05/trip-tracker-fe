@@ -63,7 +63,7 @@ export default class AddTripForm extends React.Component {
             }
         }
     }
-
+ 
     render(){
         return(
             this.props.user ? <div className='Add-Trip-Div'>
@@ -79,7 +79,7 @@ export default class AddTripForm extends React.Component {
 
 
 
-            </div> : <div className='Dashboard-Container'>
+            </div> : <div className='Add-Trip-Div'>
                         <div className='sub-dash-container-div'>
                             <h2><u>Add A New Trip</u></h2><Link className='link' to='/'><b>Log In to Add New Trips</b></Link></div>
 

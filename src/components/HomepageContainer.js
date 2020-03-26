@@ -16,10 +16,14 @@ class HomepageContainer extends React.Component {
         <div>
             <NavBar user={this.props.user} logout={this.props.logout} history={this.props.history}/>
         <div className='Homepage'>
-            <PopularDestinationsContainer />
-            <TripContainer user={this.props.user} history={this.props.history} match={this.props.match}/>
-            <AddTripForm user={this.props.user} history={this.props.history} match={this.props.match}/>
-            <PastTrips user={this.props.user} history={this.props.history} match={this.props.match}/>
+            <div className='popular-add-trip'>
+                <PopularDestinationsContainer />
+                <AddTripForm user={this.props.user} history={this.props.history} match={this.props.match}/>
+            </div>
+            <div className='present-past-trips'>
+                <TripContainer user={this.props.user} history={this.props.history} match={this.props.match}/>
+                <PastTrips user={this.props.user} history={this.props.history} match={this.props.match}/>
+            </div>
         </div>
         </div>
 
