@@ -51,17 +51,19 @@ export default class TripContainer extends React.Component {
     render(){
         return (
             <div className='Dashboard-Container'>
-                <h2><u>My Trips</u></h2> 
-                <ul className='list'>
-                    {this.state.loaded ? this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
-                    <ul><li>Dates: 
-                        <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
-                        </li>
-                        <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'green' : 'red'}`}}>Exchange Rate: {trip.values[trip.values.length - 1].rate} {trip.destination.currency_name}(s): $1</li>
-                        </ul>
-                    </li>) : <Link className='link' to='/'><b>Log In to See Your Trips</b></Link>}
-                </ul>
-                <button onClick={this.handlePrevClick}><i className='arrow left'></i></button><button onClick={this.handleNextClick}><i className='arrow right'></i></button>
+                <div className='sub-dash-container-div'>
+                    <h2><u>My Trips</u></h2> 
+                    <ul className='list'>
+                        {this.state.loaded ? this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
+                        <ul><li>Dates: 
+                            <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
+                            </li>
+                            <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'green' : 'red'}`}}>Exchange Rate: {trip.values[trip.values.length - 1].rate} {trip.destination.currency_name}(s): $1</li>
+                            </ul>
+                        </li>) : <Link className='link' to='/'><b>Log In to See Your Trips</b></Link>}
+                    </ul>
+                    <button onClick={this.handlePrevClick}><i className='arrow left'></i></button><button onClick={this.handleNextClick}><i className='arrow right'></i></button>
+                </div>
             </div>
         )
     }
