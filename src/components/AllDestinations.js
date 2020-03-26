@@ -28,7 +28,7 @@ export default class AllDestinations extends React.Component {
     render(){
         return( 
             <div className='all-dest'>
-                <Navbar user={this.props.user} history={this.props.history}/>
+                <Navbar user={this.props.user} history={this.props.history} logout={this.props.logout}/>
             <div className='all-destinations-list'>
                 <h2>All Destinations: {this.state.loaded ? `${this.state.destinations.length} total` : <ReactLoading type={'spin'} color={'#6b6e70'}/>} </h2>
                 
