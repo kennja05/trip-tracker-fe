@@ -30,7 +30,7 @@ export default class HistoricalRates extends React.Component {
                     {/* Get only the values from after the trip was created, then create the list */}
                     {this.props.values.filter(val => val.date >= this.props.startDate).map(vals => <li key={vals.id}>Date:{vals.date} Exchange Rate: {vals.rate} {vals.code} : 1 USD</li>)}
                 </ul>
-                {this.props.cost && `A trip costing 10,000 ${this.props.destination.currency_name} would cost ${(10000 / this.state.startRate).toFixed(2)} United States Dollars if the currency were exchanged at the time this trip was entered to the site. The same trip would cost ${(10000 / this.state.currentRate).toFixed(2)} if the currency were exchanged now.`}
+                A trip costing 10,000 ${this.props.destination.currency_name} would cost ${(10000 / this.state.startRate).toFixed(2)} United States Dollars if the currency were exchanged at the time this trip was entered to the site. The same trip would cost ${(10000 / this.state.currentRate).toFixed(2)} if the currency were exchanged now.`
             </div>
         )
     }

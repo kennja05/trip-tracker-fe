@@ -180,7 +180,8 @@ input:focus {
 .pe-form-and-trip-rates{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  
 }
 
 .flag-pic{
@@ -193,7 +194,6 @@ input:focus {
   background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
   display: flex;
   justify-content: space-around;
-  /* grid-template-columns: 1fr 1fr; */
 }
 
 .trip-show{
@@ -203,26 +203,27 @@ input:focus {
   border-color: #86c232;
   border-radius: 2%;
   color: white;
-  background-color: #6b6e70;
+  background-color: #222629;
   box-shadow: 5px 5px;
   font-family: Cochin;
   line-height: 0.9;
 }
 
 .planned-expense-form{
-  color: #86c232;
+  color: white;
   width: 35vw;
   border-style: solid;
   border-radius: 2%;
   background-color: #222629;
   box-shadow: 5px 5px;
-  border-color: #6b6e70;
+  border-color: #86c232;
+  margin-bottom: 2%;
 }
 
 .historical-rates{
   border-style: solid;
-  border-color: #6b6e70;
-  color: #86c232;
+  border-color: #86c232;
+  color: white;
   border-radius: 2%;
   width: 35vw;
   background-color: #222629;
