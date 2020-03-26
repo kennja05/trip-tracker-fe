@@ -64,7 +64,8 @@ export default class TripShow extends React.Component {
 
     currentCostInDollars = () => {
         const currentCost = (this.state.totalPe / this.state.trip.values[this.state.trip.values.length-1].rate).toFixed(2)
-        const valAtCreation = this.state.trip.values.find(val => val.date === this.state.trip.created_at.slice(0,10))
+        const allValsAtCreationArray = this.state.trip.values.filter(val => val.date === this.state.trip.created_at.slice(0,10))
+        const valAtCreation = allValsAtCreationArray[allValsAtCreationArray.length -1]
         const origCost = (this.state.totalPe / valAtCreation.rate).toFixed(2)
         this.setState({
             currentDollarAmt: currentCost,
