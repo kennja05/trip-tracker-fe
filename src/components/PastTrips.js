@@ -21,7 +21,7 @@ export default class PastTrips extends React.Component {
                 loaded: true
             }))
         }
-    }
+    } 
 
     handleNextClick = () => {
         if (this.state.startIndex + 3 < this.state.myTrips.length) {

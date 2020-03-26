@@ -16,7 +16,7 @@ export default class TripContainer extends React.Component {
         fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/trips`)
             .then(res => res.json())
             .then(userTrips => this.setState({
-                myTrips: userTrips,
+                myTrips: userTrips.filter(trip => trip.end_date >= new Date().toISOString().slice(0,10)),
                 currentDate: new Date().toISOString().slice(0,10),
                 loaded: true
             }))
@@ -53,7 +53,7 @@ export default class TripContainer extends React.Component {
             <div className='Dashboard-Container'>
                 <h2><u>My Trips</u></h2> 
                 <ul className='list'>
-                    {this.state.loaded ? this.state.myTrips.filter(trip => trip.end_date >= this.state.currentDate).slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
+                    {this.state.loaded ? this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 3).map(trip => <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
                     <ul><li>Dates: 
                         <u>{trip.start_date}</u> - <u>{trip.end_date}</u>
                         </li>
