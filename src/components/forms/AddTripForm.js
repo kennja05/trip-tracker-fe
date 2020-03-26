@@ -70,9 +70,9 @@ export default class AddTripForm extends React.Component {
                 <div className='sub-dash-container-div'>
                     <h2><u>Add A New Trip</u></h2>
                     <form className='Add-Trip-Form' onSubmit={this.handleFormSubmit}>
-                    <label>Start Date:</label> <DatePicker dateFormat='MM/dd/yy' name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} /><br></br>
-                    <label>End Date:</label> <DatePicker dateFormat='MM/dd/yy' name='endDate' selected={this.state.endDate} onChange={this.handleEndDateChange} /><br></br>
-                    <label>Location:</label> <input onChange={this.handleFormChange} type='text' value={this.state.selectedDestination} name='selectedDestination' /><br></br>
+                    <label>Start Date:</label> <DatePicker dateFormat='MM/dd/yy' name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} /><div className='form-break'></div>
+                    <label>End Date:</label> <DatePicker dateFormat='MM/dd/yy' name='endDate' selected={this.state.endDate} onChange={this.handleEndDateChange} /><div className='form-break'></div>
+                    <label>Location:</label> <input onChange={this.handleFormChange} type='text' value={this.state.selectedDestination} name='selectedDestination' /><div className='form-break'></div>
                     <input type='submit' value='Add Trip' />
                     </form>
                 </div>

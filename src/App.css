@@ -194,9 +194,13 @@ input:focus {
   /* justify-content: center; */
 }
 
-/* .Add-Trip-Form{
-  margin: 1%;
-} */
+.Add-Trip-Form{
+  margin-left: 5%;
+}
+
+.form-break{
+  height: 2vh;
+}
 
 .pe-form-and-trip-rates{
   display: flex;
