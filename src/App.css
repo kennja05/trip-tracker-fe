@@ -111,6 +111,7 @@
 
 .credential-page {
   display: flex;
+  height: 100vh;
   flex-direction: column;
   justify-content: space-evenly;
   background-color: #474b4f;
@@ -135,6 +136,7 @@
 
 .login-form-div {
   margin: auto;
+  margin-bottom: 1%;
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
@@ -165,7 +167,7 @@ input:focus {
 
 .signup-form{
   margin: auto;
-  height: 50vh;
+  height: 45vh;
   width: 45vw;
   border-style: solid;
   border-color: #6b6e70;
