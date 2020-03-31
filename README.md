@@ -1,68 +1,31 @@
+Languages Used
+
+Javascript, React, HTML, CSS
+
+Background
+
+When planning a trip a lot of people like to make a budget for their expenses. Someone like myself could budget $500 for food and $1000 for the hotel stay, or a better planner than I might want to build out a table with various types of expenses detailing exactly how much will be spent for each expense. I would say that either way is fine, but something that many would not consider during the planning process of a trip to the foreign country, is that the exchange rate of the United States Dollar to the foreign currency is constantly changing. Now all of the sudden that dinner that I had planned for 30 euros, which originally was going to cost me 54 USD will now coast me 55 USD! 
+
+On a small scale I think we can all agree that it will not have that much of an effect. However, what if we were going to stay for a long time, or were planning a stay in a high-end boutique hotel? That 1.8% change that I mentioned above could start to make a difference once the scope of the spending gets larger. 
+
+Purpose
+
+The goal of this application is to allow for users to budget trips to foreign countries while getting real-time information about the exchange rate of that country's currency to the US Dollar, thus allowing the user to make an informed decision about when to exchange their currency.
+
+Instructions
+
+    1) Setup
+        a) Locate the backend at https://github.com/kennja05/trip-tracker-be and follow the instructions to get it started.
+        b) Clone this repo to the local machine and run the command 'cd trip-tracker-fe' in your terminal
+        c) Enter the command 'npm install' in your terminal 
+        d) Enter the command 'npm start' in your terminal
+
+    2) Usage
+        a) Once the site is running visit localhost:3001/login
+        b) Sign up for a new account, or feel free to message me to get the log in credentials for the test account
+            - I strongly suggest not using a password that you use for other sites
+        c) Once logged in there are three main options - add new a trip, view and edit current/previous trips, and get information for all tracked currencies 
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
