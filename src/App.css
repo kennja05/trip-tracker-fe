@@ -269,6 +269,18 @@ input:focus {
   flex-grow: 1;
 }
 
+.historical-chart-container{
+  border-style: solid;
+  border-color: #86c232;
+  color: white;
+  border-radius: 2%;
+  width: 38vw;
+  height: 60vh;
+  background-color: white;
+  box-shadow: 5px 5px;
+  flex-grow: 1;
+}
+
 .hr-info{
   margin-left: 5%;
 }

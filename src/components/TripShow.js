@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import PlannedExpenseForm from './forms/PlannedExpenseForm'
 import HistoricalRates from './HistoricalRates'
 import NavBar from './NavBar'
+import HistoricalChart from './HistoricalChart'
 
 
 export default class TripShow extends React.Component {
@@ -76,7 +77,8 @@ export default class TripShow extends React.Component {
 
     render(){
         return(
-            this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id? 
+            this.state.loaded ?
+            // && this.props.user && this.props.user.id === this.state.trip.user_id 
             <div>
             <NavBar user={this.props.user} history={this.props.history} logout={this.props.logout}/>
             
@@ -117,7 +119,7 @@ export default class TripShow extends React.Component {
             <div className='pe-form-and-trip-rates'>    
             <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
                 
-            <span><HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span>
+            <span><HistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span>
             </div>
             </div>
             </div>
