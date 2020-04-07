@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import PlannedExpenseForm from './forms/PlannedExpenseForm'
 import NavBar from './NavBar'
 import HistoricalRates from './HistoricalRates'
-import HistoricalChart from './HistoricalChart'
+// import HistoricalChart from './HistoricalChart' - Uses victory chart library
 import CanvasHistoricalChart from './CanvasHistoricalChart'
+import PePieChart from './PePieChart'
 
 
 export default class TripShow extends React.Component {
@@ -16,6 +17,9 @@ export default class TripShow extends React.Component {
         totalPe: null,
         beginningDollarAmt: null,
         currentDollarAmt: null,
+        showHrChart: true,
+        showHistoricalRates: false,
+        showPePie: false
     }
 
     componentDidMount(){
@@ -106,7 +110,9 @@ export default class TripShow extends React.Component {
                     </div>
                     <div className='pe-form-and-trip-rates'>    
                         <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
-                        <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>
+                        <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>
+                        <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} />
+                        <PePieChart />
                     </div>
                 </div>
             </div>

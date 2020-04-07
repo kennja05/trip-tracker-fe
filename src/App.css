@@ -269,6 +269,14 @@ input:focus {
   flex-grow: 1;
 }
 
+.canvas-chart-container{
+  border-style: solid;
+  border-radius: 2%;
+  border-color: #86c232;
+  box-shadow: 5px 5px;
+  color: white;
+}
+
 .historical-chart-container{
   border-style: solid;
   border-color: #86c232;

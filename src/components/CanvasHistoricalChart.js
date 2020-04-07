@@ -46,8 +46,8 @@ export default class CanvasHistoricalChart extends React.Component {
              }]
         }
         return (
-            <div className='canvas-chart'>
-                <CanvasJSChart options={options}/>
+            <div className='canvas-chart-container'>
+                <CanvasJSChart className='canvas-chart' options={options}/>
             </div>
         )
     }
