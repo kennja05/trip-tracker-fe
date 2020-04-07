@@ -105,7 +105,7 @@ export default class TripShow extends React.Component {
                     </div>
                     <div className='pe-form-and-trip-rates'>    
                         <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
-                        <span><HistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/></span>
+                        <HistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,4 @@ export default class TripShow extends React.Component {
             </div>
         )
     }
- 
-
-
 }

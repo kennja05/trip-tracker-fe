@@ -278,7 +278,14 @@ input:focus {
   height: 60vh;
   background-color: white;
   box-shadow: 5px 5px;
+  text-align: center;
   flex-grow: 1;
+}
+
+.chart{
+  margin-left: 2%;
+  border-style: solid;
+  border-color: black;
 }
 
 .hr-info{

@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryLine, VictoryChart, VictoryAxis, VictoryTheme } from 'victory'
+import { VictoryLine, VictoryChart} from 'victory'
 
 
 
@@ -11,7 +11,7 @@ export default class HistoricalChart extends React.Component {
 
     componentDidMount(){
             const myObj = []
-            this.props.values.map((val, index) => {
+            this.props.values.filter(val => val.date >= this.props.startDate).map((val, index) => {
                 myObj.push({x: index, y: val.rate})
             })
             this.setState({
@@ -20,12 +20,14 @@ export default class HistoricalChart extends React.Component {
     }
 
     render(){
-        console.log(this.state.coordinates)
         return(
             <div className='historical-chart-container'>
-                <VictoryChart title='good'animate={{duration: 1000}} style={{color: "white"}}>
-                    <VictoryLine  data={this.state.coordinates} style={{data: { stroke: "#86c232" },parent:{ border: "1px solid #86c232"}}} />
-                </VictoryChart>
+                <h2 style={{color: 'black'}}>{this.props.destination.currency_name}({this.props.destination.symbol}) to USD($)</h2>
+                <div className='chart'>
+                    <VictoryChart width={500} padding={40} title='good' style={{color: "white"}}>
+                        <VictoryLine  data={this.state.coordinates} style={{data: { stroke: "#86c232" },parent:{ border: "1px solid #86c232"}}} />
+                    </VictoryChart>
+                </div>
             </div>
         )
     }
