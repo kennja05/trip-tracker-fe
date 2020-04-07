@@ -13,7 +13,7 @@ export default class CanvasHistoricalChart extends React.Component {
     componentDidMount(){
         const myObj = []
         this.props.values.filter(val => val.date >= this.props.startDate).map((val, index) => {
-            myObj.push({x: index, y: val.rate})
+            myObj.push({x: index / 3, y: val.rate})
         })
         this.setState({
             coordinates: myObj
@@ -23,25 +23,30 @@ export default class CanvasHistoricalChart extends React.Component {
 
     render(){
         const options = {
+            animationEnabled: true,
+            // theme: 'light3',
             title: {
               text: "Exchange Rate From Time of Planning"
+            },
+            axisY: {
+                title: `${this.props.destination.currency_name} to USD`,
+                includeZero: false,
+                suffix: this.props.destination.symbol
+            },
+            axisX: {
+                title: "Days Since Planning",
+                interval: 3
             },
             data: [{				
                       type: "line",
                       animationEnabled: true,
                       exportEnabled: true,
                       theme: 'light4',
-                      dataPoints: [
-                          { label: "Apple",  y: 10  },
-                          { label: "Orange", y: 15  },
-                          { label: "Banana", y: 25  },
-                          { label: "Mango",  y: 30  },
-                          { label: "Grape",  y: 28  }
-                      ]
+                      dataPoints: this.state.coordinates,
              }]
-         }
+        }
         return (
-            <div>
+            <div className='canvas-chart'>
                 <CanvasJSChart options={options}/>
             </div>
         )
