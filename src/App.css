@@ -288,6 +288,22 @@ input:focus {
   border-color: black;
 }
 
+.chart-y-label{
+  display: flex;
+}
+
+.y-axis{
+  writing-mode: vertical-lr;
+  color: #222629;
+  unicode-bidi:bidi-override;
+  direction:rtl;
+}
+
+.chart-title{
+  color: #222629;
+  
+}
+
 .hr-info{
   margin-left: 5%;
 }
