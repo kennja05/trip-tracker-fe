@@ -42,7 +42,7 @@ export default class CanvasHistoricalChart extends React.Component {
                       animationEnabled: true,
                       exportEnabled: true,
                       theme: 'light4',
-                      dataPoints: this.state.coordinates,
+                      dataPoints: this.state.coordinates
              }]
         }
         return (

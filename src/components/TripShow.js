@@ -17,9 +17,9 @@ export default class TripShow extends React.Component {
         totalPe: null,
         beginningDollarAmt: null,
         currentDollarAmt: null,
-        showHrChart: true,
+        showHrChart: false,
         showHistoricalRates: false,
-        showPePie: false
+        showPePie: true
     }
 
     componentDidMount(){
@@ -110,9 +110,9 @@ export default class TripShow extends React.Component {
                     </div>
                     <div className='pe-form-and-trip-rates'>    
                         <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
-                        <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>
-                        <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} />
-                        <PePieChart />
+                        {this.state.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>}
+                        {this.state.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} /> }
+                        {this.state.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses}/> }
                     </div>
                 </div>
             </div>
