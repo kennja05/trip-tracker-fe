@@ -211,20 +211,23 @@ input:focus {
 }
 
 .display-buttons-container{
-  border-color: #86c232;
-  border-style: solid;
-  border-radius: 2%;
+  /* border-color: #86c232; */
+  /* border-style: solid; */
+  /* border-radius: 2%; */
   margin-top: 2%;
   margin-bottom: 2%;
-  color: white;
-  background-color: #222629;
+  /* color: white; */
+  /* background-color: #222629; */
   display: flex;
   justify-content: space-evenly;
 }
 
-/* .display-buttons{
-
-} */
+.display-buttons{
+  background-color: #222629;
+  border-style: solid;
+  border-radius: 2%;
+  color: white;
+}
 
 .flag-pic{
   height: 20vh;

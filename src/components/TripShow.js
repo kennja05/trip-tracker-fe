@@ -17,9 +17,11 @@ export default class TripShow extends React.Component {
         totalPe: null,
         beginningDollarAmt: null,
         currentDollarAmt: null,
-        showHrChart: false,
-        showHistoricalRates: false,
-        showPePie: true
+        display: {
+            showHrChart: false,
+            showHistoricalRates: false,
+            showPePie: true
+        }
     }
 
     componentDidMount(){
@@ -79,6 +81,27 @@ export default class TripShow extends React.Component {
         })
     }
 
+    handleDisplayButtonClick = (e) => {
+        switch (e.target.id){
+            case 'hr':
+                this.setState({
+                    display: {showHistoricalRates: true, showHrChart: false, showPePie: false}
+                })
+                break;
+            case 'hrg':
+                this.setState({
+                    display: {showHistoricalRates: false, showHrChart: true, showPePie: false}
+                })
+                break;
+            case 'peb':
+                this.setState({
+                    display: {showHistoricalRates: false, showHrChart: false, showPePie: true}
+                }) 
+                break;  
+            default: 
+                console.log('shouldnt have done that')
+        }
+    }
 
     render(){
         return(
@@ -111,13 +134,13 @@ export default class TripShow extends React.Component {
                     <div className='pe-form-and-trip-rates'>    
                         <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
                         <div className='display-buttons-container'>
-                            <span className='display-buttons'>Detailed Historical Rates</span>
-                            <span classname='display-buttons'>Historical Rates Graph</span>
-                            <span className='display-buttons'>Planned Expenses Breakdown</span>
+                            {!this.state.display.showHistoricalRates && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='hr' className='display-buttons'>Detailed Historical Rates</span>}
+                            {!this.state.display.showHrChart && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='hrg' className='display-buttons'>Historical Rates Graph</span>}
+                            {!this.state.display.showPePie && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='peb' className='display-buttons'>Planned Expenses Breakdown</span>}
                         </div>
-                        {this.state.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>}
-                        {this.state.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} /> }
-                        {this.state.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses} total={this.state.totalPe}/> }
+                        {this.state.display.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>}
+                        {this.state.display.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} /> }
+                        {this.state.display.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses} total={this.state.totalPe}/> }
                     </div>
                 </div>
             </div>
