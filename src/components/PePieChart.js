@@ -77,7 +77,7 @@ export default class PePieChart extends React.Component {
 			}]
         }
         return(
-            <div>
+            <div className='pie-chart'>
                 {this.props.plannedExpenses.length > 0 ? <CanvasJSChart options={options} /> : <div>Input Planned Expenses Above</div>}
             </div>
         )

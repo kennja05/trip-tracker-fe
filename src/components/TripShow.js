@@ -110,6 +110,11 @@ export default class TripShow extends React.Component {
                     </div>
                     <div className='pe-form-and-trip-rates'>    
                         <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
+                        <div className='display-buttons-container'>
+                            <span className='display-buttons'>Detailed Historical Rates</span>
+                            <span classname='display-buttons'>Historical Rates Graph</span>
+                            <span className='display-buttons'>Planned Expenses Breakdown</span>
+                        </div>
                         {this.state.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>}
                         {this.state.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} /> }
                         {this.state.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses} total={this.state.totalPe}/> }

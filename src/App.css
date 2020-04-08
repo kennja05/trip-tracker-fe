@@ -208,8 +208,23 @@ input:focus {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  
 }
+
+.display-buttons-container{
+  border-color: #86c232;
+  border-style: solid;
+  border-radius: 2%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  color: white;
+  background-color: #222629;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* .display-buttons{
+
+} */
 
 .flag-pic{
   height: 20vh;
@@ -267,6 +282,14 @@ input:focus {
   background-color: #222629;
   box-shadow: 5px 5px;
   flex-grow: 1;
+}
+
+.pie-chart{
+  border-style: solid;
+  border-radius: 2%;
+  border-color: #86c232;
+  box-shadow: 5px 5px;
+  color: white;
 }
 
 .canvas-chart-container{
