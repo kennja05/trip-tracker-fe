@@ -248,7 +248,7 @@ input:focus {
 }
 
 .trip-show{
-  height: 100vh;
+  height: 95vh;
   width: 55vw;
   border-style: solid;
   border-color: #86c232;
@@ -272,6 +272,7 @@ input:focus {
   display: flex;
   flex-direction: column;
   text-align: center;
+  height: 20%;
 }
 
 .planned-expense-form{
@@ -299,6 +300,13 @@ input:focus {
   border-color: #86c232;
   box-shadow: 5px 5px;
   color: white;
+}
+
+.empty{
+  border-style: solid;
+  border-radius: 2%;
+  text-align: center;
+  background-color: #222629;
 }
 
 .canvas-chart-container{
