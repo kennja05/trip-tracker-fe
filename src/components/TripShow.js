@@ -35,9 +35,9 @@ export default class TripShow extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        if (prevState.plannedExpenses.length !== 0 && prevState.plannedExpenses.length !== this.state.plannedExpenses.length){
-            console.log(prevState.plannedExpenses, 'new state:', this.state.plannedExpenses)
-        }
+        // if (prevState.plannedExpenses.length !== 0 && prevState.plannedExpenses.length !== this.state.plannedExpenses.length){
+        //     console.log(prevState.plannedExpenses, 'new state:', this.state.plannedExpenses)
+        // }
         if (prevState.totalPe !== this.state.totalPe) {
             this.currentCostInDollars()
         }
@@ -112,7 +112,7 @@ export default class TripShow extends React.Component {
                         <PlannedExpenseForm handleSubmit={this.handleAddPlannedExpense} addPe={this.addPe} trip={this.state.trip}/>
                         {this.state.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>}
                         {this.state.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} /> }
-                        {this.state.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses}/> }
+                        {this.state.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses} total={this.state.totalPe}/> }
                     </div>
                 </div>
             </div>
