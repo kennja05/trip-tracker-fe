@@ -51,29 +51,29 @@ export default class PlannedExpenseForm extends React.Component {
                 <h2 className='pe-h2'>Input Your Planned Expense(s) Below</h2>
                 <form className='planned-expense-form' onSubmit={this.handleAddPlannedExpense}>  
                     
-                        <label>Expense Name: </label>
-                        <input onChange={this.handleFormChange} type='text' name='name' value={this.state.name} />
+                    <label>Expense Name: </label>
+                    <input onChange={this.handleFormChange} type='text' name='name' value={this.state.name} />
                     <br></br>
-                    
-                        <label>Cost (in {this.props.trip.destination.code}): </label>
-                        <input onChange={this.handleFormChange} type='number' name='cost' value={this.state.cost} />
+                
+                    <label>Cost (in {this.props.trip.destination.code}): </label>
+                    <input onChange={this.handleFormChange} type='number' name='cost' value={this.state.cost} />
                     <br></br>
-                    
-                        <label>Category: </label>
-                        <select name='category' value={this.state.category} onChange={this.handleFormChange}>
-                            <option value="Lodging">Lodging</option>
-                            <option value="Food/Drink"> Food/Drink</option>
-                            <option value="Business">Business</option>
-                            <option value="Entertainment">Entertainment</option>
-                            <option value="Other">Other</option>
-                        </select>
+                
+                    <label>Category: </label>
+                    <select name='category' value={this.state.category} onChange={this.handleFormChange}>
+                        <option value="Lodging">Lodging</option>
+                        <option value="Food/Drink"> Food/Drink</option>
+                        <option value="Business">Business</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Other">Other</option>
+                    </select>
                     <br></br>
-                    
-                        <label>Date: </label>
-                        <DatePicker dateFormat='MM/dd/yy' name='date' selected={this.state.date} onChange={this.handleDateChange} />
+                
+                    <label>Date: </label>
+                    <DatePicker dateFormat='MM/dd/yy' name='date' selected={this.state.date} onChange={this.handleDateChange} />
                     <br></br>
                     <input type='submit' value='Add Expense' />
-
+                    
                 </form>
 
 
