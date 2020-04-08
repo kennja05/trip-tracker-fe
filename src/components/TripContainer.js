@@ -13,6 +13,17 @@ export default class TripContainer extends React.Component {
 
     componentDidMount(){
         if (this.props.user) {
+            this.fetchUserTrips()
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if (prevProps.user !== this.props.user){
+            this.fetchUserTrips()
+        }
+    }
+
+    fetchUserTrips = () => {
         fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/trips`)
             .then(res => res.json())
             .then(userTrips => this.setState({
@@ -20,8 +31,8 @@ export default class TripContainer extends React.Component {
                 currentDate: new Date().toISOString().slice(0,10),
                 loaded: true
             }))
-        }
     }
+    
 
     handleNextClick = () => {
         if (this.state.startIndex + 3 < this.state.myTrips.length) {
@@ -53,7 +64,8 @@ export default class TripContainer extends React.Component {
             this.state.loaded ? 
             <div className='Dashboard-Container'>
                 <div className='sub-dash-container-div'>
-                    <h2><u>My Trips</u></h2> 
+                    <h2><u>My Trips</u></h2>
+                    {this.state.myTrips.length === 0 && <p>No Trips Have Have Been Planned</p>} 
                     <ul className='list'>
                         {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 3).map(trip => 
                         <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
@@ -74,8 +86,8 @@ export default class TripContainer extends React.Component {
             :
             <div className='Dashboard-Container'>
                 <div className='sub-dash-container-div'>
-                    <h2><u>Past Trips</u></h2>
-                    <Link className='link' to='/'><b>Log In to See Your PastTrips</b></Link>
+                    <h2><u>Upcoming Trips</u></h2>
+                    <Link className='link' to='/'><b>Log In to See Your Upcoming Trips</b></Link>
                 </div>
             </div>
         )

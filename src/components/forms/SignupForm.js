@@ -32,14 +32,7 @@ export default class SignupForm extends React.Component {
         })
         .then(resp => resp.json())
         .then(newUser => this.props.handleSignup(newUser))
-
-        .then(this.setState({name: '',
-        username: '',
-        password: '',
-        passwordConfirmation: '',
-        image: '',
-        phone: '',
-        email: ''}))
+        .then(this.props.routerProps.history.push('/dashboard'))
       }
 
     render(){
@@ -58,7 +51,7 @@ export default class SignupForm extends React.Component {
                 <p><label>Re-Typed Password:</label>
                 <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
                 <p><label>Profile Picture URL:</label>
-                <input onChange={this.handleFormChange} type='text' name='image' value={this.state.image} /><img alt="" className="form-prof" src={this.state.image !== "" ? this.state.image : undefined} /></p>
+                <input onChange={this.handleFormChange} type='text' name='image' value={this.state.image} /></p>
                 <p><label>Phone Number:</label>
                 <input onChange={this.handleFormChange} type='text' name='phone' value={this.state.phone} /></p>
                 <p><label>Email Address:</label>

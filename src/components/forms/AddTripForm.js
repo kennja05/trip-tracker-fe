@@ -66,7 +66,6 @@ export default class AddTripForm extends React.Component {
     }
  
     render(){
-        console.log(this.state.selectedDestination)
         return(
             //checking to make sure the user is logged in before allowing new trips
             this.props.user ? 
