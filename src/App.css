@@ -227,6 +227,12 @@ input:focus {
   border-style: solid;
   border-radius: 2%;
   color: white;
+  border-color: white;
+}
+
+.display-buttons:hover{
+  cursor: pointer;
+  border-color: #86c232;
 }
 
 .flag-pic{

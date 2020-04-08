@@ -61,7 +61,8 @@ export default class PePieChart extends React.Component {
     render(){
         const options = {
 			exportEnabled: true,
-			animationEnabled: true,
+            animationEnabled: true,
+            indexLabelFontSize: 16,
 			title: {
 				text: "Planned Expenses By Category"
 			},

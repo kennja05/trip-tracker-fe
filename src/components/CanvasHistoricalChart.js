@@ -24,9 +24,10 @@ export default class CanvasHistoricalChart extends React.Component {
     render(){
         const options = {
             animationEnabled: true,
+            exportEnabled: true,
             // theme: 'light3',
             title: {
-              text: "Exchange Rate From Time of Planning"
+              text: "Exchange Rate Since Trip Input"
             },
             axisY: {
                 title: `${this.props.destination.currency_name} to USD`,
