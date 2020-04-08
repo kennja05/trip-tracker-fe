@@ -106,7 +106,7 @@
 
 
 #popular-destinations-container{
-  height: 55vh;
+  height: 57vh;
 }
 
 .credential-page {
@@ -187,7 +187,7 @@ input:focus {
   color: #86c232;
   text-align: left;
   box-shadow: 5px 5px;
-  height: 35vh;
+  height: 33vh;
   width: 45vw;
   font-family: Cochin;
   background-color: #222629;
