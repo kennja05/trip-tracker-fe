@@ -72,8 +72,9 @@ export default class PlannedExpenseForm extends React.Component {
                     <label>Date: </label>
                     <DatePicker dateFormat='MM/dd/yy' name='date' selected={this.state.date} onChange={this.handleDateChange} />
                     <br></br>
-                    <input type='submit' value='Add Expense' />
                     
+                    <input type='submit' value='Add Expense' />
+
                 </form>
 
 
