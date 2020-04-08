@@ -1,7 +1,7 @@
 import React from 'react'
 import CanvasJSReact from '../canvasjs.react';
 //var CanvasJSReact = require('./canvasjs.react');
-var CanvasJS = CanvasJSReact.CanvasJS;
+// var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class PePieChart extends React.Component {
@@ -26,7 +26,6 @@ export default class PePieChart extends React.Component {
             myObj[pe.category] = myObj[pe.category] + pe.cost || pe.cost
         })
         const myArr = [];
-        console.log(myObj)
         for (let c in myObj){
             switch (c) {
                 case "Lodging":
@@ -55,7 +54,7 @@ export default class PePieChart extends React.Component {
         }
         this.setState({
             data: myArr
-        }, () => console.log(this.state))
+        })
     }
 
     render(){
