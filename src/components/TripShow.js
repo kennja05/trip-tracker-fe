@@ -105,8 +105,7 @@ export default class TripShow extends React.Component {
 
     render(){
         return(
-            this.state.loaded ?
-            // && this.props.user && this.props.user.id === this.state.trip.user_id 
+            this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
             <div>
                 <NavBar user={this.props.user} history={this.props.history} logout={this.props.logout}/>
                 <div className='trip-show-container'>

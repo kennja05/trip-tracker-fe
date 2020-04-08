@@ -25,7 +25,6 @@ export default class CanvasHistoricalChart extends React.Component {
         const options = {
             animationEnabled: true,
             exportEnabled: true,
-            // theme: 'light3',
             title: {
               text: "Exchange Rate Over Time"
             },
@@ -52,5 +51,4 @@ export default class CanvasHistoricalChart extends React.Component {
             </div>
         )
     }
-
 }
