@@ -29,7 +29,7 @@ export default class PePieChart extends React.Component {
         for (let c in myObj){
             switch (c) {
                 case "Lodging":
-                    let objL = {y: Math.round((myObj[c] * 100) / this.props.total), label: 'Business'}
+                    let objL = {y: Math.round((myObj[c] * 100) / this.props.total), label: 'Lodging'}
                     myArr.push(objL)
                     break;
                 case "Entertainment":
@@ -76,6 +76,7 @@ export default class PePieChart extends React.Component {
 				dataPoints: this.state.data
 			}]
         }
+        console.log(this.state.data)
         return(
             <div className='pie-chart'>
                 {this.props.plannedExpenses.length > 0 ? <CanvasJSChart options={options} /> : <div className='empty'>Input Planned Expenses Above</div>}
