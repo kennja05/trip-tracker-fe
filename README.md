@@ -12,6 +12,10 @@ On a small scale I think we can all agree that it will not have that much of an 
 
 The goal of this application is to allow for users to budget trips to foreign countries while getting real-time information about the exchange rate of that country's currency to the US Dollar, thus allowing the user to make an informed decision about when to exchange their currency.
 
+*Video Demonstration
+
+https://www.youtube.com/watch?v=IqXq84IiZ14
+
 *Instructions
 
     1) Setup
