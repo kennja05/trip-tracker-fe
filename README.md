@@ -1,6 +1,6 @@
-*Languages Used
+*Languages/Tech Used
 
-Javascript, React, HTML, CSS
+Javascript, HTML, CSS, React
 
 *Background
 
