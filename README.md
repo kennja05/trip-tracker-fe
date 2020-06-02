@@ -33,12 +33,15 @@ Instructions
         a) Once the site is running visit localhost:3001/login
         b) Sign up for a new account, or feel free to message me to get the log in credentials for the test account
             - I strongly suggest not using a password that you use for other sites
-        c) Once logged in there are three main options - add new a trip, view and edit current/previous trips, and get        information for all tracked currencies 
+        c) Once logged in there are three main options
+            i)add new a trip 
+            ii)view and edit current/previous trips
+            iii)get information for all tracked currencies 
         
 Features
 ========
 
-**Log In**
+**Log In or Create an Account**
 
 ![Log In](https://media.giphy.com/media/lrUWxQV1PVmtcVuZys/giphy.gif)
 
