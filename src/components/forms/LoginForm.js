@@ -5,14 +5,6 @@ export default class LoginForm extends React.Component {
     state = {
         username: '',
         password: '',
-        users: [],
-        loaded: false
-    }
-
-    componentDidMount(){
-        fetch('http://localhost:3000/api/v1/users')
-            .then(resp => resp.json())
-            .then(userArray => this.setState({users: userArray, loaded: true}))
     }
 
     handleFormChange = (e) => {
@@ -24,22 +16,17 @@ export default class LoginForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         const {username, password} = this.state
-        if (username !== '' && password !== '') {
-            const inputUser = {username, password}
-            const foundUser = this.state.users.find(user => user.username === inputUser.username)
-            if (foundUser && foundUser.password === inputUser.password) {
-                this.props.routerProps.history.push('/dashboard')
-                this.props.handleLogin(foundUser)
-            } else {
-                alert('No Record Found Using Input Information')
-            }
-        } else {
-            alert('Please complete both fields')
-        }
+        fetch(`http://localhost:3000/api/v1/users/login/${username}/${password}`)
+            .then(resp => resp.json())
+            .then(user => user ? this.props.handleLogin(user) : alert('nonononono'))
+
+            // .then(this.props.history.push('/dashboard'))
     }
 
 
+
     render(){
+        console.log(this.props)
             return(
                 <div className='login-form-div'>
                 <form className='login-form' onSubmit={this.handleSubmit}>
@@ -51,7 +38,7 @@ export default class LoginForm extends React.Component {
                         <label>Password:</label>
                         <input onChange={this.handleFormChange} type='password' name='password' value={this.state.password} />
                     </p>
-                    {this.state.loaded && <input type='submit' value='Log In' />}
+                    <input type='submit' value='Log In' />
                 </form>
                 </div>
             )
