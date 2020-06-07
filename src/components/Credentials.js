@@ -12,12 +12,11 @@ export default class Credentials extends React.Component {
     }
 
     render(){
-        console.log(this.props)
         return(
             <div className='credential-page'>
                 <Title />
-                <LoginForm handleLogin={this.login} history={this.props.history} />
-                <SignupForm handleSignup={this.props.handleSignup} routerProps={this.props}/>
+                <LoginForm handleLogin={this.login} />
+                <SignupForm handleLogin={this.login} />
             </div>
         )
     }

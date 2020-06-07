@@ -26,7 +26,6 @@ export default class LoginForm extends React.Component {
 
 
     render(){
-        console.log(this.props)
             return(
                 <div className='login-form-div'>
                 <form className='login-form' onSubmit={this.handleSubmit}>
