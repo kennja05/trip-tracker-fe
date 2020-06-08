@@ -4,7 +4,7 @@ export default class SignupForm extends React.Component {
 
     state = {
         username: '',
-        password_digest: '',
+        password: '',
         passwordConfirmation: '',
         phone: '',
     }
@@ -16,19 +16,32 @@ export default class SignupForm extends React.Component {
         })    
     }
 
+    newUser = (user) => {
+        console.log(user)
+        if (user.errors) {
+            alert(user.errors)
+        } else {
+            this.props.handleLogin(user)
+        }
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
-        const {username, password_digest, phone} = this.state
-        const userObj = {username, password_digest, phone}
-        fetch('http://localhost:3000/api/v1/users',{
-          method: "POST",
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(userObj)
-        })
-        .then(resp => resp.json())
-        .then(user => this.props.handleLogin(user))
+        const {username, password, passwordConfirmation, phone} = this.state
+        if (password !== passwordConfirmation) {
+            alert('Your password and confirmation password do not match. Please try again')
+        } else {
+            const userObj = {username, password_digest: password, phone}
+            fetch('http://localhost:3000/api/v1/users',{
+              method: "POST",
+              headers: {
+                'content-type': 'application/json'
+              },
+              body: JSON.stringify(userObj)
+            })
+            .then(resp => resp.json())
+            .then(user => this.newUser(user))
+        }
       }
 
     render(){
@@ -43,7 +56,7 @@ export default class SignupForm extends React.Component {
                 <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/></p>
                 
                 <p><label>Password:</label>
-                <input onChange={this.handleFormChange} type='password' name='password_digest' value={this.state.password_digest} /></p>
+                <input onChange={this.handleFormChange} type='password' name='password' value={this.state.password} /></p>
                 
                 <p><label>Re-Typed Password:</label>
                 <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
@@ -57,5 +70,4 @@ export default class SignupForm extends React.Component {
             </div>
         )
     }
-
 }
