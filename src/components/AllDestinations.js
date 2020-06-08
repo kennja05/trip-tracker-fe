@@ -1,22 +1,35 @@
 import React from 'react'
 import ReactLoading from 'react-loading'
-import Navbar from './NavBar'
-
 export default class AllDestinations extends React.Component {
 
     state = {
         destinations: [],
         searchTerm: "",
-        loaded: false
+        loaded: false,
+        startIndex: 0
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/api/v1/destinations/top/all')
+        fetch(`http://localhost:3000/api/v1/destinations/top/all/${this.state.startIndex}`)
             .then(resp => resp.json())
             .then(destArray => this.setState({
                 destinations: destArray,
                 loaded:true
             }))
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if (prevState.startIndex !== this.state.startIndex){
+            this.setState({
+                loaded: false
+            })
+            fetch(`http://localhost:3000/api/v1/destinations/top/all/${this.state.startIndex}`)
+            .then(resp => resp.json())
+            .then(destArray => this.setState({
+                destinations: destArray,
+                loaded:true
+            }))
+        }
     }
 
     handleSearch = e => {
@@ -25,12 +38,35 @@ export default class AllDestinations extends React.Component {
         })
     }
 
+    handleChangeIndex = e => {
+        if (e.target.name === 'increment') {
+            if (this.state.startIndex < 200){
+                this.setState({
+                    startIndex: this.state.startIndex + 50
+                })
+            } else {
+                alert("You have reached the end of the list!")
+            }
+        }
+        if (e.target.name === 'decrement') {
+            if (this.state.startIndex >= 50){
+                this.setState({
+                    startIndex: this.state.startIndex - 50
+                })
+            } else {
+                alert("You are already at the beginning of the list!")
+            }
+        }
+    }
+
+    // <ReactLoading type={'spin'} color={'#6b6e70'}/>
+
     render(){
+        console.log(this.state.startIndex)
         return( 
             <div className='all-dest'>
-                <Navbar user={this.props.user} history={this.props.history} logout={this.props.logout}/>
                 <div className='all-destinations-list'>
-                    <h2>All Destinations: {this.state.loaded ? `${this.state.destinations.length} total` : <ReactLoading type={'spin'} color={'#6b6e70'}/>} </h2>               
+                    <h2>All Destinations: {this.state.startIndex} - {this.state.startIndex + 50} </h2>               
                     {this.state.loaded && 
                     <div>
                         <p><u>Search for a Country: </u>
@@ -50,6 +86,8 @@ export default class AllDestinations extends React.Component {
                         </li>)}
                     </ul>
                 </div>
+                <button name='increment' onClick={this.handleChangeIndex}>Increase Index</button>
+                <button name='decrement' onClick={this.handleChangeIndex}>Decrease Index</button>
             </div>
         ) 
     }

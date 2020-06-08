@@ -12,6 +12,7 @@ export default class CanvasHistoricalChart extends React.Component {
 
     componentDidMount(){
         const myObj = []
+        // eslint-disable-next-line
         this.props.values.filter(val => val.date >= this.props.startDate).map((val, index) => {
             myObj.push({x: index / 3, y: val.rate})
         })

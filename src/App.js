@@ -5,6 +5,7 @@ import AllDestinations from './components/AllDestinations'
 import HomepageContainer from './components/HomepageContainer'
 import { Route, Switch} from 'react-router-dom'
 import TripShow from './components/TripShow'
+import Navbar from './components/NavBar'
 
 class App extends React.Component {
 
@@ -30,6 +31,7 @@ class App extends React.Component {
     render(){
         return(
           <div className='app'>
+            <Navbar logout={this.handleLogout} user={this.state.user} />
             <Switch>
               <Route exact path='/' render={(routerProps) => <Credentials {...routerProps} handleLogin={this.handleLogin}/>} />
               <Route path='/dashboard' render={(routerProps) => <HomepageContainer logout={this.handleLogOut} user={this.state.user} {...routerProps}/>} />
