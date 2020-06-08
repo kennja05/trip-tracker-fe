@@ -18,9 +18,7 @@ export default class LoginForm extends React.Component {
         const {username, password} = this.state
         fetch(`http://localhost:3000/api/v1/users/login/${username}/${password}`)
             .then(resp => resp.json())
-            .then(user => user ? this.props.handleLogin(user) : alert('nonononono'))
-
-            // .then(this.props.history.push('/dashboard'))
+            .then(user => user ? this.props.handleLogin(user) : alert('No user was found. Please try again.'))
     }
 
 

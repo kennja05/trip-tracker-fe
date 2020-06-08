@@ -17,7 +17,6 @@ export default class SignupForm extends React.Component {
     }
 
     newUser = (user) => {
-        console.log(user)
         if (user.errors) {
             alert(user.errors)
         } else {
