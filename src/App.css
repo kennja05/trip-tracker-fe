@@ -103,11 +103,10 @@ body{
 */
 
 .credential-page {
-  font-family: "Ubuntu", sans-serif;
   display: flex;
-  height: 100%;
+  min-height: 90vh;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   margin: 0%;
   border: 1px solid yellow;
 }
@@ -120,7 +119,7 @@ body{
 }
 
 .title{
-  font-family: impact;
+  font-family: 'Racing Sans One', cursive;
   color: #86c232;
   margin-top: 5%;
   font-size: 80px;
@@ -129,25 +128,24 @@ body{
 .login-form-div {
   margin: auto;
   border-style: solid;
-  border-color: #6b6e70;
+  border-color: #5c6470;
   border-radius: 2%;
-  background-color: #222629;
-  color: #86c232;
-  height: 25vh;
-  width: 45vw;
+  background: linear-gradient(rgba(112, 100, 92, 1), rgba(92, 100, 112,1) );
+  height: 25%;
+  width: 35%;
   text-align: center;
   box-shadow: 5px 5px;
+  color: white;
 }
 
 .login-form{
-  /* font-size: 25px; */
 }
 
 
 .signup-form-div{
   margin: auto;
   height: 40%;
-  width: 45%;
+  width: 35%;
   border-style: solid;
   border-color: #6b6e70;
   border-width: 2px;
@@ -167,12 +165,6 @@ body{
 /* 
 End Creential Page Elements
 ================================================================================================ */
-
-
-input:focus {
-  background-color: #86c232;
-  color: #222629;
-}
 
 .Add-Trip-Div{
   border-style: solid;
