@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  font-family: "Arial";
   background-color: #474B4F;
 }
 
 .body{
+  font-family: "Ubuntu", sans-serif;
   background-color: #282c34;
 }
 
@@ -51,10 +51,10 @@
   width: 45vw;
   background-color: #222629;
   color: #86c232;
-  font-family: Cochin;
   line-height: 1.1;
   box-shadow: 5px 5px;
   margin-bottom: 5%;
+  /* font-family: 'Ubuntu', sans-serif; */
 }
 
 .sub-dash-container-div{
@@ -110,6 +110,7 @@
 }
 
 .credential-page {
+  font-family: "Ubuntu", sans-serif;
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -150,7 +151,6 @@
 
 .login-form{
   /* margin: auto; */
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 25px;
 }
 
@@ -177,7 +177,6 @@ input:focus {
   color: #86c232;
   text-align: center;
   box-shadow: 5px 5px;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .Add-Trip-Div{
@@ -189,7 +188,6 @@ input:focus {
   box-shadow: 5px 5px;
   height: 33vh;
   width: 45vw;
-  font-family: Cochin;
   background-color: #222629;
   display: flex;
   flex-direction: column;
@@ -256,7 +254,6 @@ input:focus {
   color: white;
   background-color: #222629;
   box-shadow: 5px 5px;
-  font-family: Cochin;
   line-height: 0.9;
 }
 
