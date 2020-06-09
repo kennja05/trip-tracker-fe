@@ -21,26 +21,32 @@ export default class LoginForm extends React.Component {
             .then(user => user ? this.props.handleLogin(user) : alert('No user was found. Please try again.'))
     }
 
-
-
-    render(){
-            return(
-                <div className='login-form-div'>
-                <form className='login-form' onSubmit={this.handleSubmit}>
-                    <p>
-                        <label>Username:</label>
-                        <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/>
-                    </p>
-                    <p>
-                        <label>Password:</label>
-                        <input onChange={this.handleFormChange} type='password' name='password' value={this.state.password} />
-                    </p>
-                    <input type='submit' value='Log In' />
-                </form>
-                </div>
-            )
-        
+    componentWillUnmount(){
+        this.setState({
+            username: '',
+            password: ''
+        })
     }
 
 
+
+    render(){
+        return(
+            <div className='login-form-div'>
+            <form className='login-form' onSubmit={this.handleSubmit}>
+                <p>
+                    <label>Username:</label>
+                    <input onChange={this.handleFormChange} type='text' name='username' 
+                        value={this.state.username}/>
+                </p>
+                <p>
+                    <label>Password:</label>
+                    <input onChange={this.handleFormChange} type='password' name='password' 
+                        value={this.state.password} />
+                </p>
+                <input type='submit' value='Log In' />
+            </form>
+            </div>
+        )   
+    }
 }

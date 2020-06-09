@@ -24,13 +24,19 @@ export default class SignupForm extends React.Component {
         }
     }
 
+    componentWillUnmount(){
+        this.setState({
+            username: '',
+            password: '',
+            passwordConfirmation: '',
+            phone: ''
+        })
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         const {username, password, passwordConfirmation, phone} = this.state
-        if (password !== passwordConfirmation) {
-            alert('Your password and confirmation password do not match. Please try again')
-        } else {
-            const userObj = {username, password_digest: password, phone}
+            const userObj = {username, password, passwordConfirmation, phone}
             fetch('http://localhost:3000/api/v1/users',{
               method: "POST",
               headers: {
@@ -40,8 +46,7 @@ export default class SignupForm extends React.Component {
             })
             .then(resp => resp.json())
             .then(user => this.newUser(user))
-        }
-      }
+    }
 
     render(){
         return(
@@ -51,13 +56,13 @@ export default class SignupForm extends React.Component {
 
             <form onSubmit={this.handleSubmit}> 
                 
-                <p><label>Username:</label>
+                <p><label>*Username:</label>
                 <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/></p>
                 
-                <p><label>Password:</label>
+                <p><label>*Password:</label>
                 <input onChange={this.handleFormChange} type='password' name='password' value={this.state.password} /></p>
                 
-                <p><label>Re-Typed Password:</label>
+                <p><label>*Re-Typed Password:</label>
                 <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
                 
                 <p><label>Phone Number:</label>
