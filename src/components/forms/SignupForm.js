@@ -50,27 +50,29 @@ export default class SignupForm extends React.Component {
 
     render(){
         return(
-            <div className='signup-form'>
-            
-            <h2>New User? Sign up below</h2>
-
-            <form onSubmit={this.handleSubmit}> 
-                
-                <p><label>*Username:</label>
-                <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/></p>
-                
-                <p><label>*Password:</label>
-                <input onChange={this.handleFormChange} type='password' name='password' value={this.state.password} /></p>
-                
-                <p><label>*Re-Typed Password:</label>
-                <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
-                
-                <p><label>Phone Number:</label>
-                <input onChange={this.handleFormChange} type='text' name='phone' value={this.state.phone} /></p>
-                
-                <input type='submit' value='Create Account' />
-            </form>
-
+            <div className='signup-form-div'>
+                <h2>New User? Sign up below</h2>
+                <div className='signup-form'>
+                    <form onSubmit={this.handleSubmit}> 
+                        
+                        <p><label>*Username: </label>
+                        <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/></p>
+                        
+                        <p><label>*Password: </label>
+                        <input onChange={this.handleFormChange} type='password' name='password' value={this.state.password} /></p>
+                        
+                        <p><label>*Re-Typed Password: </label>
+                        <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
+                        
+                        <p><label>Phone Number: </label>
+                        <input onChange={this.handleFormChange} type='text' name='phone' value={this.state.phone} /></p>
+                        
+                        <input type='submit' value='Create Account' />
+                    </form>
+                </div>
+                        <p>
+                            <u>* = Required Field</u>
+                        </p>
             </div>
         )
     }
