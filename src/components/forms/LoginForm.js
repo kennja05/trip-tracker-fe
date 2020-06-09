@@ -1,10 +1,14 @@
 import React from 'react'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faSignInAlt} from '@fortawesome/free-solid-svg-icons'
+import {faUser} from '@fortawesome/free-solid-svg-icons'
 
 export default class LoginForm extends React.Component {
 
     state = {
         username: '',
         password: '',
+        disableButton: true
     }
 
     handleFormChange = (e) => {
@@ -28,8 +32,6 @@ export default class LoginForm extends React.Component {
         })
     }
 
-
-
     render(){
         return(
             <div className='login-form-div'>
@@ -46,7 +48,10 @@ export default class LoginForm extends React.Component {
                             <input onChange={this.handleFormChange} type='password' name='password' 
                                 value={this.state.password} />
                         </p>
-                        <input type='submit' value='Log In' />
+                        <button disabled={this.state.password === "" || this.state.username === ""} type='submit'>
+                            <FontAwesomeIcon aria-hidden={true} icon={faSignInAlt} />
+                            <span className='sr-only'>Log In</span>
+                        </button>
                     </form>
                 </div>
             </div>
