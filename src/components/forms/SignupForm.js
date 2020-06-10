@@ -21,7 +21,7 @@ export default class SignupForm extends React.Component {
 
     newUser = (user) => {
         if (user.errors) {
-            alert(user.errors)
+            alert(user.errors[0])
         } else {
             this.props.handleLogin(user)
         }
