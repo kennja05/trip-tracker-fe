@@ -1,7 +1,7 @@
 import React from 'react'
-import LoginForm from './forms/LoginForm'
-import SignupForm from './forms/SignupForm'
-import Title from './Title'
+import LoginForm from '../CredentialsComponents/LoginForm'
+import SignupForm from '../CredentialsComponents/SignupForm'
+import Title from '../CredentialsComponents/Title'
 
 export default class Credentials extends React.Component {
 

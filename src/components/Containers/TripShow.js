@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PlannedExpenseForm from './forms/PlannedExpenseForm'
-import HistoricalRates from './HistoricalRates'
-import CanvasHistoricalChart from './CanvasHistoricalChart'
-import PePieChart from './PePieChart'
+import PlannedExpenseForm from '../TripShow/PlannedExpenseForm'
+import HistoricalRates from '../TripShow/HistoricalRates'
+import CanvasHistoricalChart from '../TripShow/CanvasHistoricalChart'
+import PePieChart from '../TripShow/PePieChart'
 
 
 export default class TripShow extends React.Component {

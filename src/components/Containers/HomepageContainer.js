@@ -1,9 +1,8 @@
 import React from 'react'
-import PastTrips from './PastTrips'
-import PopularDestinationsContainer from './PopularDestinationsContainer'
-import TripContainer from './TripContainer'
-import AddTripForm from './forms/AddTripForm'
-import NavBar from './NavBar'
+import PastTrips from '../DashboardComponents/PastTrips'
+import PopularDestinationsContainer from '../DashboardComponents/PopularDestinationsContainer'
+import TripContainer from '../DashboardComponents/TripContainer'
+import AddTripForm from '../DashboardComponents/AddTripForm'
 
 
 class HomepageContainer extends React.Component {

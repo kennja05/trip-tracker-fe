@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import Credentials from './components/Credentials'
-import AllDestinations from './components/AllDestinations'
-import HomepageContainer from './components/HomepageContainer'
 import { Route, Switch} from 'react-router-dom'
-import TripShow from './components/TripShow'
-import Navbar from './components/NavBar'
-import NoContent from './components/NoContent'
+
+import Credentials from './components/Containers/Credentials'
+import AllDestinations from './components/Misc/AllDestinations'
+import HomepageContainer from './components/Containers/HomepageContainer'
+import TripShow from './components/Containers/TripShow'
+import Navbar from './components/Misc/NavBar'
+import NoContent from './components/Misc/NoContent'
 
 class App extends React.Component {
 
