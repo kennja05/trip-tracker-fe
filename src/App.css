@@ -14,7 +14,6 @@ html, body {margin:0;padding:0;height:100%;}
 
 .route-components{
   height: 97vh;
-  
 }
 
 .navbar{
@@ -24,13 +23,76 @@ html, body {margin:0;padding:0;height:100%;}
   padding-right: 10vh;
   height: 3vh;
 }
+/* content from title/credential page 
+==================================================================================================
+*/
+
+.credential-page {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-size: cover;
+  background-image: url(./images/MountainBackground.jpg);
+  overflow: auto;
+}
+
+.title{
+  font-family: 'Racing Sans One', cursive;
+  color: #cc3a00;
+  font-size: 100px;
+  margin:2%;
+}
+
+.login-form-div {
+  border-style: solid;
+  border-color: #27333f;
+  border-radius: 2%;
+  background: linear-gradient(rgba(112, 100, 92, 1), rgba(92, 100, 112,1) );
+  text-align: center;
+  box-shadow: 5px 5px;
+  color: white;
+  width: 35%;
+  margin: 2%;
+}
+
+.login-form{
+  padding-bottom: 2%;
+}
+
+h1.login-form{
+  color: green;
+}
+
+.signup-form-div{
+  border-style: solid;
+  border-color: #27333f;
+  border-width: 2px;
+  border-radius: 2%;
+  background: linear-gradient(rgba(112, 100, 92, 1), rgba(92, 100, 112,1) );
+  color: white;
+  text-align: center;
+  box-shadow: 5px 5px;
+  width: 35%;
+}
+
+.signup-form{
+}
+/* 
+End title/credential page elements
+================================================================================================ */
+
+
+/* Dashboard Components 
+================================================================================================ */
 
 .Dashboard-Container {
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
-  height: 45vh;
-  width: 45vw;
+  /* height: 45vh;
+  width: 45vw; */
   background-color: #222629;
   color: #86c232;
   line-height: 1.1;
@@ -55,7 +117,6 @@ html, body {margin:0;padding:0;height:100%;}
   cursor: pointer;
 }
 
-
 .Homepage {
   padding: 1%;
   margin: 0%;
@@ -78,75 +139,9 @@ html, body {margin:0;padding:0;height:100%;}
   justify-content: flex-start;
 }
 
-
 #popular-destinations-container{
   height: 57vh;
 }
-
-/* content from title/credential page 
-==================================================================================================
-*/
-
-.credential-page {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-size: cover;
-  background-image: url(./images/MountainBackground.jpg);
-  border: 1px solid red;
-}
-
-.title{
-  font-family: 'Racing Sans One', cursive;
-  color: #cc3a00;
-  font-size: 100px;
-  border: 1px solid orange;
-  /* height: 10%; */
-  margin:2%;
-}
-
-.login-form-div {
-  border-style: solid;
-  border-color: #27333f;
-  border-radius: 2%;
-  background: linear-gradient(rgba(112, 100, 92, 1), rgba(92, 100, 112,1) );
-  text-align: center;
-  box-shadow: 5px 5px;
-  color: white;
-  width: 35%;
-  border: 1px solid red;
-  margin: 2%;
-}
-
-.login-form{
-  padding: 2%;
-}
-
-h1.login-form{
-  color: green;
-}
-
-.signup-form-div{
-  border-style: solid;
-  border-color: #27333f;
-  border-width: 2px;
-  border-radius: 2%;
-  background: linear-gradient(rgba(112, 100, 92, 1), rgba(92, 100, 112,1) );
-  color: white;
-  text-align: center;
-  box-shadow: 5px 5px;
-  /* margin-bottom: 1.5%; */
-  width: 35%;
-  border: 1px solid red;
-}
-
-.signup-form{
-}
-/* 
-End title/credential page elements
-================================================================================================ */
 
 .Add-Trip-Div{
   border-style: solid;
@@ -160,7 +155,6 @@ End title/credential page elements
   background-color: #222629;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 
 .Add-Trip-Form{
@@ -170,6 +164,27 @@ End title/credential page elements
 .form-break{
   height: 2vh;
 }
+
+i {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+
+/* End Dashboard Container Components 
+============================================================================================== */
 
 .pe-form-and-trip-rates{
   display: flex;
@@ -384,25 +399,6 @@ End title/credential page elements
   margin: 5px;
   font-family: 'Times New Roman';
   color: #86c232;
-}
-
-/* i tag and .right/.left for the prev/next buttons */
-
-i {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
 }
 
 .all-destinations-list{
