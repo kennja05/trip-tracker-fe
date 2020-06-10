@@ -1,4 +1,7 @@
 import React from 'react'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faUserPlus} from '@fortawesome/free-solid-svg-icons'
+
 
 export default class SignupForm extends React.Component {
 
@@ -53,7 +56,7 @@ export default class SignupForm extends React.Component {
             <div className='signup-form-div'>
                 <h2>New User? Sign up below</h2>
                 <div className='signup-form'>
-                    <form onSubmit={this.handleSubmit}> 
+                    <form> 
                         
                         <p><label>*Username: </label>
                         <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/></p>
@@ -66,12 +69,14 @@ export default class SignupForm extends React.Component {
                         
                         <p><label>Phone Number: </label>
                         <input onChange={this.handleFormChange} type='text' name='phone' value={this.state.phone} /></p>
-                        
-                        <input type='submit' value='Create Account' />
+                        <button className='sr-only' onClick={this.handleSubmit}></button>
                     </form>
                 </div>
+                        <button onClick={this.handleSubmit} type='submit' value='Create Account'>
+                            <FontAwesomeIcon title="Log In" aria-hidden={true} icon={faUserPlus} />
+                        </button>
                         <p>
-                            <u>* = Required Field</u>
+                            <i style={{textDecoration: 'none'}}>* = Required Field</i>
                         </p>
             </div>
         )

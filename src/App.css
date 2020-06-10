@@ -98,7 +98,7 @@ body{
   height: 57vh;
 }
 
-/* content from title page 
+/* content from title/credential page 
 ==================================================================================================
 */
 
@@ -108,27 +108,26 @@ body{
   flex-direction: column;
   justify-content: space-evenly;
   margin: 0%;
-  border: 1px solid yellow;
 }
 
 .title-div{
   text-align: center;
   margin: auto;
-  height: 20vh;
-  width: 45vw;
+  height: 20%;
+  width: 45%;
 }
 
 .title{
   font-family: 'Racing Sans One', cursive;
-  color: #86c232;
-  margin-top: 5%;
-  font-size: 80px;
+  color: #cc3a00;
+  margin: 5%;
+  font-size: 100px;
 }
 
 .login-form-div {
   margin: auto;
   border-style: solid;
-  border-color: #5c6470;
+  border-color: #27333f;
   border-radius: 2%;
   background: linear-gradient(rgba(112, 100, 92, 1), rgba(92, 100, 112,1) );
   height: 25%;
@@ -138,20 +137,16 @@ body{
   color: white;
 }
 
-.login-form{
-}
-
-
 .signup-form-div{
   margin: auto;
   height: 40%;
   width: 35%;
   border-style: solid;
-  border-color: #6b6e70;
+  border-color: #27333f;
   border-width: 2px;
   border-radius: 2%;
-  background-color: #222629;
-  color: #86c232;
+  background: linear-gradient(rgba(112, 100, 92, 1), rgba(92, 100, 112,1) );
+  color: white;
   text-align: center;
   box-shadow: 5px 5px;
   overflow: auto;
@@ -160,10 +155,9 @@ body{
 .signup-form{
   text-align: right;
   padding-right: 30%;
-  border-style: solid;
 }
 /* 
-End Creential Page Elements
+End title/credential page elements
 ================================================================================================ */
 
 .Add-Trip-Div{
