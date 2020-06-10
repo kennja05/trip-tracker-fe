@@ -57,17 +57,16 @@ export default class SignupForm extends React.Component {
                 <h2>New User? Sign up below</h2>
                 <div className='signup-form'>
                     <form> 
-                        
                         <p><label>*Username: </label>
                         <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/></p>
                         
                         <p><label>*Password: </label>
                         <input onChange={this.handleFormChange} type='password' name='password' value={this.state.password} /></p>
                         
-                        <p><label>*Re-Typed Password: </label>
+                        <p><label>*Confirm Password: </label>
                         <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
                         
-                        <p><label>Phone Number: </label>
+                        <p><label>Phone: </label>
                         <input onChange={this.handleFormChange} type='text' name='phone' value={this.state.phone} /></p>
                         <button className='sr-only' onClick={this.handleSubmit}></button>
                     </form>
