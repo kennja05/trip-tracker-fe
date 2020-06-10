@@ -6,6 +6,7 @@ import HomepageContainer from './components/HomepageContainer'
 import { Route, Switch} from 'react-router-dom'
 import TripShow from './components/TripShow'
 import Navbar from './components/NavBar'
+import NoContent from './components/NoContent'
 
 class App extends React.Component {
 
@@ -37,6 +38,7 @@ class App extends React.Component {
               <Route path='/dashboard' render={(routerProps) => <HomepageContainer logout={this.handleLogOut} user={this.state.user} {...routerProps}/>} />
               <Route path='/alldestinations' render={(routerProps) => <AllDestinations logout={this.handleLogout} {...routerProps} user={this.state.user}/>} />
               <Route path='/trip/:id' render={(routerProps) => <TripShow logout={this.handleLogOut} user={this.state.user} {...routerProps}/>} />
+              <Route path='*' component={NoContent} />
             </Switch>
           </div>
         );

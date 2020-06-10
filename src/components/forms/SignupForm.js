@@ -72,11 +72,12 @@ export default class SignupForm extends React.Component {
                         <button className='sr-only' onClick={this.handleSubmit}></button>
                     </form>
                 </div>
-                        <button onClick={this.handleSubmit} type='submit' value='Create Account'>
+                        <button onClick={this.handleSubmit} type='submit' value='Create Account' 
+                        disabled={this.state.username === '' || this.state.password === ''}>
                             <FontAwesomeIcon title="Log In" aria-hidden={true} icon={faUserPlus} />
                         </button>
                         <p>
-                            <i style={{textDecoration: 'none'}}>* = Required Field</i>
+                            <i style={{border: 'none'}}>* = Required Field</i>
                         </p>
             </div>
         )

@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PlannedExpenseForm from './forms/PlannedExpenseForm'
-import NavBar from './NavBar'
 import HistoricalRates from './HistoricalRates'
-// import HistoricalChart from './HistoricalChart' - Uses victory chart library
 import CanvasHistoricalChart from './CanvasHistoricalChart'
 import PePieChart from './PePieChart'
 
@@ -107,7 +105,6 @@ export default class TripShow extends React.Component {
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
             <div>
-                <NavBar user={this.props.user} history={this.props.history} logout={this.props.logout}/>
                 <div className='trip-show-container'>
                     <div className='trip-show'>
                         <h1>Your Trip to: {this.state.loaded && this.state.trip.destination.name} </h1>

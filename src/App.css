@@ -1,8 +1,8 @@
-html{
+/* html{
   height:100vh;
   overflow: auto;
   border: 1px solid red;
-}
+} */
 
 body{
   font-family: "Ubuntu", sans-serif;
@@ -11,6 +11,13 @@ body{
   border: 1px solid green;
   background-size: cover;
   background-image: url(./images/MountainBackground.jpg);
+}
+
+html{
+  height: 100%;
+}
+body {
+  min-height: 100%;
 }
 
 .App {
