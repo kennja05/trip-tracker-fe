@@ -1,6 +1,6 @@
 /* Dashboard Components 
 ================================================================================================ */
-.Homepage {
+.homepage {
     padding: 1%;
     margin: 0%;
     background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
@@ -10,7 +10,7 @@
     position: relative;
   }
   
-.Dashboard-Container {
+.dashboard-container {
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
@@ -44,7 +44,7 @@
   height: 57vh;
 }
 
-.Add-Trip-Div{
+.add-trip-div{
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
@@ -58,7 +58,7 @@
   flex-direction: column;
 }
   
-.Add-Trip-Form{
+.add-trip-form{
   margin-left: 5%;
 }
   

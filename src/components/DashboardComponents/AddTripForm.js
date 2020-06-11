@@ -50,7 +50,8 @@ export default class AddTripForm extends React.Component {
             } else if (this.state.startDate > this.state.endDate) {
                 alert('Please look at your selected dates. Make sure they are in the correct order!')
             } else {
-                const tripObject = {start_date: this.state.startDate, end_date: this.state.endDate, user_id: this.props.user.id, destination_id: foundCountry.id}
+                const tripObject = {start_date: this.state.startDate, end_date: this.state.endDate, 
+                                    user_id: this.props.user.id, destination_id: foundCountry.id}
                 fetch('http://localhost:3000/api/v1/trips', {
                     method: 'POST', 
                     headers: {
@@ -68,19 +69,23 @@ export default class AddTripForm extends React.Component {
         return(
             //checking to make sure the user is logged in before allowing new trips
             this.props.user ? 
-            <div className='Add-Trip-Div'>
+            <div className='add-trip-div'>
                 <div className='sub-dash-container-div'>
-                    <h2><u id='test'>Add A New Trip</u></h2>
-                    <form className='Add-Trip-Form' onSubmit={this.handleFormSubmit}>
+                    <h2><u>Add A New Trip</u></h2>
+                    <form className='add-trip-form' onSubmit={this.handleFormSubmit}>
                         <label>Start Date:</label> 
-                        <DatePicker dateFormat='MM/dd/yy' name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} />
+                        <DatePicker dateFormat='MM/dd/yy' name='startDate' 
+                            selected={this.state.startDate} onChange={this.handleStartDateChange} />
                         <div className='form-break'></div>
                         <label>End Date:</label>
-                        <DatePicker dateFormat='MM/dd/yy' name='endDate' selected={this.state.endDate} onChange={this.handleEndDateChange} />
+                        <DatePicker dateFormat='MM/dd/yy' name='endDate' 
+                            selected={this.state.endDate} onChange={this.handleEndDateChange} />
                         <div className='form-break'></div>
                         <label>Location:</label>
                         <select name='selectedDestination' onChange={this.handleFormChange}>
-                            {this.state.destinations.length > 0 && this.state.destinations.map(dest => <option key={dest.id} value={dest.name}>{dest.name}</option>)}
+                            {this.state.destinations.length > 0 && 
+                            this.state.destinations.map(dest => <option key={dest.id} 
+                            value={dest.name}>{dest.name}</option>)}
                         </select>
                         <div className='form-break'></div>
                         <input type='submit' value='Add Trip' />
@@ -88,9 +93,12 @@ export default class AddTripForm extends React.Component {
                 </div>
             </div> 
             : 
-            <div className='Add-Trip-Div'>
+            <div className='add-trip-div'>
                 <div className='sub-dash-container-div'>
-                    <h2><u>Add A New Trip</u></h2><Link className='link' to='/'><b>Log In to Add New Trips</b></Link>
+                    <h2><u>Add A New Trip</u></h2>
+                    <Link className='link' to='/'>
+                        <b>Log In to Add New Trips</b>
+                    </Link>
                 </div>
             </div>
         )
