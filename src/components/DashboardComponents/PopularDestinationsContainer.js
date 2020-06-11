@@ -31,8 +31,6 @@ class PopularDestinationsContainer extends React.Component {
             </div>
         )
     }
-
-
 }
 
 export default PopularDestinationsContainer

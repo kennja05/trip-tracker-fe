@@ -23,7 +23,6 @@ class HomepageContainer extends React.Component {
         </div>
         )
     }
-
 }
 
 

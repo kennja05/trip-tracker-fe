@@ -103,6 +103,4 @@ export default class PastTrips extends React.Component {
             </div>
         )
     }
-
-
 }

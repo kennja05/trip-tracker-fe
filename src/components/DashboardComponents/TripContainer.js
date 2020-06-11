@@ -92,6 +92,4 @@ export default class TripContainer extends React.Component {
             </div>
         )
     }
-
-
 }

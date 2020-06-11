@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
-
 export default class AddTripForm extends React.Component {
 
     state = {
@@ -71,7 +70,7 @@ export default class AddTripForm extends React.Component {
             this.props.user ? 
             <div className='Add-Trip-Div'>
                 <div className='sub-dash-container-div'>
-                    <h2><u>Add A New Trip</u></h2>
+                    <h2><u id='test'>Add A New Trip</u></h2>
                     <form className='Add-Trip-Form' onSubmit={this.handleFormSubmit}>
                         <label>Start Date:</label> 
                         <DatePicker dateFormat='MM/dd/yy' name='startDate' selected={this.state.startDate} onChange={this.handleStartDateChange} />

@@ -5,7 +5,6 @@ body{
 
 html, body {margin:0;padding:0;height:100%;}
 
-
 .App {
   text-align: center;
   background-color: #474B4F;
@@ -84,107 +83,7 @@ End title/credential page elements
 ================================================================================================ */
 
 
-/* Dashboard Components 
-================================================================================================ */
-.Homepage {
-  padding: 1%;
-  margin: 0%;
-  background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
-  display: flex;
-  height: 100vh;
-  justify-content: space-evenly;
-  position: relative;
-}
 
-.Dashboard-Container {
-  border-style: solid;
-  border-color: #6b6e70;
-  border-radius: 2%;
-  /* height: 45vh;
-  width: 45vw; */
-  background-color: #222629;
-  color: #86c232;
-  line-height: 1.1;
-  box-shadow: 5px 5px;
-  margin-bottom: 5%;
-  font-family: 'Ubuntu', sans-serif;
-}
-
-.sub-dash-container-div{
-  margin-left: 5%;
-}
-
-
-
-.popular-add-trip{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.present-past-trips{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-#popular-destinations-container{
-  height: 57vh;
-}
-
-.Add-Trip-Div{
-  border-style: solid;
-  border-color: #6b6e70;
-  border-radius: 2%;
-  color: #86c232;
-  text-align: left;
-  box-shadow: 5px 5px;
-  height: 33vh;
-  width: 45vw;
-  background-color: #222629;
-  display: flex;
-  flex-direction: column;
-}
-
-.Add-Trip-Form{
-  margin-left: 5%;
-}
-
-.form-break{
-  height: 2vh;
-}
-
-i {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
-.delete-past-trip{
-  border-style: solid;
-  color: red;
-  border-radius: 40%;
-  border-width: 1px;
-  border-color: red;
-}
-
-.delete-past-trip:hover{
-  cursor: pointer;
-}
-
-/* End Dashboard Container Components 
-============================================================================================== */
 
 .pe-form-and-trip-rates{
   display: flex;
