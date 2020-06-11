@@ -14,10 +14,12 @@ class App extends React.Component {
 
     state = {
         loggedIn: false,
-        user: null, 
+        user: null
+        // user: {id: 133}
     }
 
     handleLogin = (inputUser) => {
+      console.log(inputUser)
         this.setState({
           loggedIn: true,
           user: inputUser

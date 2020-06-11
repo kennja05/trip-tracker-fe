@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+import PleaseLogin from '../Misc/PleaseLogin'
 
 export default class PastTrips extends React.Component {
 
@@ -101,12 +102,7 @@ export default class PastTrips extends React.Component {
                 </div>
             </div>
             : 
-            <div className='dashboard-container'>
-                <div className='sub-dash-container-div'>
-                    <h2><u>Past Trips</u></h2>
-                    <Link className='link' to='/'><b>Log In to See Your PastTrips</b></Link>
-                </div>
-            </div>
+            <PleaseLogin location='past' />
         )
     }
 }

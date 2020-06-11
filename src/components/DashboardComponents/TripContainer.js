@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import PleaseLogin from '../Misc/PleaseLogin'
 
 export default class TripContainer extends React.Component {
 
@@ -88,12 +88,7 @@ export default class TripContainer extends React.Component {
                 </div>
             </div>   
             :
-            <div className='dashboard-container'>
-                <div className='sub-dash-container-div'>
-                    <h2><u>Upcoming Trips</u></h2>
-                    <Link className='link' to='/'><b>Log In to See Your Upcoming Trips</b></Link>
-                </div>
-            </div>
+            <PleaseLogin location='present' />
         )
     }
 }

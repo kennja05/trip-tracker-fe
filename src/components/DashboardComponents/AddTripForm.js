@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import PleaseLogin from '../Misc/PleaseLogin'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -93,14 +93,7 @@ export default class AddTripForm extends React.Component {
                 </div>
             </div> 
             : 
-            <div className='add-trip-div'>
-                <div className='sub-dash-container-div'>
-                    <h2><u>Add A New Trip</u></h2>
-                    <Link className='link' to='/'>
-                        <b>Log In to Add New Trips</b>
-                    </Link>
-                </div>
-            </div>
+            <PleaseLogin location='add' />
         )
     }
 
