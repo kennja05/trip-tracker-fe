@@ -38,7 +38,8 @@
 }
 
 #popular-destinations-container{
-  height: 57vh;
+  height: 57%;
+  overflow: auto;
 }
 
 .add-trip-div{
@@ -48,7 +49,7 @@
   color: #86c232;
   text-align: left;
   box-shadow: 5px 5px;
-  height: 33vh;
+  height: 33%;
   width: 45vw;
   background-color: #222629;
   display: flex;

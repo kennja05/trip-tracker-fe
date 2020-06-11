@@ -1,4 +1,7 @@
 import React from 'react'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faArrowCircleLeft, faArrowCircleRight} from '@fortawesome/free-solid-svg-icons'
+
 import PleaseLogin from '../Misc/PleaseLogin'
 
 export default class TripContainer extends React.Component {
@@ -79,12 +82,12 @@ export default class TripContainer extends React.Component {
                             </ul>
                         </li>)}
                     </ul>         
-                    <button onClick={this.handlePrevClick}>
-                        <i className='arrow left'></i>
-                    </button>
-                    <button onClick={this.handleNextClick}>
-                        <i className='arrow right'></i>
-                    </button>
+                    <span onClick={this.handlePrevClick}>
+                        <FontAwesomeIcon icon={faArrowCircleLeft} />
+                    </span>
+                    <span onClick={this.handleNextClick}>
+                        <FontAwesomeIcon icon={faArrowCircleRight} />
+                    </span>
                 </div>
             </div>   
             :

@@ -82,7 +82,7 @@ export default class AddTripForm extends React.Component {
                             selected={this.state.endDate} onChange={this.handleEndDateChange} />
                         <div className='form-break'></div>
                         <label>Location:</label>
-                        <select name='selectedDestination' onChange={this.handleFormChange}>
+                        <select style={{width: '153px'}} name='selectedDestination' onChange={this.handleFormChange}>
                             {this.state.destinations.length > 0 && 
                             this.state.destinations.map(dest => <option key={dest.id} 
                             value={dest.name}>{dest.name}</option>)}
