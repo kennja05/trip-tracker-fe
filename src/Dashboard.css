@@ -19,6 +19,7 @@
   line-height: 1.1;
   box-shadow: 5px 5px;
   margin-bottom: 5%;
+  width: 90%;
 }
 
 .sub-dash-container-div{
@@ -26,15 +27,18 @@
 }
   
 .popular-add-trip{
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start; */
+  width: 50%;
+  border: 1px solid green;
+  height: 100%;
 }
 
 .present-past-trips{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 50%;
+  height: 100%;
+  border: 1px solid red;
 }
 
 #popular-destinations-container{
@@ -42,7 +46,7 @@
   overflow: auto;
 }
 
-.add-trip-div{
+#add-trip-div{
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
@@ -50,7 +54,6 @@
   text-align: left;
   box-shadow: 5px 5px;
   height: 33%;
-  width: 45vw;
   background-color: #222629;
   display: flex;
   flex-direction: column;
@@ -63,24 +66,7 @@
 .form-break{
   height: 2vh;
 }
-  
-i {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-  
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-  
+    
 .delete-past-trip{
   border-style: solid;
   color: red;

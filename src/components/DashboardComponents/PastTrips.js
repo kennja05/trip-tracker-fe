@@ -75,7 +75,7 @@ export default class PastTrips extends React.Component {
     render(){
         return (
             this.state.loaded ? 
-            <div className='dashboard-container'>
+            <div id='past-trips' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
                     <h2><u>Past Trips</u></h2>
                     {this.state.myTrips.length === 0 && <p>No Trips Have Have Been Completed</p>} 
