@@ -65,12 +65,12 @@ export default class TripContainer extends React.Component {
     render(){
         return (
             this.state.loaded ? 
-            <div className='dashboard-container'>
+            <div id='upcoming-trips' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
                     <h2><u>My Trips</u></h2>
                     {this.state.myTrips.length === 0 && <p>No Trips Have Have Been Planned</p>} 
                     <ul className='list'>
-                        {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 3).map(trip => 
+                        {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
                         <li onClick={() => this.handleTripClick(trip)} className='trip' 
                         key={trip.id}><b>{trip.destination.name}</b>
                             <ul>
@@ -82,11 +82,13 @@ export default class TripContainer extends React.Component {
                             </ul>
                         </li>)}
                     </ul>         
-                    <span onClick={this.handlePrevClick}>
-                        <FontAwesomeIcon icon={faArrowCircleLeft} />
-                    </span>
-                    <span onClick={this.handleNextClick}>
-                        <FontAwesomeIcon icon={faArrowCircleRight} />
+                    <span className='arrows'>
+                        <span onClick={this.handlePrevClick}>
+                            <FontAwesomeIcon icon={faArrowCircleLeft} />
+                        </span>
+                        <span onClick={this.handleNextClick}>
+                            <FontAwesomeIcon icon={faArrowCircleRight} />
+                        </span>
                     </span>
                 </div>
             </div>   

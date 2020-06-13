@@ -8,7 +8,18 @@
     height: 100vh;
     justify-content: space-evenly;
     position: relative;
-  }
+    /* overflow: auto; */
+}
+
+.dashboard-group{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  border: 1px solid green;
+  overflow: auto;
+}
   
 .dashboard-container {
   border-style: solid;
@@ -18,35 +29,23 @@
   color: #86c232;
   line-height: 1.1;
   box-shadow: 5px 5px;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   width: 90%;
 }
 
 .sub-dash-container-div{
   margin-left: 5%;
-}
-  
-.popular-add-trip{
-  width: 50%;
-  border: 1px solid green;
-  height: 100%;
-}
+  position: relative;
+}  
 
-.present-past-trips{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 50%;
-  height: 100%;
-  border: 1px solid red;
-}
-
-#popular-destinations-container{
+#popular-destinations{
   height: 57%;
+  min-height: 470px;
   overflow: auto;
+
 }
 
-#add-trip-div{
+#add-trip{
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
@@ -66,7 +65,17 @@
 .form-break{
   height: 2vh;
 }
-    
+   
+#past-trips{
+
+}
+
+#upcoming-trips{
+  min-height: 350px;
+}
+
+
+
 .delete-past-trip{
   border-style: solid;
   color: red;

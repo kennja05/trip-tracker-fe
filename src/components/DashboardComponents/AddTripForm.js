@@ -69,7 +69,7 @@ export default class AddTripForm extends React.Component {
         return(
             //checking to make sure the user is logged in before allowing new trips
             this.props.user ? 
-            <div id='add-trip-div' className='dashboard-container'>
+            <div id='add-trip' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
                     <h2><u>Add A New Trip</u></h2>
                     <form className='add-trip-form' onSubmit={this.handleFormSubmit}>

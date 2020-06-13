@@ -11,12 +11,12 @@ class HomepageContainer extends React.Component {
         return(
         <div>
             <div className='homepage'>
-                <div className='popular-add-trip'>
+                <div className='dashboard-group'>
                     <PopularDestinationsContainer />
                     <AddTripForm user={this.props.user} history={this.props.history} 
                         match={this.props.match}/>
                 </div>
-                <div className='present-past-trips'>
+                <div className='dashboard-group'>
                     <TripContainer user={this.props.user} history={this.props.history} 
                         match={this.props.match}/>
                     <PastTrips user={this.props.user} history={this.props.history} 

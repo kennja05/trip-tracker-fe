@@ -20,7 +20,7 @@ class PopularDestinationsContainer extends React.Component {
  
     render(){
         return(
-            <div id='popular-destinations-container' className='dashboard-container'>
+            <div id='popular-destinations' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
                     <h2><u>Top Destinations</u></h2>
                     {this.state.loaded ? null : <ReactLoading type={'spin'} color={'#6b6e70'}/>}
