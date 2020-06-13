@@ -21,6 +21,9 @@ html, body {margin:0;padding:0;height:100%;}
   text-align: right;
   padding-right: 10vh;
   height: 3vh;
+  min-height: 30px;
+  padding: 3px;
+  padding-right: 40px;
 }
 /* content from title/credential page 
 ==================================================================================================

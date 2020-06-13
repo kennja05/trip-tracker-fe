@@ -38,17 +38,17 @@ export default class TripContainer extends React.Component {
     
 
     handleNextClick = () => {
-        if (this.state.startIndex + 3 < this.state.myTrips.length) {
+        if (this.state.startIndex + 4 < this.state.myTrips.length) {
             this.setState({
-                startIndex: this.state.startIndex + 3
+                startIndex: this.state.startIndex + 4
             })
         }
     }
 
     handlePrevClick = () => {
-        if (this.state.startIndex >=3) {
+        if (this.state.startIndex >=4) {
             this.setState({
-                startIndex: this.state.startIndex - 3
+                startIndex: this.state.startIndex - 4
             })
         } else {
             this.setState({

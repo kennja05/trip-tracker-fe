@@ -3,12 +3,12 @@
 .homepage {
     padding: 1%;
     margin: 0%;
-    background-image: url('https://miro.medium.com/max/4000/0*5pQvYqNzgfYxrYVP.jpg');
+    background-image: url(./images/mountainWallBackground.jpg);
+    background-size: cover;
     display: flex;
     height: 100vh;
     justify-content: space-evenly;
     position: relative;
-    /* overflow: auto; */
 }
 
 .dashboard-group{
@@ -17,8 +17,6 @@
   align-items: center;
   width: 50%;
   height: 100%;
-  border: 1px solid green;
-  overflow: auto;
 }
   
 .dashboard-container {
@@ -40,22 +38,15 @@
 
 #popular-destinations{
   height: 57%;
-  min-height: 470px;
-  overflow: auto;
+  min-height: 460px;
+  /* overflow: auto; */
 
 }
 
 #add-trip{
-  border-style: solid;
-  border-color: #6b6e70;
-  border-radius: 2%;
-  color: #86c232;
-  text-align: left;
-  box-shadow: 5px 5px;
-  height: 33%;
-  background-color: #222629;
-  display: flex;
-  flex-direction: column;
+  
+  height: 30%;
+  min-height: 240px;
 }
   
 .add-trip-form{
@@ -67,7 +58,7 @@
 }
    
 #past-trips{
-
+  min-height: 350px;
 }
 
 #upcoming-trips{

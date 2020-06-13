@@ -35,17 +35,17 @@ export default class PastTrips extends React.Component {
     }
 
     handleNextClick = () => {
-        if (this.state.startIndex + 3 < this.state.myTrips.length) {
+        if (this.state.startIndex + 4 < this.state.myTrips.length) {
             this.setState({
-                startIndex: this.state.startIndex + 3
+                startIndex: this.state.startIndex + 4
             })
         } 
     }
 
     handlePrevClick = () => {
-        if (this.state.startIndex >=3) {
+        if (this.state.startIndex >=4) {
             this.setState({
-                startIndex: this.state.startIndex - 3
+                startIndex: this.state.startIndex - 4
             })
         } else if (this.state.startIndex < 3 || this.state.startIndex !== 0 ) {
             this.setState({
@@ -80,7 +80,7 @@ export default class PastTrips extends React.Component {
                     <h2><u>Past Trips</u></h2>
                     {this.state.myTrips.length === 0 && <p>No Trips Have Have Been Completed</p>} 
                     <ul className='list'>
-                        {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 3).map(trip => 
+                        {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
                             <li className='trip' key={trip.id}><b>{trip.destination.name}</b> - 
                             <span className='delete-past-trip' onClick={() => this.deleteTrip(trip.id)}>
                                 ×
