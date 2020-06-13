@@ -248,29 +248,6 @@ End title/credential page elements
   height: 99vh;
 } 
 
-.trip{
-  border-style: ridge;
-  border-color: 85bb65;
-  width: 75%;
-}
-
-.trip:hover{
-  color: #86c232;
-  cursor: pointer;
-  border-style: solid;
-}
-
-.delete-button{
-  color: red;
-  border-color: gray;
-  border-radius: 50%;
-  background-color: black;
-}
-
-.delete-button:hover{
-  cursor: pointer;
-}
-
 .link{
   color: #6b6e70;
   border-radius: 5%;

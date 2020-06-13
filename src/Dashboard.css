@@ -9,6 +9,7 @@
     height: 100vh;
     justify-content: space-evenly;
     position: relative;
+    color: #cc3a00;
 }
 
 .dashboard-group{
@@ -23,8 +24,7 @@
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
-  background-color: #222629;
-  color: #86c232;
+  background: linear-gradient(rgba(0, 0, 0, .5), rgba(255, 255, 255,1) );
   line-height: 1.1;
   box-shadow: 5px 5px;
   margin-bottom: 3%;
@@ -39,8 +39,6 @@
 #popular-destinations{
   height: 57%;
   min-height: 460px;
-  /* overflow: auto; */
-
 }
 
 #add-trip{
@@ -65,16 +63,16 @@
   min-height: 350px;
 }
 
-
-
-.delete-past-trip{
-  border-style: solid;
-  color: red;
-  border-radius: 40%;
-  border-width: 1px;
-  border-color: red;
+.trip{
+  border-style: ridge;
+  border-color: #a87464;
+  width: 80%;
+  padding: 3px;
+  padding-left: 10px;
 }
 
-.delete-past-trip:hover{
+.trip:hover{
+  color: #15485f;
   cursor: pointer;
-} 
+  border-style: solid;
+}

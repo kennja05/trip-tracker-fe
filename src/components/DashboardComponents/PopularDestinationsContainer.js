@@ -27,7 +27,7 @@ class PopularDestinationsContainer extends React.Component {
                     <ol>
                         {this.state.topDestinations.map(dest => 
                             <li key={dest.id}>
-                                {dest.name} - {dest.trips.length} users have gone here
+                                {dest.name} - {dest.trips.length} Trips
                             </li>)}  
                     </ol>
                     <Link className='link' to='/alldestinations'>See All</Link>

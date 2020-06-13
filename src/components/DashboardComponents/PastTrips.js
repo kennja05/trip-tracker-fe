@@ -82,9 +82,6 @@ export default class PastTrips extends React.Component {
                     <ul className='list'>
                         {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
                             <li className='trip' key={trip.id}><b>{trip.destination.name}</b> - 
-                            <span className='delete-past-trip' onClick={() => this.deleteTrip(trip.id)}>
-                                ×
-                            </span>
                             <ul>
                                 <li>Dates: <u>{trip.start_date}</u> - <u>{trip.end_date}</u></li>
                                 <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'green' : 'red'}`}}>
