@@ -104,7 +104,6 @@ export default class TripShow extends React.Component {
     render(){
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
-            <div>
                 <div className='trip-show-container'>
                     <div className='trip-show'>
                         <h1>Your Trip to: {this.state.loaded && this.state.trip.destination.name} </h1>
@@ -139,7 +138,6 @@ export default class TripShow extends React.Component {
                         {this.state.display.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses} total={this.state.totalPe}/> }
                     </div>
                 </div>
-            </div>
             
             : 
             
