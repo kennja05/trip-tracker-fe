@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import './Dashboard.css'
+import './TripShow.css'
 import { Route, Switch} from 'react-router-dom'
 
 import Credentials from './components/Containers/Credentials'

@@ -1,0 +1,172 @@
+/* Content for Trip Show Page 
+========================================================================================== */
+
+.trip-show-container{
+    background-image: url('./images/forestMountainBackground.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+}
+
+.trip-show{
+    height: 95vh;
+    width: 55vw;
+    border-style: solid;
+    border-color: #86c232;
+    border-radius: 2%;
+    color: white;
+    background-color: #222629;
+    box-shadow: 5px 5px;
+    line-height: 0.9;
+}
+
+.unauthorized{
+    color: red;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 99vh;
+} 
+
+.flag-pic{
+    height: 20vh;
+    width: 35vh;
+    border-style: hidden;
+}
+
+.pe-form-and-trip-rates{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.planned-expense-div{
+    color: white;
+    width: 38vw;
+    border-style: solid;
+    border-radius: 2%;
+    background-color: #222629;
+    box-shadow: 5px 5px;
+    border-color: #86c232;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 20%;
+}
+
+.planned-expense-form{
+    text-align: center;
+}
+
+.pe-h2{
+    margin: 1%;
+}
+
+.display-buttons-container{
+    /* border-color: #86c232; */
+    /* border-style: solid; */
+    /* border-radius: 2%; */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    /* color: white; */
+    /* background-color: #222629; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.display-buttons{
+    background-color: #222629;
+    border-style: solid;
+    border-radius: 2%;
+    color: white;
+    border-color: white;
+}
+  
+.display-buttons:hover{
+    cursor: pointer;
+    border-color: #86c232;
+}
+
+.historical-chart-container{
+    border-style: solid;
+    border-color: #86c232;
+    color: white;
+    border-radius: 2%;
+    width: 38vw;
+    height: 60vh;
+    background-color: white;
+    box-shadow: 5px 5px;
+    text-align: center;
+    flex-grow: 1;
+}
+  
+.chart{
+    margin-left: 2%;
+    border-style: solid;
+    border-color: black;
+}
+
+.chart-y-label{
+    display: flex;
+}
+  
+.y-axis{
+    writing-mode: vertical-lr;
+    color: #222629;
+    unicode-bidi:bidi-override;
+    direction:rtl;
+}
+
+.chart-title{
+    color: #222629;
+}
+  
+.hr-info{
+    margin-left: 5%;
+}
+
+.historical-rates{
+    border-style: solid;
+    border-color: #86c232;
+    color: white;
+    border-radius: 2%;
+    width: 38vw;
+    background-color: #222629;
+    box-shadow: 5px 5px;
+    flex-grow: 1;
+}
+
+.pie-chart{
+    border-style: solid;
+    border-radius: 2%;
+    border-color: #86c232;
+    box-shadow: 5px 5px;
+    color: white;
+}
+
+.empty{
+    border-style: solid;
+    border-radius: 2%;
+    text-align: center;
+    background-color: #222629;
+}
+
+.canvas-chart-container{
+    border-style: solid;
+    border-radius: 2%;
+    border-color: #86c232;
+    box-shadow: 5px 5px;
+    color: white;
+}
+
+.unauthorized-link{
+    color: red;
+    border-radius: 5%;
+}
+  
+.unauthorized-link:hover{
+    color: #86c232;
+    border-style: solid;
+}
