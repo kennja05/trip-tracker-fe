@@ -7,6 +7,7 @@
     background-size: cover;
     display: flex;
     height: 100vh;
+    min-height: 750px;
     justify-content: space-evenly;
     position: relative;
     color: #cc3a00;
@@ -39,12 +40,13 @@
 #popular-destinations{
   height: 57%;
   min-height: 460px;
+  overflow: auto;
 }
 
 #add-trip{
-  
   height: 30%;
   min-height: 240px;
+  overflow: auto;
 }
   
 .add-trip-form{
@@ -57,10 +59,13 @@
    
 #past-trips{
   min-height: 350px;
+  padding-bottom: 5px;
+  overflow: auto;
 }
 
 #upcoming-trips{
   min-height: 350px;
+  padding-bottom: 5x;
 }
 
 .trip{
