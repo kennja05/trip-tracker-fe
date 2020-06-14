@@ -82,13 +82,11 @@ export default class TripContainer extends React.Component {
                             </ul>
                         </li>)}
                     </ul>         
-                    <span className='arrows'>
-                        <span onClick={this.handlePrevClick}>
-                            <FontAwesomeIcon icon={faArrowCircleLeft} />
-                        </span>
-                        <span onClick={this.handleNextClick}>
-                            <FontAwesomeIcon icon={faArrowCircleRight} />
-                        </span>
+                    <span className='arrow' onClick={this.handlePrevClick}>
+                        <FontAwesomeIcon title='arrow-left' icon={faArrowCircleLeft} />
+                    </span>
+                    <span className='arrow' onClick={this.handleNextClick}>
+                        <FontAwesomeIcon title='arrow-left' icon={faArrowCircleRight} />
                     </span>
                 </div>
             </div>   

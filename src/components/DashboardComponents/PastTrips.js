@@ -81,7 +81,7 @@ export default class PastTrips extends React.Component {
                     {this.state.myTrips.length === 0 && <p>No Trips Have Have Been Completed</p>} 
                     <ul className='list'>
                         {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
-                            <li className='trip' key={trip.id}><b>{trip.destination.name}</b> - 
+                            <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b> - 
                             <ul>
                                 <li>Dates: <u>{trip.start_date}</u> - <u>{trip.end_date}</u></li>
                                 <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'green' : 'red'}`}}>
@@ -91,10 +91,10 @@ export default class PastTrips extends React.Component {
                             </ul>
                         </li>)}
                     </ul>
-                    <span onClick={this.handlePrevClick}>
+                    <span className='arrow' onClick={this.handlePrevClick}>
                         <FontAwesomeIcon icon={faArrowCircleLeft} />
                     </span>
-                    <span onClick={this.handleNextClick}>
+                    <span className='arrow' onClick={this.handleNextClick}>
                         <FontAwesomeIcon icon={faArrowCircleRight} />
                     </span>
                 </div>

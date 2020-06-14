@@ -74,10 +74,16 @@
   width: 80%;
   padding: 3px;
   padding-left: 10px;
+  margin: 1px;
 }
 
 .trip:hover{
   color: #15485f;
   cursor: pointer;
-  border-style: solid;
+  border-color: #15485f;
+}
+
+.arrow:hover{
+  cursor: pointer;
+  color: #15485f;
 }
