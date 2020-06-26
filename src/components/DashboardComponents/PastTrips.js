@@ -2,6 +2,7 @@ import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowCircleLeft, faArrowCircleRight} from '@fortawesome/free-solid-svg-icons'
 import PleaseLogin from '../Misc/PleaseLogin'
+import Delete from './Delete'
 
 export default class PastTrips extends React.Component {
 
@@ -81,7 +82,7 @@ export default class PastTrips extends React.Component {
                     {this.state.myTrips.length === 0 && <p>No Trips Have Have Been Completed</p>} 
                     <ul className='list'>
                         {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
-                            <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b> - 
+                            <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
                             <ul>
                                 <li>Dates: <u>{trip.start_date}</u> - <u>{trip.end_date}</u></li>
                                 <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'green' : 'red'}`}}>
@@ -89,7 +90,8 @@ export default class PastTrips extends React.Component {
                                     {trip.destination.currency_name}(s): $1
                                 </li>
                             </ul>
-                        </li>)}
+                        </li>
+                        )}
                     </ul>
                     <span className='arrow' onClick={this.handlePrevClick}>
                         <FontAwesomeIcon icon={faArrowCircleLeft} />

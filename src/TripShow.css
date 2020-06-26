@@ -37,8 +37,8 @@
 
 #pe-list-container{
     height: 20%;
-    border: 1px solid red;
     overflow: auto;
+    /* display: inline; */
     background-color: gray; /*will update this once decided upon other coloring */
 }
 

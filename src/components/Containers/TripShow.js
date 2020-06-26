@@ -106,7 +106,7 @@ export default class TripShow extends React.Component {
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
                 <div className='trip-show-container'>
                     <div className='trip-show'>
-                        <h1>Your Trip to: {this.state.trip.destination.name} </h1>
+                        <h1>Your Trip to: {this.state.trip.destination.name}</h1>
                         <img className='flag-pic' alt='flag' src={this.state.trip.destination.image} />
                         <h2>Start Date: {this.state.trip.start_date}</h2>
                         <h2>End Date: {this.state.trip.end_date}</h2>
