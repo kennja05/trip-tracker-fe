@@ -10,7 +10,7 @@ export default class AddTripForm extends React.Component {
         destinations: [],
         startDate: new Date(),
         endDate: new Date(),
-        selectedDestination: '',
+        selectedDestination: 'ÅLAND ISLANDS',
         foundDestinaion: null
     }
 

@@ -17,6 +17,7 @@
     flex-direction: column;
     justify-content: flex-start;
     margin: 10px;
+    width: 40%;
 }
 
 .trip-show{
@@ -33,6 +34,7 @@
     box-shadow: 5px 5px;
     line-height: 0.9;
     text-indent: 20px;
+    line-height: 1.1;
 }
 
 #pe-list-container{
@@ -55,12 +57,13 @@
     height: 150px;
     width: 250px;;
     border-style: hidden;
+    padding-left: 20px;
 }
 
 
 .planned-expense-div{
     color: white;
-    width: 38vw;
+    width: 100%;
     border-style: solid;
     border-radius: 2%;
     background-color: #222629;
@@ -105,19 +108,6 @@
     cursor: pointer;
     border-color: #86c232;
 }
-
-.historical-chart-container{
-    border-style: solid;
-    border-color: #86c232;
-    color: white;
-    border-radius: 2%;
-    width: 38vw;
-    height: 60vh;
-    background-color: white;
-    box-shadow: 5px 5px;
-    text-align: center;
-    flex-grow: 1;
-}
   
 .chart{
     margin-left: 2%;
@@ -149,7 +139,7 @@
     border-color: #86c232;
     color: white;
     border-radius: 2%;
-    width: 38vw;
+    width: 100%;
     background-color: #222629;
     box-shadow: 5px 5px;
     flex-grow: 1;
