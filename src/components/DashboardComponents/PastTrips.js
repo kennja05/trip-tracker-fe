@@ -85,9 +85,11 @@ export default class PastTrips extends React.Component {
                             <li onClick={() => this.handleTripClick(trip)} className='trip' key={trip.id}><b>{trip.destination.name}</b>
                             <ul>
                                 <li>Dates: <u>{trip.start_date}</u> - <u>{trip.end_date}</u></li>
-                                <li style={{color: `${trip.values[trip.values.length - 1].rate > trip.values[trip.values.length - 2].rate ? 'green' : 'red'}`}}>
-                                    Exchange Rate: {trip.values[trip.values.length - 1].rate} 
-                                    {trip.destination.currency_name}(s): $1
+                                <li className={trip.values[trip.values.length - 1].rate >= 
+                                    trip.values[trip.values.length - 2].rate ? 'green' : 'red'}>
+                                    
+                                    Exchange Rate: {trip.values[trip.values.length - 1].rate + ' '}
+                                    {trip.destination.currency_name}(s) : $1
                                 </li>
                             </ul>
                         </li>

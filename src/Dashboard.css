@@ -77,6 +77,14 @@
   margin: 1px;
 }
 
+.green{
+  color: green;
+}
+
+.red{
+  color: red;
+}
+
 .trip:hover{
   color: white;
   cursor: pointer;

@@ -117,7 +117,7 @@ export default class TripShow extends React.Component {
                             <li><b>Currency Name: </b>{this.state.trip.destination.currency_name} ({this.state.trip.destination.symbol})</li>
                             <ul><li>Official Currency Code: {this.state.trip.destination.code}</li></ul>
                         </ul>
-                        <h2>Current Planned Expenses (Name || Cost || Date):</h2>  
+                        <h2>Current Planned Expenses (Name || Cost || Date)</h2>  
                         <div id='pe-list-container'>
                             <ul>
                                 {this.state.plannedExpenses.length !==0 ? this.state.plannedExpenses.map(pe => <li key={pe.id}>{pe.name} <b>||</b> {pe.cost} {this.state.trip.destination.code} <b>||</b> {pe.date} <button onClick={() => this.handleDeletePlannedExpense(pe)}className='delete-button'>x</button></li>) : <li>No Expenses Have Been Budgeted Yet</li>}
