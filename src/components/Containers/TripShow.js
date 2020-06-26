@@ -106,7 +106,7 @@ export default class TripShow extends React.Component {
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
                 <div className='trip-show-container'>
                     <div className='trip-show'>
-                        <h1>Your Trip to: {this.state.loaded && this.state.trip.destination.name} </h1>
+                        <h1>Your Trip to: {this.state.trip.destination.name} </h1>
                         <img className='flag-pic' alt='flag' src={this.state.trip.destination.image} />
                         <h2>Start Date: {this.state.trip.start_date}</h2>
                         <h2>End Date: {this.state.trip.end_date}</h2>
@@ -118,9 +118,11 @@ export default class TripShow extends React.Component {
                             <ul><li>Official Currency Code: {this.state.trip.destination.code}</li></ul>
                         </ul>
                         <h2>Current Planned Expenses (Name || Cost || Date):</h2>  
-                        <ul>
-                            {this.state.plannedExpenses.length !==0 ? this.state.plannedExpenses.map(pe => <li key={pe.id}>{pe.name} <b>||</b> {pe.cost} {this.state.trip.destination.code} <b>||</b> {pe.date} <button onClick={() => this.handleDeletePlannedExpense(pe)}className='delete-button'>x</button></li>) : <li>No Expenses Have Been Budgeted Yet</li>}
-                        </ul>
+                        <div id='pe-list-container'>
+                            <ul>
+                                {this.state.plannedExpenses.length !==0 ? this.state.plannedExpenses.map(pe => <li key={pe.id}>{pe.name} <b>||</b> {pe.cost} {this.state.trip.destination.code} <b>||</b> {pe.date} <button onClick={() => this.handleDeletePlannedExpense(pe)}className='delete-button'>x</button></li>) : <li>No Expenses Have Been Budgeted Yet</li>}
+                            </ul>
+                        </div>
                         <hr></hr>
                         <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
                         <h2>Current Cost of Planned Expenses ($): <span style={{color: `${this.state.currentDollarAmt <= this.state.beginningDollarAmt ? '#86c232' : 'red'}`}}>{this.state.currentDollarAmt}</span> USD</h2>

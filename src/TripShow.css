@@ -7,18 +7,24 @@
     background-position: center center;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    border: 1px solid red;
+    justify-content: center;
     height: 100%;
-    min-height: 850px;
+    min-height: 890px;
     min-width: 500px;
+}
+.pe-form-and-trip-rates{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px;
 }
 
 .trip-show{
-    height: 100%;
-    min-height: 770px;
-    width: 55vw;
+    margin: 10px;
+    height: 95%;
+    min-height: 845px;
+    width: 55%;
+    min-width: 750px;
     border-style: solid;
     border-color: #86c232;
     border-radius: 2%;
@@ -26,6 +32,14 @@
     background-color: #222629;
     box-shadow: 5px 5px;
     line-height: 0.9;
+    text-indent: 20px;
+}
+
+#pe-list-container{
+    height: 20%;
+    border: 1px solid red;
+    overflow: auto;
+    background-color: gray; /*will update this once decided upon other coloring */
 }
 
 .unauthorized{
@@ -38,16 +52,11 @@
 } 
 
 .flag-pic{
-    height: 20vh;
-    width: 35vh;
+    height: 150px;
+    width: 250px;;
     border-style: hidden;
 }
 
-.pe-form-and-trip-rates{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
 
 .planned-expense-div{
     color: white;
