@@ -106,7 +106,7 @@ export default class TripShow extends React.Component {
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
                 <div className='trip-show-container'>
                     <div className='trip-show'>
-                        <h1>Your Trip to: {this.state.trip.destination.name}</h1>
+                        <h1 style={{fontFamily: 'Racing Sans One'}}>Your Trip to: {this.state.trip.destination.name}</h1>
                         <img className='flag-pic' alt='flag' src={this.state.trip.destination.image} />
                         <h2>Start Date: {this.state.trip.start_date}</h2>
                         <h2>End Date: {this.state.trip.end_date}</h2>
@@ -124,7 +124,7 @@ export default class TripShow extends React.Component {
                             </ul>
                         </div>
                         <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
-                        <h2>Current Cost of Planned Expenses ($): <span style={{color: `${this.state.currentDollarAmt <= this.state.beginningDollarAmt ? '#86c232' : 'red'}`}}>{this.state.currentDollarAmt}</span> USD</h2>
+                        <h2>Current Cost of Planned Expenses ($): <span className={this.state.currentDollarAmt <= this.state.beginningDollarAmt ? 'green' : 'red'}>{this.state.currentDollarAmt}</span> USD</h2>
                         <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.beginningDollarAmt} USD</h2>
                     </div>
                     <div className='pe-form-and-trip-rates'>    

@@ -74,12 +74,8 @@ export default class PlannedExpenseForm extends React.Component {
                     <br></br>
                     
                     <input type='submit' value='Add Expense' />
-
+                    
                 </form>
-
-
-
-
             </div>
         )
     }
