@@ -1,5 +1,6 @@
 import React from 'react'
 import CanvasJSReact from '../../canvasjs.react';
+import { Redirect } from 'react-router-dom';
 // var CanvasJSReact = require('./canvasjs.react');
 // var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -27,6 +28,7 @@ export default class CanvasHistoricalChart extends React.Component {
             animationEnabled: true,
             exportEnabled: true,
             title: {
+              fontColor: '#cc3a00',  
               text: "Exchange Rate Over Time"
             },
             axisY: {
@@ -40,6 +42,7 @@ export default class CanvasHistoricalChart extends React.Component {
             },
             data: [{				
                       type: "line",
+                      lineColor: '#cc3a00',
                       animationEnabled: true,
                       exportEnabled: true,
                       theme: 'light4',

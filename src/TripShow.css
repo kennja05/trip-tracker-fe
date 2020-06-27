@@ -152,25 +152,21 @@
 }
 
 .pie-chart{
-    border-style: solid;
     border-radius: 2%;
-    border-color: #86c232;
-    box-shadow: 5px 5px;
-    color: white;
 }
 
 .empty{
-    border-style: solid;
-    border-radius: 2%;
+    font-family: 'Racing Sans One';
     text-align: center;
-    background-color: #222629;
+    color: white;
+    background-color: rgba(34, 38, 41, .7);    
 }
 
 .canvas-chart-container{
-    border-style: solid;
+    /* border-style: solid; */
     border-radius: 2%;
-    border-color: #86c232;
-    box-shadow: 5px 5px;
+    /* border-color: #86c232; */
+    /* box-shadow: 5px 5px; */
     color: white;
 }
 
