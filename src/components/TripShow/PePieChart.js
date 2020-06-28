@@ -62,7 +62,9 @@ export default class PePieChart extends React.Component {
 			exportEnabled: true,
             animationEnabled: true,
             indexLabelFontSize: 16,
+            colorSet: 'colorSet3',
 			title: {
+                fontColor: '#cc3a00',
 				text: "Planned Expenses By Category"
 			},
 			data: [{

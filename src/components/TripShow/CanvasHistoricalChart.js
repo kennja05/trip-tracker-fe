@@ -1,6 +1,5 @@
 import React from 'react'
 import CanvasJSReact from '../../canvasjs.react';
-import { Redirect } from 'react-router-dom';
 // var CanvasJSReact = require('./canvasjs.react');
 // var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;

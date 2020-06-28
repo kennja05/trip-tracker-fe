@@ -22,6 +22,12 @@ export default class PlannedExpenseForm extends React.Component {
         })
     }
 
+    disableForm = () => {
+        let currentDate = parseInt(new Date().toISOString().slice(0, 10).split('-').join(''))
+        let endDate = parseInt(this.props.trip.end_date.split('-').join(''))
+        return currentDate > endDate
+    }
+
     handleAddPlannedExpense = (e) => {
         e.preventDefault()
         
@@ -73,7 +79,7 @@ export default class PlannedExpenseForm extends React.Component {
                     <DatePicker dateFormat='MM/dd/yy' name='date' selected={this.state.date} onChange={this.handleDateChange} />
                     <br></br>
                     
-                    <input type='submit' value='Add Expense' />
+                    <input disabled={this.disableForm()} type='submit' value='Add Expense' />
                     
                 </form>
             </div>
