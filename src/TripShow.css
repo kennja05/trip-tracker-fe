@@ -102,8 +102,7 @@
 .display-buttons{
     border-style: solid;
     border-radius: 2%;
-    color: black;
-    border-color: black;
+    color: #15485f;
     font-family: 'Racing Sans One';
     padding: 5px;
 }

@@ -22,6 +22,7 @@ export default class PlannedExpenseForm extends React.Component {
         })
     }
 
+    //if the trip has been completed disable the add PE form
     disableForm = () => {
         let currentDate = parseInt(new Date().toISOString().slice(0, 10).split('-').join(''))
         let endDate = parseInt(this.props.trip.end_date.split('-').join(''))

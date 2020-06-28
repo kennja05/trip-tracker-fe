@@ -25,7 +25,7 @@
   border-style: solid;
   border-color: #6b6e70;
   border-radius: 2%;
-  background: linear-gradient(rgba(0, 0, 0, .8), rgba(255, 255, 255,.8) );
+  background-color: rgba(0, 0, 0, .4);
   line-height: 1.1;
   box-shadow: 5px 5px;
   margin-bottom: 3%;
@@ -86,7 +86,6 @@
 }
 
 .trip:hover{
-  color: white;
   cursor: pointer;
   border-color: #15485f;
 }
