@@ -7,7 +7,7 @@ export default class Delete extends React.Component {
 
     render(){
         return(
-        <span id='delete-icon' data-tip="Click the icon to delete the record of this trip">
+        <span id='delete-icon' data-tip="Double click to permanently delete the record of this trip">
             <FontAwesomeIcon size='2x' icon={faCalendarTimes} />
             <ReactTooltip backgroundColor='red' place="right" type="warning" effect="float"/>
         </span>

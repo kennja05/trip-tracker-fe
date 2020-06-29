@@ -77,6 +77,11 @@
   margin: 1px;
 }
 
+.trip-name:hover{
+  color: #15485f;
+  cursor: pointer;
+}
+
 .green{
   color: green;
 }
@@ -101,4 +106,5 @@
 }
 #delete-icon:hover{
   cursor: pointer;
+  color: #15485f;
 }

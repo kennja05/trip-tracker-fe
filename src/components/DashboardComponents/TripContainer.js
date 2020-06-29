@@ -62,6 +62,17 @@ export default class TripContainer extends React.Component {
         this.props.history.push(`/trip/${trip.id}`)
     }
 
+    deleteTrip = (tripId) => {
+        fetch(`http://localhost:3000/api/v1/trips/${tripId}`,{
+            method: "DELETE"
+        })
+        .then(res => res.json())
+        .then(deletedTrip => this.setState({
+            myTrips: this.state.myTrips.filter(trip => trip.id !== deletedTrip.id)
+        }))
+    }
+
+
 
     render(){
         return (
@@ -72,9 +83,9 @@ export default class TripContainer extends React.Component {
                     {this.state.myTrips.length === 0 && <p>There are no upcoming trips</p>} 
                     <ul className='list'>
                         {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
-                        <li onClick={() => this.handleTripClick(trip)} className='trip' 
-                        key={trip.id}><b>{trip.destination.name}</b>
-                            <span><Delete /></span>
+                        <li className='trip' 
+                        key={trip.id}><b className='trip-name' onClick={() => this.handleTripClick(trip)} >{trip.destination.name}</b>
+                            <span onDoubleClick={() => this.deleteTrip(trip.id)}><Delete /></span>
                             <ul>
                                 <li>Dates: <u>{trip.start_date}</u> - <u>{trip.end_date}</u></li>
                                 <li className={trip.values[trip.values.length - 1].rate >= 
