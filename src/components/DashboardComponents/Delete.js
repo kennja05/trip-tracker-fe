@@ -1,15 +1,13 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCalendarTimes} from '@fortawesome/free-solid-svg-icons'
-import ReactTooltip from 'react-tooltip'
 
 export default class Delete extends React.Component {
 
     render(){
         return(
-        <span id='delete-icon' data-tip="Double click to permanently delete the record of this trip">
+        <span id='delete-icon'>
             <FontAwesomeIcon size='2x' icon={faCalendarTimes} />
-            <ReactTooltip backgroundColor='red' place="right" type="warning" effect="float"/>
         </span>
         )
     }

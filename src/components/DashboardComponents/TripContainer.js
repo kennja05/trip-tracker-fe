@@ -1,6 +1,8 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faArrowCircleLeft, faArrowCircleRight} from '@fortawesome/free-solid-svg-icons'
+import {faArrowCircleLeft, faArrowCircleRight, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
+import ReactTooltip from 'react-tooltip'
+
 
 import PleaseLogin from '../Misc/PleaseLogin'
 import Delete from './Delete'
@@ -79,7 +81,13 @@ export default class TripContainer extends React.Component {
             this.state.loaded ? 
             <div id='upcoming-trips' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
-                    <h2 style={{fontFamily: 'Racing Sans One'}}><u>My Trips</u></h2>
+                    <h2 style={{fontFamily: 'Racing Sans One'}}><u>My Trips</u> 
+                    <span data-tip="Trips that are ongoing or coming up. Click the destination name to see
+                        more information about the trip. Double click the calender icon next to 
+                        the trip to permantly remove the trip from your history">
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            <ReactTooltip type='dark' place='top' />
+                        </span></h2>
                     {this.state.myTrips.length === 0 && <p>There are no upcoming trips</p>} 
                     <ul className='list'>
                         {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
