@@ -85,12 +85,20 @@
   color: red;
 }
 
-.trip:hover{
+/* .trip:hover{
   cursor: pointer;
   border-color: #15485f;
-}
+} */
 
 .arrow:hover{
   cursor: pointer;
   color: #15485f;
+}
+
+#delete-icon{
+  float: right;
+
+}
+#delete-icon:hover{
+  cursor: pointer;
 }

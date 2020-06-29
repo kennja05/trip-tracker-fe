@@ -3,6 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faArrowCircleLeft, faArrowCircleRight} from '@fortawesome/free-solid-svg-icons'
 
 import PleaseLogin from '../Misc/PleaseLogin'
+import Delete from './Delete'
 
 export default class TripContainer extends React.Component {
 
@@ -73,6 +74,7 @@ export default class TripContainer extends React.Component {
                         {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
                         <li onClick={() => this.handleTripClick(trip)} className='trip' 
                         key={trip.id}><b>{trip.destination.name}</b>
+                            <span><Delete /></span>
                             <ul>
                                 <li>Dates: <u>{trip.start_date}</u> - <u>{trip.end_date}</u></li>
                                 <li className={trip.values[trip.values.length - 1].rate >= 
