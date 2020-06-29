@@ -22,7 +22,7 @@ class PopularDestinationsContainer extends React.Component {
         return(
             <div id='popular-destinations' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
-                    <h2><u>Top Destinations</u></h2>
+                    <h2 style={{fontFamily: 'Racing Sans One'}}><u>Top Destinations by Entire Site</u></h2>
                     {this.state.loaded ? null : <ReactLoading type={'spin'} color={'#6b6e70'}/>}
                     <ol>
                         {this.state.topDestinations.map(dest => 

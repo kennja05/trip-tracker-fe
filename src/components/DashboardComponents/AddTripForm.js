@@ -71,7 +71,7 @@ export default class AddTripForm extends React.Component {
             this.props.user ? 
             <div id='add-trip' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
-                    <h2><u>Add A New Trip</u></h2>
+                    <h2 style={{fontFamily: 'Racing Sans One'}}><u>Add A New Trip</u></h2>
                     <form className='add-trip-form' onSubmit={this.handleFormSubmit}>
                         <label>Start Date:</label> 
                         <DatePicker dateFormat='MM/dd/yy' name='startDate' 

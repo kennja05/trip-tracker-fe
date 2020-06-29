@@ -67,7 +67,7 @@ export default class TripContainer extends React.Component {
             this.state.loaded ? 
             <div id='upcoming-trips' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
-                    <h2><u>My Trips</u></h2>
+                    <h2 style={{fontFamily: 'Racing Sans One'}}><u>My Trips</u></h2>
                     {this.state.myTrips.length === 0 && <p>There are no upcoming trips</p>} 
                     <ul className='list'>
                         {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 

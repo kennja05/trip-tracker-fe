@@ -23,30 +23,31 @@ export default class AllDestinations extends React.Component {
         })
     }
 
-    // <ReactLoading type={'spin'} color={'#6b6e70'}/>
 
     render(){
         return( 
             <div className='all-dest'>
                 <div className='all-destinations-list'>
-                    <h1>All Destinations: </h1> 
-                    {!this.state.loaded && <ReactLoading height={'20%'} width={'20%'} type={'cylon'} color={'#6b6e70'}/>}              
+                    <h1 style={{fontFamily: 'Racing Sans One'}}>Available Destinations</h1> 
+                    {!this.state.loaded && <ReactLoading height={'20%'} width={'20%'} 
+                        type={'cylon'} color={'#6b6e70'}/>}              
                     {this.state.loaded && 
                     <div>
                         <p><u>Search for a Country: </u>
-                        <input onChange={this.handleSearch} type='text' value={this.state.searchTerm} name='searchTerm'/></p>
+                        <input onChange={this.handleSearch} type='text' 
+                            value={this.state.searchTerm} name='searchTerm'/></p>
                     </div>}
                     <ul>
-                        {this.state.destinations.filter(dest => dest.name.includes(this.state.searchTerm.toUpperCase())).map((destination, index) => 
-                            <li className={index % 2 === 0 ? 'all-countries-li-gray' : 'all-countries-li-green'} key={destination.id}>
+                        {this.state.destinations.filter(dest => 
+                        dest.name.includes(this.state.searchTerm.toUpperCase())).map((destination, index) => 
+                            <li className={index % 2 === 0 ? 'all-countries-li-gray' : 'all-countries-li-green'} 
+                                key={destination.id}>
                             <b>{destination.name}</b> (Local Name: {destination.native_name})
                                 <ul>
                                     <li><u>Capital</u>: {destination.capital}</li>
-                                    {/* <li><u>Trips Planned To Here By Site Users</u>: {destination.trips.length}</li> */}
-                                    <li><u>Currency Code/Symbol</u>: {destination.currency_name} / {destination.code} ({destination.symbol})</li>
-                                    <ul>
-                                        <li>Current Exchange Rate: {destination.values.slice(-1).pop().rate} {destination.code} : $1 USD</li>
-                                    </ul>
+                                    <li><u>Currency Code/Symbol</u>: 
+                                    {' ' + destination.currency_name} / {destination.code} 
+                                    ({destination.symbol})</li>
                                 </ul>
                         </li>)}
                     </ul>
