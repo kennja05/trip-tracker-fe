@@ -7,6 +7,10 @@ import AddTripForm from '../DashboardComponents/AddTripForm'
 
 class HomepageContainer extends React.Component {
    
+    componentDidMount(){
+        document.title = 'Trip Tracker | Dashboard'
+    }
+
     render(){
         return(
         <div>

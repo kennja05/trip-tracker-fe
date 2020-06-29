@@ -35,12 +35,10 @@ export default class TripShow extends React.Component {
             }))
             .then(() => this.sumPlannedExpenses(this.state.plannedExpenses))
             .then(() => this.currentCostInDollars())
+            .then(() => document.title = `Trip Tracker | Details `)
     }
 
     componentDidUpdate(prevProps, prevState){
-        // if (prevState.plannedExpenses.length !== 0 && prevState.plannedExpenses.length !== this.state.plannedExpenses.length){
-        //     console.log(prevState.plannedExpenses, 'new state:', this.state.plannedExpenses)
-        // }
         if (prevState.totalPe !== this.state.totalPe) {
             this.currentCostInDollars()
         }
@@ -105,6 +103,7 @@ export default class TripShow extends React.Component {
     }
 
     render(){
+        console.log(this.state)
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
                 <div className='trip-show-container'>

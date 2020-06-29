@@ -82,7 +82,7 @@ export default class TripContainer extends React.Component {
             <div id='upcoming-trips' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
                     <h2 style={{fontFamily: 'Racing Sans One'}}><u>My Trips</u> 
-                    <span data-tip="Trips that are ongoing or coming up. Click the destination name to see
+                    <span style={{marginLeft: '5px'}}data-tip="Trips that are either ongoing or coming up. Click the destination name to see
                         more information about the trip. Double click the calender icon next to 
                         the trip to permantly remove the trip from your history">
                             <FontAwesomeIcon icon={faInfoCircle} />

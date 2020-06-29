@@ -5,6 +5,9 @@ import Title from '../CredentialsComponents/Title'
 
 export default class Credentials extends React.Component {
 
+    componentDidMount(){
+        document.title = 'Trip Tracker | Login'
+    }
 
     login = (user) => {
         this.props.handleLogin(user)
