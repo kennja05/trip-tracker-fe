@@ -46,7 +46,6 @@
 #add-trip{
   height: 30%;
   min-height: 240px;
-  overflow: auto;
 }
   
 .add-trip-form{

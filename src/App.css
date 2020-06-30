@@ -17,15 +17,22 @@ html, body {margin:0;padding:0;height:100%;}
 }
 
 .navbar{
-  background-color: black;
-  color: #86c232;
-  text-align: right;
-  padding-right: 10vh;
-  height: 3vh;
+  background-color: #15485f;
+  text-align: left;
   min-height: 30px;
-  min-width: 1400;
-  padding: 3px;
-  padding-right: 40px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link{
+  color: #cc3a00;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.nav-link:hover{
+  cursor: pointer;
 }
 /* content from title/credential page 
 ==================================================================================================

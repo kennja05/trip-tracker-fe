@@ -15,8 +15,7 @@ class App extends React.Component {
 
     state = {
         loggedIn: false,
-        // user: null
-        user: {id: 133}
+        user: null
     }
 
     handleLogin = (inputUser) => {
