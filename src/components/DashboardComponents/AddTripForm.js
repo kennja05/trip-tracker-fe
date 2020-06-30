@@ -10,7 +10,7 @@ export default class AddTripForm extends React.Component {
         destinations: [],
         startDate: new Date(),
         endDate: new Date(),
-        selectedDestination: 'ÅLAND ISLANDS',
+        selectedDestination: 'Afghanistan',
         foundDestinaion: null
     }
 
@@ -43,7 +43,7 @@ export default class AddTripForm extends React.Component {
     handleFormSubmit = e => {
         e.preventDefault()
         if (this.state.selectedDestination){
-            const formattedDestName = this.state.selectedDestination.toUpperCase()
+            const formattedDestName = this.state.selectedDestination
             const foundCountry = this.state.destinations.find(dest => dest.name === formattedDestName)
             if (!foundCountry) {
                 alert(`Sorry - we have no currency information for ${formattedDestName}!`)
