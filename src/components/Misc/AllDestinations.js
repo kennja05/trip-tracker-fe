@@ -39,7 +39,7 @@ export default class AllDestinations extends React.Component {
                     </div>}
                     <ul>
                         {this.state.destinations.filter(dest => 
-                        dest.name.includes(this.state.searchTerm.toUpperCase())).map((destination, index) => 
+                        dest.name.toUpperCase().includes(this.state.searchTerm.toUpperCase())).map((destination, index) => 
                             <li className={index % 2 === 0 ? 'all-countries-li-gray' : 'all-countries-li-green'} 
                                 key={destination.id}>
                             <b>{destination.name}</b> (Local Name: {destination.native_name})
