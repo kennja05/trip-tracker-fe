@@ -26,7 +26,7 @@ export default class TripShow extends React.Component {
     }
 
     componentDidMount(){
-        fetch(`http://localhost:3000/api/v1/trips/${this.props.match.params.id}`) 
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/trips/${this.props.match.params.id}`) 
             .then(res => res.json())
             .then(trp => this.setState({
                 trip: trp,
@@ -45,7 +45,7 @@ export default class TripShow extends React.Component {
     }
 
     handleDeletePlannedExpense = (plannedExp) => {
-        fetch(`http://localhost:3000/api/v1/planned_expenses/${plannedExp.id}`, {
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/planned_expenses/${plannedExp.id}`, {
             method: "DELETE"
         })
         .then(res => res.json())

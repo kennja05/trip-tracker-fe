@@ -40,7 +40,7 @@ export default class SignupForm extends React.Component {
         e.preventDefault()
         const {username, password, passwordConfirmation, phone} = this.state
             const userObj = {username, password, passwordConfirmation, phone}
-            fetch('http://localhost:3000/api/v1/users',{
+            fetch('https://trip-tracker-backend.herokuapp.com/api/v1/users',{
               method: "POST",
               headers: {
                 'content-type': 'application/json'

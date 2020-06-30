@@ -10,7 +10,7 @@ class PopularDestinationsContainer extends React.Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/api/v1/destinations/top')
+        fetch('https://trip-tracker-backend.herokuapp.com/api/v1/destinations/top')
             .then(res => res.json())
             .then(tDestinations => this.setState({
                 topDestinations: tDestinations, 

@@ -9,7 +9,7 @@ export default class AllDestinations extends React.Component {
     }
 
     componentDidMount(){
-        fetch(`http://localhost:3000/api/v1/destinations/top/all`)
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/destinations/top/all`)
             .then(resp => resp.json())
             .then(destArray => this.setState({
                 destinations: destArray,

@@ -15,7 +15,7 @@ export default class AddTripForm extends React.Component {
     }
 
     componentDidMount(){
-        fetch('http://localhost:3000/api/v1/destinations')
+        fetch('https://trip-tracker-backend.herokuapp.com/api/v1/destinations')
             .then(resp => resp.json())
             .then(destArray => this.setState({
                 destinations: destArray, 
@@ -52,7 +52,7 @@ export default class AddTripForm extends React.Component {
             } else {
                 const tripObject = {start_date: this.state.startDate, end_date: this.state.endDate, 
                                     user_id: this.props.user.id, destination_id: foundCountry.id}
-                fetch('http://localhost:3000/api/v1/trips', {
+                fetch('https://trip-tracker-backend.herokuapp.com/api/v1/trips', {
                     method: 'POST', 
                     headers: {
                         'content-type': 'application/json'

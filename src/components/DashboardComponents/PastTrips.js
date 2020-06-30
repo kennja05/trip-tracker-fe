@@ -28,7 +28,7 @@ export default class PastTrips extends React.Component {
     }
     
     fetchUserTrips = () => {
-        fetch(`http://localhost:3000/api/v1/users/${this.props.user.id}/trips`)
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/users/${this.props.user.id}/trips`)
             .then(res => res.json())
             .then(userTrips => this.setState({
                 myTrips: userTrips.filter(trip => trip.end_date < new Date().toISOString().slice(0,10)),
@@ -62,7 +62,7 @@ export default class PastTrips extends React.Component {
     }
 
     deleteTrip = (tripId) => {
-        fetch(`http://localhost:3000/api/v1/trips/${tripId}`,{
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/trips/${tripId}`,{
             method: "DELETE"
         })
         .then(res => res.json())
