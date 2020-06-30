@@ -103,7 +103,6 @@ export default class TripShow extends React.Component {
     }
 
     render(){
-        console.log(this.state)
         return(
             this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
                 <div className='trip-show-container'>

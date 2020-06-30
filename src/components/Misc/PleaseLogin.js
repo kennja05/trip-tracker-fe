@@ -29,7 +29,7 @@ class PleaseLogin extends React.Component {
                 })
                 break;
             default :
-                console.log(this.props)    
+                console.log('Message me how you got here lol. github: kennja05')    
         }
     }
 

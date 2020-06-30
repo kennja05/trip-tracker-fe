@@ -28,7 +28,9 @@ html, body {margin:0;padding:0;height:100%;}
 .nav-link{
   color: #cc3a00;
   text-decoration: none;
-  margin-left: 10px;
+  margin-left: 15px;
+  font-family: 'Lato';
+  font-size: x-large;
 }
 
 .nav-link:hover{
