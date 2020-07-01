@@ -9,6 +9,7 @@ export default class AllDestinations extends React.Component {
     }
 
     componentDidMount(){
+        document.title = 'Trip Tracker | All Destinations'
         fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/destinations/top/all`)
             .then(resp => resp.json())
             .then(destArray => this.setState({
