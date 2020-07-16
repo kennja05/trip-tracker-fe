@@ -22,9 +22,9 @@ class HomepageContainer extends React.Component {
                 </div>
                 <div className='dashboard-group'>
                     <TripContainer user={this.props.user} history={this.props.history} 
-                        match={this.props.match}/>
+                        match={this.props.match} rates={this.props.rates}/>
                     <PastTrips user={this.props.user} history={this.props.history} 
-                        match={this.props.match}/>
+                        match={this.props.match} rates={this.props.rates}/>
                 </div>
             </div>
         </div>
