@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div className='app'>
         <Navbar logout={this.handleLogout} user={this.state.user} />

@@ -3,23 +3,27 @@ import React from 'react'
 export default class HistoricalRates extends React.Component {
 
 
-    state={
-        startRate: null,
-        currentRate: null
-    }
+    // state={
+    //     startRate: null,
+    //     currentRate: null
+    // }
 
     componentDidMount(){
-        const {values, startDate} = this.props
-        this.getFirstAndLastRates(values, startDate)
+        const {rates} = this.props
+        const rateArray = []
     }
 
-    getFirstAndLastRates = (valueList, datePlanned) => {
-        const myvals = valueList.filter(val => val.date === datePlanned)
-        const fv = myvals[myvals.length-1].rate
-        this.setState({
-            startRate: fv,
-            currentRate: valueList[valueList.length-1].rate
-        })
+    // getFirstAndLastRates = (valueList, datePlanned) => {
+    //     const myvals = valueList.filter(val => val.date === datePlanned)
+    //     const fv = myvals[myvals.length-1].rate
+    //     this.setState({
+    //         startRate: fv,
+    //         currentRate: valueList[valueList.length-1].rate
+    //     })
+    // }
+
+    formatDate = dateStr => { //will format a date string that looks like '2020-07-21T14:17:21.717Z' 
+        let arr = dateStr.split('T')
     }
 
     render(){
@@ -29,8 +33,7 @@ export default class HistoricalRates extends React.Component {
                     <h2 className='pe-h2'>This trip was planned on {this.props.startDate}</h2>
                     <p>Rate Changes Since then:</p>
                     <ul>
-                        {/* Get only the values from after the trip was created, then create the list */}
-                        {this.props.values.filter(val => val.date >= this.props.startDate).map(vals => <li key={vals.id}>Date: {vals.date} || 
+                        {this.props.rates.map((vals,i) => <li key={i}>Date: {vals.date} || 
                         Exchange Rate: {vals.rate} {vals.code} : 1 USD</li>)}
                     </ul>
                 </div>
