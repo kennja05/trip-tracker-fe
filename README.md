@@ -1,7 +1,12 @@
+Live Site
+=========
+https://trip-tracker.netlify.app/
+
+
 Languages/Tech Used
 ===================
 
-Javascript, HTML, CSS, React
+Javascript, HTML, CSS, React, brypt gem for password hashing, Netlify/Heroku Deployment, Fixer.io API for exhange rate information, restcountries.eu API for country information, Cronjobs/Heroku Scheduler for obtaining exchange rate information automatically
 
 Background
 ==========

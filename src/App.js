@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import './Dashboard.css'
 import './TripShow.css'
-import { Route, Switch} from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import Credentials from './components/Containers/Credentials'
 import AllDestinations from './components/Misc/AllDestinations'
@@ -13,40 +13,49 @@ import NoContent from './components/Misc/NoContent'
 
 class App extends React.Component {
 
-    state = {
-        loggedIn: false,
-        user: null
-    }
+  state = {
+    loggedIn: false,
+    user: null,
+    rates: {}
+  }
 
-    handleLogin = (inputUser) => {
-        this.setState({
-          loggedIn: true,
-          user: inputUser
-        })
-    }
+  componentDidMount(){
+    fetch('http://localhost:3000/api/v1/newRates')
+      .then(res => res.json())
+      .then(newRates => this.setState({
+        rates: newRates
+      }))
+  }
 
-    handleLogout = () => {
-        this.setState({
-          loggedIn: false, 
-          user: null
-        })
-    }
+  handleLogin = (inputUser) => {
+    this.setState({
+      loggedIn: true,
+      user: inputUser
+    })
+  }
 
-    render(){
-        return(
-          <div className='app'>
-            <Navbar logout={this.handleLogout} user={this.state.user} />
-            <div className='route-components'>
-              <Switch>
-                <Route exact path='/' render={(routerProps) => <Credentials {...routerProps} handleLogin={this.handleLogin}/>} />
-                <Route path='/dashboard' render={(routerProps) => <HomepageContainer logout={this.handleLogOut} user={this.state.user} {...routerProps}/>} />
-                <Route path='/alldestinations' render={(routerProps) => <AllDestinations logout={this.handleLogout} {...routerProps} user={this.state.user}/>} />
-                <Route path='/trip/:id' render={(routerProps) => <TripShow logout={this.handleLogOut} user={this.state.user} {...routerProps}/>} />
-                <Route path='*' component={NoContent} />
-              </Switch>
-            </div>
-          </div>
-        );
-    }
+  handleLogout = () => {
+    this.setState({
+      loggedIn: false,
+      user: null
+    })
+  }
+
+  render() {
+    return (
+      <div className='app'>
+        <Navbar logout={this.handleLogout} user={this.state.user} />
+        <div className='route-components'>
+          <Switch>
+            <Route exact path='/' render={(routerProps) => <Credentials {...routerProps} handleLogin={this.handleLogin} />} />
+            <Route path='/dashboard' render={(routerProps) => <HomepageContainer rates={this.state.rates} logout={this.handleLogOut} user={this.state.user} {...routerProps} />} />
+            <Route path='/alldestinations' render={(routerProps) => <AllDestinations rates={this.state.rates} />} />
+            <Route path='/trip/:id' render={(routerProps) => <TripShow logout={this.handleLogOut} user={this.state.user} {...routerProps} />} />
+            <Route path='*' component={NoContent} />
+          </Switch>
+        </div>
+      </div>
+    );
+  }
 }
 export default App;

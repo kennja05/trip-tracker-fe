@@ -13,6 +13,7 @@ export default class TripShow extends React.Component {
 
     state = {
         trip: {},
+        rates: [],
         loaded: false,
         plannedExpenses: [],
         totalPe: null,
@@ -25,35 +26,50 @@ export default class TripShow extends React.Component {
         }
     }
 
+    //need to get trip info into state, and then rates immediately after..
     componentDidMount(){
         fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/trips/${this.props.match.params.id}`) 
             .then(res => res.json())
             .then(trp => this.setState({
                 trip: trp,
-                loaded: true,
                 plannedExpenses: trp.planned_expenses
             }))
+            .then(() => this.getRates())
             .then(() => this.sumPlannedExpenses(this.state.plannedExpenses))
-            .then(() => this.currentCostInDollars())
             .then(() => document.title = `Trip Tracker | Details `)
     }
 
     componentDidUpdate(prevProps, prevState){
         if (prevState.totalPe !== this.state.totalPe) {
-            this.currentCostInDollars()
+            this.convertCurrency()
         }
     }
 
-    handleDeletePlannedExpense = (plannedExp) => {
-        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/planned_expenses/${plannedExp.id}`, {
-            method: "DELETE"
-        })
-        .then(res => res.json())
-        .then(data => this.setState({
-            plannedExpenses: this.state.plannedExpenses.filter(pe => pe.id !== data.id)
-        }))
-        .then(() => this.sumPlannedExpenses(this.state.plannedExpenses))
-        .then(() => this.currentCostInDollars())
+    convertCurrency = () => {
+        // let startAmnt = (this.state.totalPe / this.state.rates[0].rate)
+        // console.log(startAmnt)
+    }
+
+    currentCostInDollars = () => {
+        // const currentCost = (this.state.totalPe / this.state.trip.values[this.state.trip.values.length-1].rate).toFixed(2)
+        // const allValsAtCreationArray = this.state.trip.values.filter(val => val.date === this.state.trip.created_at.slice(0,10))
+        // const valAtCreation = allValsAtCreationArray[allValsAtCreationArray.length -1]
+        // const origCost = (this.state.totalPe / valAtCreation.rate).toFixed(2)
+        // this.setState({
+        //     currentDollarAmt: currentCost,
+        //     beginningDollarAmt: origCost
+        // })
+    }
+
+    getRates = () => {
+        const createdAt = this.state.trip.created_at.slice(0, 10)
+        const code = this.state.trip.destination.code
+        fetch(`http://localhost:3000/api/v1/rates/${createdAt}/${code}`)
+            .then(res => res.json())
+            .then(rateList => this.setState({
+                rates: rateList,
+                loaded: true
+            }))
     }
 
     addPe = (plannedExp) => {
@@ -69,15 +85,16 @@ export default class TripShow extends React.Component {
         this.setState({totalPe: sum})
     }
 
-    currentCostInDollars = () => {
-        const currentCost = (this.state.totalPe / this.state.trip.values[this.state.trip.values.length-1].rate).toFixed(2)
-        const allValsAtCreationArray = this.state.trip.values.filter(val => val.date === this.state.trip.created_at.slice(0,10))
-        const valAtCreation = allValsAtCreationArray[allValsAtCreationArray.length -1]
-        const origCost = (this.state.totalPe / valAtCreation.rate).toFixed(2)
-        this.setState({
-            currentDollarAmt: currentCost,
-            beginningDollarAmt: origCost
+    handleDeletePlannedExpense = (plannedExp) => {
+        fetch(`http://localhost:3000/api/v1/planned_expenses/${plannedExp.id}`, {
+            method: "DELETE"
         })
+        .then(res => res.json())
+        .then(data => this.setState({
+            plannedExpenses: this.state.plannedExpenses.filter(pe => pe.id !== data.id)
+        }))
+        .then(() => this.sumPlannedExpenses(this.state.plannedExpenses))
+        .then(() => this.currentCostInDollars())
     }
 
     handleDisplayButtonClick = (e) => {
@@ -131,18 +148,18 @@ export default class TripShow extends React.Component {
                             </ul>
                         </div>
                         <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
-                        <h2>Current Cost of Planned Expenses ($): <span className={this.state.currentDollarAmt <= this.state.beginningDollarAmt ? 'green' : 'red'}>{this.state.currentDollarAmt}</span> USD</h2>
-                        <h2>Cost of Planned Expenses at time of Trip Pannning ($): {this.state.beginningDollarAmt} USD</h2>
+                        <h2>Current Cost of Planned Expenses ($): {(this.state.totalPe / this.state.rates[this.state.rates.length -1].rate).toFixed(2)} USD</h2>
+                        <h2>Cost of Planned Expenses at time of Trip Pannning ($): {(this.state.totalPe / this.state.rates[0].rate).toFixed(2)} USD</h2>
                     </div>
-                    <div className='pe-form-and-trip-rates'>    
+                    <div className='pe-form-and-trip-rates'>
                         <PlannedExpenseForm addPe={this.addPe} trip={this.state.trip}/>
                         <div className='display-buttons-container'>
                             {!this.state.display.showHistoricalRates && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='hr' className='display-buttons'>Detailed Historical Rates</span>}
                             {!this.state.display.showHrChart && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='hrg' className='display-buttons'>Historical Rates Graph</span>}
                             {!this.state.display.showPePie && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='peb' className='display-buttons'>Planned Expenses Breakdown</span>}
                         </div>
-                        {this.state.display.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} cost={this.state.totalPe}/>}
-                        {this.state.display.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} /> }
+                        {this.state.display.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} rates={this.state.rates}/>}
+                        {this.state.display.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.rates} /> }
                         {this.state.display.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses} total={this.state.totalPe}/> }
                     </div>
                 </div>

@@ -93,11 +93,11 @@ export default class PastTrips extends React.Component {
                                 <span onDoubleClick={() => this.deleteTrip(trip.id)}><Delete  /></span>
                             <ul>
                                 <li>Dates: <u>{trip.start_date}</u> - <u>{trip.end_date}</u></li>
-                                <li className={trip.values[trip.values.length - 1].rate >= 
-                                    trip.values[trip.values.length - 2].rate ? 'green' : 'red'}>
-                                    
-                                    Exchange Rate: {trip.values[trip.values.length - 1].rate + ' '}
-                                    {trip.destination.currency_name}(s) : $1
+                                <li className={this.props.rates[1].rate_list.rates[trip.destination.code] 
+                                    >= this.props.rates[0].rate_list.rates[trip.destination.code] 
+                                    ? 'green' : 'red'}>
+                                    Exchange Rate: ${this.props.rates[1].rate_list.rates[trip.destination.code]}
+                                     : 1 {trip.destination.currency_name}(s)
                                 </li>
                             </ul>
                         </li>
