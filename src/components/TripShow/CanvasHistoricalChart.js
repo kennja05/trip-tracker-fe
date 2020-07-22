@@ -1,7 +1,7 @@
 import React from 'react'
 import CanvasJSReact from '../../canvasjs.react';
 // var CanvasJSReact = require('./canvasjs.react');
-// var CanvasJS = CanvasJSReact.CanvasJS;
+var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class CanvasHistoricalChart extends React.Component {
@@ -13,8 +13,8 @@ export default class CanvasHistoricalChart extends React.Component {
     componentDidMount(){
         const myObj = []
         // eslint-disable-next-line
-        this.props.values.filter(val => val.date >= this.props.startDate).map((val, index) => {
-            myObj.push({x: index / 3, y: val.rate})
+        this.props.values.map((val,i) =>{
+            myObj.push({x: i, y: val.rate, date: new Date(Date.parse(val.date)).toString().slice(0,24)})
         })
         this.setState({
             coordinates: myObj
@@ -22,9 +22,9 @@ export default class CanvasHistoricalChart extends React.Component {
     }
 
 
-    render(){
+    render(){        
         const options = {
-            animationEnabled: true,
+            animationsEnabled: true,
             exportEnabled: true,
             title: {
               fontColor: '#cc3a00',  
@@ -36,15 +36,13 @@ export default class CanvasHistoricalChart extends React.Component {
                 suffix: this.props.destination.symbol
             },
             axisX: {
-                title: "Days Since Planning",
-                interval: 3
+                title: "Rates Obtained"
             },
             data: [{				
                       type: "line",
                       lineColor: '#cc3a00',
-                      animationEnabled: true,
-                      exportEnabled: true,
                       theme: 'light4',
+                      toolTipContent: '{y} - {date}',
                       dataPoints: this.state.coordinates
              }]
         }

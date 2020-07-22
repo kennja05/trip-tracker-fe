@@ -159,7 +159,7 @@ export default class TripShow extends React.Component {
                             {!this.state.display.showPePie && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='peb' className='display-buttons'>Planned Expenses Breakdown</span>}
                         </div>
                         {this.state.display.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} rates={this.state.rates}/>}
-                        {this.state.display.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.trip.values} /> }
+                        {this.state.display.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.rates} /> }
                         {this.state.display.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses} total={this.state.totalPe}/> }
                     </div>
                 </div>
