@@ -25,6 +25,7 @@ export default class AllDestinations extends React.Component {
 
 
     render(){
+        const rates = this.props.rates[1]
         return( 
             <div className='all-dest'>
                 <div className='all-destinations-list'>
@@ -47,7 +48,11 @@ export default class AllDestinations extends React.Component {
                                     <li><u>Capital</u>: {destination.capital}</li>
                                     <li><u>Currency Code/Symbol</u>: 
                                     {' ' + destination.currency_name} / {destination.code} 
-                                    ({destination.symbol})</li>
+                                    ({destination.symbol})
+                                    </li>
+                                    <li><u>Exchange Rate</u>: 
+                                    {` ${rates.rate_list.rates[destination.code]} ${destination.code} : $1 USD`}
+                                    </li>
                                 </ul>
                         </li>)}
                     </ul>
