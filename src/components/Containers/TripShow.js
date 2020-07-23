@@ -64,7 +64,7 @@ export default class TripShow extends React.Component {
     getRates = () => {
         const createdAt = this.state.trip.created_at.slice(0, 10)
         const code = this.state.trip.destination.code
-        fetch(`https://trip-tracker-backend.herokuapp.com//api/v1/rates/${createdAt}/${code}`)
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/rates/${createdAt}/${code}`)
             .then(res => res.json())
             .then(rateList => this.setState({
                 rates: rateList,
