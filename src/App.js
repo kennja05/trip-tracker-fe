@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/api/v1/newRates')
+    fetch('https://trip-tracker-backend.herokuapp.com//api/v1/newRates')
       .then(res => res.json())
       .then(newRates => this.setState({
         rates: newRates
