@@ -1,6 +1,7 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faSignInAlt} from '@fortawesome/free-solid-svg-icons'
+import {faSignInAlt, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
+import ReactTooltip from 'react-tooltip'
 
 export default class LoginForm extends React.Component {
 
@@ -34,7 +35,12 @@ export default class LoginForm extends React.Component {
     render(){
         return(
             <div className='login-form-div'>
-                <h2>Returning User? Log in below</h2>
+                <h2>Returning User? Log in below <span data-tip="Don't want to create an account? 
+                Try logging in with with username: 12345, and password: 123">
+                    <FontAwesomeIcon icon={faInfoCircle}/>
+                    <ReactTooltip />
+                </span>
+                </h2>
                 <div className='login-form'>
                     <form onSubmit={this.handleSubmit}>
                         <p>
