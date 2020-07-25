@@ -35,11 +35,12 @@ class PleaseLogin extends React.Component {
 
     
     render(){
+        const {location, message} = this.state
             return(
                 <div className='dashboard-container'>
                         <div className='sub-dash-container-div'>
-                        <h2><u>{this.state.location}</u></h2>
-                            <Link className='link' to='/'><b>{this.state.message}</b></Link>
+                        <h2><u>{location}</u></h2>
+                            <Link className='link' to='/'><b>{message}</b></Link>
                         </div>
                 </div>
             )        

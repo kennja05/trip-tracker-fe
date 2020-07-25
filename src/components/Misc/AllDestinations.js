@@ -26,21 +26,22 @@ export default class AllDestinations extends React.Component {
 
     render(){
         const rates = this.props.rates[1]
+        const {loaded, searchTerm, destinations} = this.state
         return( 
             <div className='all-dest'>
                 <div className='all-destinations-list'>
                     <h1 style={{fontFamily: 'Racing Sans One'}}>Available Destinations</h1> 
-                    {!this.state.loaded && <ReactLoading height={'20%'} width={'20%'} 
+                    {!loaded && <ReactLoading height={'20%'} width={'20%'} 
                         type={'cylon'} color={'#6b6e70'}/>}              
-                    {this.state.loaded && 
+                    {loaded && 
                     <div>
                         <p><u>Search for a Country: </u>
                         <input onChange={this.handleSearch} type='text' 
-                            value={this.state.searchTerm} name='searchTerm'/></p>
+                            value={searchTerm} name='searchTerm'/></p>
                     </div>}
                     <ul>
-                        {this.state.destinations.filter(dest => 
-                        dest.name.includes(this.state.searchTerm.toUpperCase())).map((destination, index) => 
+                        {destinations.filter(dest => 
+                        dest.name.includes(searchTerm.toUpperCase())).map((destination, index) => 
                             <li className={index % 2 === 0 ? 'all-countries-li-gray' : 'all-countries-li-green'} 
                                 key={destination.id}>
                             <b>{destination.name}</b> (Local Name: {destination.native_name})
@@ -60,7 +61,4 @@ export default class AllDestinations extends React.Component {
             </div>
         ) 
     }
-
-
-
 }
