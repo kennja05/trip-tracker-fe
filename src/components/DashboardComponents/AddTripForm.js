@@ -69,7 +69,6 @@ export default class AddTripForm extends React.Component {
         const {user} = this.props
         const {startDate, endDate, destinations}= this.state
         return(
-            //checking to make sure the user is logged in before allowing new trips
             user ? 
             <div id='add-trip' className='dashboard-container'>
                 <div className='sub-dash-container-div'>

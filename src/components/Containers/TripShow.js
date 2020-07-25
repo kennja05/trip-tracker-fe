@@ -120,47 +120,66 @@ export default class TripShow extends React.Component {
     }
 
     render(){
+        const {user} = this.props
+        const {loaded, trip, plannedExpenses, totalPe, rates, display} = this.state
         return(
-            this.state.loaded && this.props.user && this.props.user.id === this.state.trip.user_id ?
+            loaded && user && user.id === trip.user_id ?
                 <div className='trip-show-container'>
                     <div className='trip-show'>
-                        <h1 style={{fontFamily: 'Racing Sans One'}}>Your Trip to: {this.state.trip.destination.name}</h1>
-                        <img className='flag-pic' alt='flag' src={this.state.trip.destination.image} />
-                        <h2>Start Date: {this.state.trip.start_date}</h2>
-                        <h2>End Date: {this.state.trip.end_date}</h2>
+                        <h1 style={{fontFamily: 'Racing Sans One'}}>Your Trip to: {trip.destination.name}</h1>
+                        <img className='flag-pic' alt='flag' src={trip.destination.image} />
+                        <h2>Start Date: {trip.start_date}</h2>
+                        <h2>End Date: {trip.end_date}</h2>
                         <h2>Destination Info</h2>
                         <ul>
-                            <li><b>Native Name: </b>{this.state.trip.destination.native_name}</li>
-                            <li><b>Capital: </b> {this.state.trip.destination.capital}</li>
-                            <li><b>Currency Name: </b>{this.state.trip.destination.currency_name} ({this.state.trip.destination.symbol})</li>
-                            <ul><li>Official Currency Code: {this.state.trip.destination.code}</li></ul>
+                            <li><b>Native Name: </b>{trip.destination.native_name}</li>
+                            <li><b>Capital: </b> {trip.destination.capital}</li>
+                            <li><b>Currency Name: </b>{trip.destination.currency_name} ({trip.destination.symbol})</li>
+                            <ul><li>Official Currency Code: {trip.destination.code}</li></ul>
                         </ul>
                         <h2>Current Planned Expenses (Name || Cost || Date)</h2>  
                         <div id='pe-list-container'>
                             <ul>
-                                {this.state.plannedExpenses.length !==0 ? 
-                                this.state.plannedExpenses.map(pe => <li key={pe.id}>{pe.name} <b>||
-                                </b> {pe.cost} {this.state.trip.destination.code} <b>||</b> {pe.date}
+                                {plannedExpenses.length !==0 ? 
+                                plannedExpenses.map(pe => <li key={pe.id}>{pe.name} <b>||
+                                </b> {pe.cost} {trip.destination.code} <b>||</b> {pe.date}
                                 <span onClick={() => this.handleDeletePlannedExpense(pe)}
                                 className='delete-button'> <FontAwesomeIcon icon={faTimesCircle}/></span></li>)
                                 : 
                                 <li style={{fontFamily: 'Racing Sans One'}}>No Expenses Have Been Budgeted Yet</li>}
                             </ul>
                         </div>
-                        <h2>Current Total ({this.state.trip.destination.symbol}): {this.state.totalPe} {this.state.trip.destination.code}</h2>
-                        <h2>Current Cost of Planned Expenses ($): {(this.state.totalPe / this.state.rates[this.state.rates.length -1].rate).toFixed(2)} USD</h2>
-                        <h2>Cost of Planned Expenses at time of Trip Pannning ($): {(this.state.totalPe / this.state.rates[0].rate).toFixed(2)} USD</h2>
+                        <h2>Current Total ({trip.destination.symbol}): {totalPe} {trip.destination.code}</h2>
+                        <h2>Current Cost of Planned Expenses ($): {(totalPe / rates[rates.length -1].rate).toFixed(2)} USD</h2>
+                        <h2>Cost of Planned Expenses at time of Trip Pannning ($): {(totalPe / rates[0].rate).toFixed(2)} USD</h2>
                     </div>
                     <div className='pe-form-and-trip-rates'>
                         <PlannedExpenseForm addPe={this.addPe} trip={this.state.trip}/>
                         <div className='display-buttons-container'>
-                            {!this.state.display.showHistoricalRates && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='hr' className='display-buttons'>Detailed Historical Rates</span>}
-                            {!this.state.display.showHrChart && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='hrg' className='display-buttons'>Historical Rates Graph</span>}
-                            {!this.state.display.showPePie && <span onClick={(e) => this.handleDisplayButtonClick(e)} id='peb' className='display-buttons'>Planned Expenses Breakdown</span>}
+                            {!this.state.display.showHistoricalRates && 
+                            <span 
+                                onClick={(e) => this.handleDisplayButtonClick(e)} id='hr' 
+                                className='display-buttons'>Detailed Historical Rates
+                            </span>}
+                            {!this.state.display.showHrChart && 
+                            <span 
+                                onClick={(e) => this.handleDisplayButtonClick(e)} id='hrg'
+                                className='display-buttons'>Historical Rates Graph
+                            </span>}
+                            {!this.state.display.showPePie && 
+                            <span 
+                                onClick={(e) => this.handleDisplayButtonClick(e)} id='peb' 
+                                className='display-buttons'>Planned Expenses Breakdown
+                            </span>}
                         </div>
-                        {this.state.display.showHistoricalRates && <HistoricalRates destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} rates={this.state.rates}/>}
-                        {this.state.display.showHrChart && <CanvasHistoricalChart destination={this.state.trip.destination} startDate={this.state.trip.created_at.slice(0,10)} values={this.state.rates} /> }
-                        {this.state.display.showPePie && <PePieChart plannedExpenses={this.state.plannedExpenses} total={this.state.totalPe}/> }
+                        {display.showHistoricalRates && 
+                            <HistoricalRates destination={trip.destination} 
+                            startDate={trip.created_at.slice(0,10)} rates={rates}/>}
+                        {display.showHrChart && 
+                            <CanvasHistoricalChart destination={trip.destination} 
+                            startDate={trip.created_at.slice(0,10)} values={rates} /> }
+                        {display.showPePie && 
+                            <PePieChart plannedExpenses={plannedExpenses} total={totalPe}/> }
                     </div>
                 </div>
             
