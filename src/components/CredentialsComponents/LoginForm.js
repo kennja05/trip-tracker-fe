@@ -7,8 +7,7 @@ export default class LoginForm extends React.Component {
 
     state = {
         username: '',
-        password: '',
-        disableButton: true
+        password: ''
     }
 
     handleFormChange = (e) => {
@@ -33,6 +32,7 @@ export default class LoginForm extends React.Component {
     }
 
     render(){
+        const {username, password} = this.state
         return(
             <div className='login-form-div'>
                 <h2>Returning User? Log in below <span data-tip="Don't want to create an account? 
@@ -46,14 +46,14 @@ export default class LoginForm extends React.Component {
                         <p>
                             <label>Username: </label>
                             <input onChange={this.handleFormChange} type='text' name='username' 
-                                value={this.state.username}/>
+                                value={username}/>
                         </p>
                         <p>
                             <label>Password: </label>
                             <input onChange={this.handleFormChange} type='password' name='password' 
-                                value={this.state.password} />
+                                value={password} />
                         </p>
-                        <button disabled={this.state.password === "" || this.state.username === ""} type='submit'>
+                        <button disabled={password === "" || username === ""} type='submit'>
                             <FontAwesomeIcon aria-hidden={true} icon={faSignInAlt} />
                             <span className='sr-only'>Log In</span>
                         </button>

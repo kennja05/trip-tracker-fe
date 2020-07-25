@@ -36,6 +36,7 @@
     line-height: 0.9;
     text-indent: 20px;
     line-height: 1.1;
+    overflow: auto;
 }
 
 #pe-list-container{

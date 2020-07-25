@@ -52,27 +52,28 @@ export default class SignupForm extends React.Component {
     }
 
     render(){
+        const {username, password, passwordConfirmation, phone} = this.state
         return(
             <div className='signup-form-div'>
                 <h2>New User? Sign up below</h2>
                 <div className='signup-form'>
                     <form> 
                         <p><label>*Username: </label>
-                        <input onChange={this.handleFormChange} type='text' name='username' value={this.state.username}/></p>
+                        <input onChange={this.handleFormChange} type='text' name='username' value={username}/></p>
                         
                         <p><label>*Password: </label>
-                        <input onChange={this.handleFormChange} type='password' name='password' value={this.state.password} /></p>
+                        <input onChange={this.handleFormChange} type='password' name='password' value={password} /></p>
                         
                         <p><label>*Confirm Password: </label>
-                        <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={this.state.passwordConfirmation} /></p>
+                        <input onChange={this.handleFormChange} type='password' name='passwordConfirmation' value={passwordConfirmation} /></p>
                         
                         <p><label>Phone: </label>
-                        <input onChange={this.handleFormChange} type='text' name='phone' value={this.state.phone} /></p>
+                        <input onChange={this.handleFormChange} type='text' name='phone' value={phone} /></p>
                         <button className='sr-only' onClick={this.handleSubmit}></button>
                     </form>
                 </div>
                         <button onClick={this.handleSubmit} type='submit' value='Create Account' 
-                        disabled={this.state.username === '' || this.state.password === ''}>
+                        disabled={username === '' || password === ''}>
                             <FontAwesomeIcon title="Log In" aria-hidden={true} icon={faUserPlus} />
                         </button>
                         <p>
