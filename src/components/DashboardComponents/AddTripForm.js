@@ -66,25 +66,27 @@ export default class AddTripForm extends React.Component {
     }
  
     render(){
+        const {user} = this.props
+        const {startDate, endDate, destinations}= this.state
         return(
             //checking to make sure the user is logged in before allowing new trips
-            this.props.user ? 
+            user ? 
             <div id='add-trip' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
                     <h2 style={{fontFamily: 'Racing Sans One'}}><u>Add A New Trip</u></h2>
                     <form className='add-trip-form' onSubmit={this.handleFormSubmit}>
                         <label>Start Date:</label> 
                         <DatePicker dateFormat='MM/dd/yy' name='startDate' 
-                            selected={this.state.startDate} onChange={this.handleStartDateChange} />
+                            selected={startDate} onChange={this.handleStartDateChange} />
                         <div className='form-break'></div>
                         <label>End Date:</label>
                         <DatePicker dateFormat='MM/dd/yy' name='endDate' 
-                            selected={this.state.endDate} onChange={this.handleEndDateChange} />
+                            selected={endDate} onChange={this.handleEndDateChange} />
                         <div className='form-break'></div>
                         <label>Location:</label>
                         <select style={{width: '153px'}} name='selectedDestination' onChange={this.handleFormChange}>
-                            {this.state.destinations.length > 0 && 
-                            this.state.destinations.map(dest => <option key={dest.id} 
+                            {destinations.length > 0 && 
+                            destinations.map(dest => <option key={dest.id} 
                             value={dest.name}>{dest.name}</option>)}
                         </select>
                         <div className='form-break'></div>

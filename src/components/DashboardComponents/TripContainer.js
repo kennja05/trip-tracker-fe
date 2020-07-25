@@ -77,8 +77,9 @@ export default class TripContainer extends React.Component {
 
 
     render(){
+        const {loaded, myTrips, startIndex} = this.state
         return (
-            this.state.loaded ? 
+            loaded ? 
             <div id='upcoming-trips' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
                     <h2 style={{fontFamily: 'Racing Sans One'}}><u>My Trips</u> 
@@ -88,9 +89,9 @@ export default class TripContainer extends React.Component {
                             <FontAwesomeIcon icon={faInfoCircle} />
                             <ReactTooltip type='dark' place='top' />
                         </span></h2>
-                    {this.state.myTrips.length === 0 && <p>There are no upcoming trips</p>} 
+                    {myTrips.length === 0 && <p>There are no upcoming trips</p>} 
                     <ul className='list'>
-                        {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
+                        {myTrips.slice(startIndex, startIndex + 4).map(trip => 
                         <li className='trip' 
                         key={trip.id}><b className='trip-name' onClick={() => this.handleTripClick(trip)} >{trip.destination.name}</b>
                             <span onDoubleClick={() => this.deleteTrip(trip.id)}><Delete /></span>

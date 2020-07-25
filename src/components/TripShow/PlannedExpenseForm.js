@@ -53,21 +53,23 @@ export default class PlannedExpenseForm extends React.Component {
 
 
     render(){
+        const {name, cost, category, date} = this.state
+        const {trip} = this.props
         return(
             <div className='planned-expense-div'>
                 <h2 className='pe-h2'>Input Your Planned Expense(s) Below</h2>
                 <form className='planned-expense-form' onSubmit={this.handleAddPlannedExpense}>  
                     
                     <label>Expense Name: </label>
-                    <input onChange={this.handleFormChange} type='text' name='name' value={this.state.name} />
+                    <input onChange={this.handleFormChange} type='text' name='name' value={name} />
                     <br></br>
                 
-                    <label>Cost (in {this.props.trip.destination.code}): </label>
-                    <input onChange={this.handleFormChange} type='number' name='cost' value={this.state.cost} />
+                    <label>Cost (in {trip.destination.code}): </label>
+                    <input onChange={this.handleFormChange} type='number' name='cost' value={cost} />
                     <br></br>
                 
                     <label>Category: </label>
-                    <select name='category' value={this.state.category} onChange={this.handleFormChange}>
+                    <select name='category' value={category} onChange={this.handleFormChange}>
                         <option value="Lodging">Lodging</option>
                         <option value="Food/Drink"> Food/Drink</option>
                         <option value="Business">Business</option>
@@ -77,11 +79,10 @@ export default class PlannedExpenseForm extends React.Component {
                     <br></br>
                 
                     <label>Date: </label>
-                    <DatePicker dateFormat='MM/dd/yy' name='date' selected={this.state.date} onChange={this.handleDateChange} />
+                    <DatePicker dateFormat='MM/dd/yy' name='date' selected={date} onChange={this.handleDateChange} />
                     <br></br>
                     
-                    <input disabled={this.disableForm()} type='submit' value='Add Expense' />
-                    
+                    <input disabled={this.disableForm()} type='submit' value='Add Expense' />   
                 </form>
             </div>
         )

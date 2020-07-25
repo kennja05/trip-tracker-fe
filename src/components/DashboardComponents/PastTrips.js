@@ -73,8 +73,9 @@ export default class PastTrips extends React.Component {
 
 
     render(){
+        const {loaded, myTrips, startIndex} = this.state
         return (
-            this.state.loaded ? 
+            loaded ? 
             <div id='past-trips' className='dashboard-container'>
                 <div className='sub-dash-container-div'>
                     <h2 style={{fontFamily: 'Racing Sans One'}}><u>Past Trips</u>
@@ -85,9 +86,9 @@ export default class PastTrips extends React.Component {
                             <ReactTooltip multiline={false} type='dark' place='top' />
                         </span>
                     </h2>
-                    {this.state.myTrips.length === 0 && <p>No Trips Have Have Been Completed</p>} 
+                    {myTrips.length === 0 && <p>No Trips Have Have Been Completed</p>} 
                     <ul className='list'>
-                        {this.state.myTrips.slice(this.state.startIndex, this.state.startIndex + 4).map(trip => 
+                        {myTrips.slice(startIndex, startIndex + 4).map(trip => 
                             <li className='trip' key={trip.id}>
                                 <b className="trip-name" onClick={() => this.handleTripClick(trip)}>{trip.destination.name} </b>
                                 <span onDoubleClick={() => this.deleteTrip(trip.id)}><Delete  /></span>
