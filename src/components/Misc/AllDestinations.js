@@ -26,6 +26,7 @@ export default class AllDestinations extends React.Component {
 
 
     render(){
+        console.log(this.state.destinations)
         const rates = this.props.rates[1]
         const {loaded, searchTerm, destinations} = this.state
         return( 
@@ -41,8 +42,8 @@ export default class AllDestinations extends React.Component {
                             value={searchTerm} name='searchTerm'/></p>
                     </div>}
                     <ul>
-                        {destinations.filter(dest => 
-                        dest.name.includes(searchTerm.toUpperCase())).map((destination, index) => 
+                        {destinations.filter(destination => 
+                        destination.name.includes(searchTerm)).map((destination, index) => 
                             <li className={index % 2 === 0 ? 'all-countries-li-gray' : 'all-countries-li-green'} 
                                 key={destination.id}>
                             <b>{destination.name}</b> (Local Name: {destination.native_name})
