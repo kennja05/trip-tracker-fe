@@ -30,9 +30,9 @@ export default class CanvasHistoricalChart extends React.Component {
               text: "Exchange Rate Over Time"
             },
             axisY: {
-                title: `${this.props.destination.currency_name} to USD`,
+                title: `USD to ${this.props.destination.currency_name}`,
                 includeZero: false,
-                suffix: this.props.destination.symbol
+                suffix: "$"
             },
             axisX: {
                 title: "Rates Obtained"
@@ -41,7 +41,8 @@ export default class CanvasHistoricalChart extends React.Component {
                       type: "line",
                       lineColor: '#cc3a00',
                       theme: 'light4',
-                      toolTipContent: '{y} - {date}',
+                      // eslint-disable-next-line
+                      toolTipContent: '${y} - {date}',
                       dataPoints: this.state.coordinates
              }]
         }

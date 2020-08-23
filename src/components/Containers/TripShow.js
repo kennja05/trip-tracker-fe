@@ -28,7 +28,7 @@ export default class TripShow extends React.Component {
 
     //need to get trip info into state, and then rates immediately after..
     componentDidMount(){
-        fetch(`http://localhost:3000/api/v1/trips/${this.props.match.params.id}`) 
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/trips/${this.props.match.params.id}`) 
             .then(res => res.json())
             .then(trp => this.setState({
                 trip: trp,
@@ -64,7 +64,7 @@ export default class TripShow extends React.Component {
     getRates = () => {
         const createdAt = this.state.trip.created_at.slice(0, 10)
         const code = this.state.trip.destination.code
-        fetch(`http://localhost:3000/api/v1/rates/${createdAt}/${code}`)
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/rates/${createdAt}/${code}`)
             .then(res => res.json())
             .then(rateList => this.setState({
                 rates: rateList,
@@ -86,7 +86,7 @@ export default class TripShow extends React.Component {
     }
 
     handleDeletePlannedExpense = (plannedExp) => {
-        fetch(`http://localhost:3000/api/v1/planned_expenses/${plannedExp.id}`, {
+        fetch(`https://trip-tracker-backend.herokuapp.com/api/v1/planned_expenses/${plannedExp.id}`, {
             method: "DELETE"
         })
         .then(res => res.json())
