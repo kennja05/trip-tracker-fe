@@ -38,7 +38,7 @@ export default class PlannedExpenseForm extends React.Component {
         } else if (peObject.date < this.props.trip.start_date || peObject.date > this.props.trip.end_date){
             alert(`Please only add expenses for the trip beginning on ${this.props.trip.start_date} and ending ${this.props.trip.end_date}`)
         } else {
-        fetch('http://localhost:3000/api/v1/planned_expenses', {
+        fetch('https://trip-tracker-backend.herokuapp.com/api/v1/planned_expenses', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
