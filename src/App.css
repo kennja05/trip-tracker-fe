@@ -128,6 +128,18 @@ End title/credential page elements
   background-color: #252024;
 }
 
-body{
-  background-color: #252024
+/* Begin Edit Profile Page Elements */
+#edit-profile-page{
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#edit-form{
+  background: green;
+  width: 50%;
+  margin: 20px;
 }

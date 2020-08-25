@@ -10,6 +10,7 @@ import HomepageContainer from './components/Containers/HomepageContainer'
 import TripShow from './components/Containers/TripShow'
 import Navbar from './components/Misc/NavBar'
 import NoContent from './components/Misc/NoContent'
+import EditProfile from './components/Edit/EditProfile'
 
 class App extends React.Component {
 
@@ -51,6 +52,7 @@ class App extends React.Component {
             <Route path='/dashboard' render={(routerProps) => <HomepageContainer rates={this.state.rates} logout={this.handleLogOut} user={this.state.user} {...routerProps} />} />
             <Route path='/alldestinations' render={(routerProps) => <AllDestinations rates={this.state.rates} />} />
             <Route path='/trip/:id' render={(routerProps) => <TripShow logout={this.handleLogOut} user={this.state.user} {...routerProps} />} />
+            <Route path='/user/:id' render={(routerProps) => <EditProfile user={this.state.user} {...routerProps}/>} />
             <Route path='*' component={NoContent} />
           </Switch>
         </div>
