@@ -6,7 +6,8 @@ export default class EditProfile extends React.Component {
 
     state = {
         fetchedUser: {},
-        loaded: false
+        loaded: false,
+        error: ''
     }
 
     componentDidMount(){
@@ -14,21 +15,29 @@ export default class EditProfile extends React.Component {
         fetch(`http://localhost:3000/api/v1/users/${userId}`)
             .then(res => res.json())
             .then(user => this.setState({
-                fetchedUser: user, 
-                loaded: true
+                fetchedUser: !user.error ? user : null, 
+                loaded: true,
+                error: user.error ? user.error : null
             }))
+    }
+
+    formatCreatedOn = str =>{
+        // let date = str.slice(0, 10)
+        // return date
     }
 
     render(){
         const {user} = this.props
-        const {fetchedUser, loaded} = this.state
-        console.log(this.state.fetchedUser)
+        const {fetchedUser, loaded, error} = this.state
+        console.log(this.state)
+        this.formatCreatedOn(fetchedUser.created_at)
         return(
             loaded ? 
             <div id='edit-profile-page'>
                 <div id='edit-form'>
-                    <h1>Username: {fetchedUser.username}</h1>
-                    <h2>Joined On: </h2>
+                    <h1>Username: {!error ? fetchedUser.username : error}</h1>
+                    <h2>Joined On: {!error ? fetchedUser.created_at.slice(0,10) : error}</h2> 
+                    <h2>Trips Planned Through Site: {!error ? fetchedUser.trips.length : error}</h2>             
                 </div>
             </div>
             :
