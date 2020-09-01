@@ -139,7 +139,8 @@ End title/credential page elements
 }
 
 #edit-form{
-  background: green;
+  background: #cc3a00;
   width: 50%;
   margin: 20px;
+  box-shadow: 2px 2px 5px;
 }
