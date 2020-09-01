@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactLoading from 'react-loading'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 
 export default class EditProfile extends React.Component {
@@ -7,7 +9,8 @@ export default class EditProfile extends React.Component {
     state = {
         fetchedUser: {},
         loaded: false,
-        error: ''
+        error: '',
+        showForm: false
     }
 
     componentDidMount(){
@@ -21,24 +24,31 @@ export default class EditProfile extends React.Component {
             }))
     }
 
-    formatCreatedOn = str =>{
-        // let date = str.slice(0, 10)
-        // return date
+    handleEditClick = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        })
     }
 
     render(){
         const {user} = this.props
-        const {fetchedUser, loaded, error} = this.state
-        console.log(this.state)
-        this.formatCreatedOn(fetchedUser.created_at)
+        const {fetchedUser, loaded, error, showForm} = this.state
+        console.log(this.state.showForm)
         return(
             loaded ? 
             <div id='edit-profile-page'>
-                <div id='edit-form'>
-                    <h1>Username: {!error ? fetchedUser.username : error}</h1>
+                <div id='profile-info'>
+                    <h1>Username: {!error ? fetchedUser.username : error} {user && user.id === fetchedUser.id && <span id='edit-username-link' onClick={this.handleEditClick}><FontAwesomeIcon icon={faEdit}/></span>}</h1>
                     <h2>Joined On: {!error ? fetchedUser.created_at.slice(0,10) : error}</h2> 
                     <h2>Trips Planned Through Site: {!error ? fetchedUser.trips.length : error}</h2>             
                 </div>
+                {showForm &&
+                    <div id='edit-profile-form'>
+                        <form>
+                            <input type='text'></input>
+                        </form>
+                    </div>   
+                }
             </div>
             :
             <div id='edit-profile-page'>

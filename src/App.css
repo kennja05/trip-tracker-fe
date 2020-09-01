@@ -91,8 +91,8 @@ h1.login-form{
   width: 35%;
 }
 
-.signup-form{
-}
+/* .signup-form{
+} */
 /* 
 End title/credential page elements
 ================================================================================================ */
@@ -138,7 +138,18 @@ End title/credential page elements
   text-align: center;
 }
 
-#edit-form{
+#profile-info{
+  background: #cc3a00;
+  width: 50%;
+  margin: 20px;
+  box-shadow: 2px 2px 5px;
+}
+
+#edit-username-link{
+  cursor: pointer;
+}
+
+#edit-profile-form{
   background: #cc3a00;
   width: 50%;
   margin: 20px;
