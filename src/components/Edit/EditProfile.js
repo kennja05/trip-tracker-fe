@@ -42,7 +42,7 @@ export default class EditProfile extends React.Component {
         })
     }
 
-    handleSubmit = e => {
+    handleUsernameSubmit = e => {
         e.preventDefault()
         const user = this.props.user
         user.username = this.state.newUsername
@@ -60,10 +60,18 @@ export default class EditProfile extends React.Component {
         }))
     }
 
+    handlePasswordSubmit = e => {
+        const {currPassword, newPassword, confirmPassword} = this.state
+        
+        e.preventDefault()
+        if (newPassword !== confirmPassword){
+            alert("New and Retyped Passwords Must Match")
+        }
+    }
+
     render(){
         const {user} = this.props
         const {fetchedUser, loaded, error, showForm, newUsername, newPhone, currPassword, newPassword, confirmPassword} = this.state
-        console.log(this.state)
         return(
             loaded ? 
             <div id='edit-profile-page'>
@@ -80,7 +88,7 @@ export default class EditProfile extends React.Component {
                     <div>
                         <div className='edit-profile-form'>
                             <h2>Update Profile</h2>
-                            <Form onSubmit={this.handleSubmit}>
+                            <Form onSubmit={this.handleUsernameSubmit}>
                                 <Form.Row>
                                     <Form.Label>New Username: </Form.Label>
                                     <Form.Control 
@@ -100,9 +108,9 @@ export default class EditProfile extends React.Component {
                                 </Form.Row>
                             </Form>
                         </div> 
-                        <div className='edit-profile-form'>
+                        <div className='edit-profile-form' id={newPassword === confirmPassword ? 'green-from' : ""}>
                             <h2>Update Password</h2>
-                            <Form>
+                            <Form onSubmit={this.handlePasswordSubmit}>
                                 <Form.Row>
                                     <Form.Label>Current Password: </Form.Label>
                                     <Form.Control 
