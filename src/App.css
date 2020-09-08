@@ -149,9 +149,9 @@ End title/credential page elements
   cursor: pointer;
 }
 
-#edit-profile-form{
+.edit-profile-form{
   background: #cc3a00;
-  width: 50%;
+  width: 100%;
   margin: 20px;
   box-shadow: 2px 2px 5px;
 }
