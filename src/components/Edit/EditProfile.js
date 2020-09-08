@@ -15,7 +15,8 @@ export default class EditProfile extends React.Component {
         newUsername: '',
         newPhone: '',
         currPassword: '',
-        newPassword: ''
+        newPassword: '',
+        confirmPassword: ''
     }
 
     componentDidMount(){
@@ -45,7 +46,6 @@ export default class EditProfile extends React.Component {
         e.preventDefault()
         const user = this.props.user
         user.username = this.state.newUsername
-        console.log(user)
         fetch(`http://localhost:3000/api/v1/users/${user.id}`,{
             method: "PATCH",
             headers: {
@@ -62,7 +62,8 @@ export default class EditProfile extends React.Component {
 
     render(){
         const {user} = this.props
-        const {fetchedUser, loaded, error, showForm, newUsername} = this.state
+        const {fetchedUser, loaded, error, showForm, newUsername, newPhone, currPassword, newPassword, confirmPassword} = this.state
+        console.log(this.state)
         return(
             loaded ? 
             <div id='edit-profile-page'>
@@ -82,12 +83,17 @@ export default class EditProfile extends React.Component {
                             <Form onSubmit={this.handleSubmit}>
                                 <Form.Row>
                                     <Form.Label>New Username: </Form.Label>
-                                    <Form.Control onChange={this.handleFormChange} 
-                                    name='newUsername' value={newUsername} type='text'></Form.Control>
+                                    <Form.Control 
+                                        onChange={this.handleFormChange} placeholder='New Username'
+                                        name='newUsername' value={newUsername} type='text'>                          
+                                    </Form.Control>
                                 </Form.Row>
                                 <Form.Row>
                                     <Form.Label>Update Phone: </Form.Label>
-                                    <Form.Control type='text'></Form.Control>
+                                    <Form.Control 
+                                        onChange={this.handleFormChange} placeholder={user.phone !== "" ? user.phone : 'Add ph# to receive text alerts'} 
+                                        name='newPhone' value={newPhone} type='text' >        
+                                    </Form.Control>
                                 </Form.Row>
                                 <Form.Row>
                                     <Button variant='primary' type='submit'>Submit</Button>
@@ -99,15 +105,27 @@ export default class EditProfile extends React.Component {
                             <Form>
                                 <Form.Row>
                                     <Form.Label>Current Password: </Form.Label>
-                                    <Form.Control type='password' placeholder='Enter Current Password'></Form.Control>
+                                    <Form.Control 
+                                        type='password' name='currPassword' 
+                                        placeholder='Enter Current Password' 
+                                        onChange={this.handleFormChange} value={currPassword}>
+                                    </Form.Control>
                                 </Form.Row>
                                 <Form.Row>
                                     <Form.Label>New Password: </Form.Label>
-                                    <Form.Control type='password' placeholder='Enter New Password'></Form.Control>
+                                    <Form.Control 
+                                        type='password' name='newPassword' 
+                                        placeholder='Enter New Password' 
+                                        onChange={this.handleFormChange} value={newPassword}>                               
+                                    </Form.Control>
                                 </Form.Row>
                                 <Form.Row>
                                     <Form.Label>Confirm New Password: </Form.Label>
-                                    <Form.Control type='password' placeholder='Re-type New Password'></Form.Control>
+                                    <Form.Control 
+                                        type='password' name='confirmPassword' 
+                                        placeholder='Re-type New Password' 
+                                        onChange={this.handleFormChange} value={confirmPassword}>
+                                    </Form.Control>
                                 </Form.Row>
                                 <Form.Row>
                                     <Button variant="primary" type="submit">Submit</Button>
