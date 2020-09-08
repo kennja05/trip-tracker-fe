@@ -2,6 +2,7 @@ import React from 'react'
 import ReactLoading from 'react-loading'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import {Form, Button} from 'react-bootstrap'
 
 
 export default class EditProfile extends React.Component {
@@ -62,7 +63,6 @@ export default class EditProfile extends React.Component {
     render(){
         const {user} = this.props
         const {fetchedUser, loaded, error, showForm, newUsername} = this.state
-        console.log(this.state.newUsername)
         return(
             loaded ? 
             <div id='edit-profile-page'>
@@ -79,20 +79,40 @@ export default class EditProfile extends React.Component {
                     <div>
                         <div className='edit-profile-form'>
                             <h2>Update Profile</h2>
-                            <form onSubmit={this.handleSubmit}>
-                                <label>New Username: </label>
-                                <input onChange={this.handleFormChange} 
-                                name='newUsername' value={newUsername} type='text'/>
-                                <label>Update Phone </label>
-                                <input type='text'/>
-                                <input type='submit'/>
-                            </form>
+                            <Form onSubmit={this.handleSubmit}>
+                                <Form.Row>
+                                    <Form.Label>New Username: </Form.Label>
+                                    <Form.Control onChange={this.handleFormChange} 
+                                    name='newUsername' value={newUsername} type='text'></Form.Control>
+                                </Form.Row>
+                                <Form.Row>
+                                    <Form.Label>Update Phone: </Form.Label>
+                                    <Form.Control type='text'></Form.Control>
+                                </Form.Row>
+                                <Form.Row>
+                                    <Button variant='primary' type='submit'>Submit</Button>
+                                </Form.Row>
+                            </Form>
                         </div> 
                         <div className='edit-profile-form'>
                             <h2>Update Password</h2>
-                            <form>
-
-                            </form>
+                            <Form>
+                                <Form.Row>
+                                    <Form.Label>Current Password: </Form.Label>
+                                    <Form.Control type='password' placeholder='Enter Current Password'></Form.Control>
+                                </Form.Row>
+                                <Form.Row>
+                                    <Form.Label>New Password: </Form.Label>
+                                    <Form.Control type='password' placeholder='Enter New Password'></Form.Control>
+                                </Form.Row>
+                                <Form.Row>
+                                    <Form.Label>Confirm New Password: </Form.Label>
+                                    <Form.Control type='password' placeholder='Re-type New Password'></Form.Control>
+                                </Form.Row>
+                                <Form.Row>
+                                    <Button variant="primary" type="submit">Submit</Button>
+                                </Form.Row>
+                            </Form>
                         </div>
                     </div>
                 }
