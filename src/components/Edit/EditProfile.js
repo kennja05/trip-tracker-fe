@@ -11,7 +11,10 @@ export default class EditProfile extends React.Component {
         loaded: false,
         error: '',
         showForm: false,
-        newUsername: ''
+        newUsername: '',
+        newPhone: '',
+        currPassword: '',
+        newPassword: ''
     }
 
     componentDidMount(){
@@ -45,13 +48,14 @@ export default class EditProfile extends React.Component {
         fetch(`http://localhost:3000/api/v1/users/${user.id}`,{
             method: "PATCH",
             headers: {
-              'content-type': 'application/json'
+              'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
         })
         .then(res => res.json())
         .then(u => this.setState({
-            fetchedUser: u
+            fetchedUser: u,
+            newUsername: ''
         }))
     }
 
@@ -71,16 +75,26 @@ export default class EditProfile extends React.Component {
                     <h2>Joined On: {!error ? fetchedUser.created_at.slice(0,10) : error}</h2> 
                     <h2>Trips Planned Through Site: {!error ? fetchedUser.trips.length : error}</h2>             
                 </div>
-                {showForm &&
-                    <div id='edit-profile-form'>
-                        <h2>Update Username</h2>
-                        <form>
-                            <label>New Username: </label>
-                            <input onChange={this.handleFormChange} 
-                            name='newUsername' value={newUsername} type='text'/>
-                            <input onSubmit={this.handleSubmit} type='submit'/>
-                        </form>
-                    </div>   
+                {showForm &&                        
+                    <div>
+                        <div className='edit-profile-form'>
+                            <h2>Update Profile</h2>
+                            <form onSubmit={this.handleSubmit}>
+                                <label>New Username: </label>
+                                <input onChange={this.handleFormChange} 
+                                name='newUsername' value={newUsername} type='text'/>
+                                <label>Update Phone </label>
+                                <input type='text'/>
+                                <input type='submit'/>
+                            </form>
+                        </div> 
+                        <div className='edit-profile-form'>
+                            <h2>Update Password</h2>
+                            <form>
+
+                            </form>
+                        </div>
+                    </div>
                 }
             </div>
             :
