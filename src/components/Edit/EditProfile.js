@@ -61,8 +61,8 @@ export default class EditProfile extends React.Component {
     }
 
     handlePasswordSubmit = e => {
+        //
         const {currPassword, newPassword, confirmPassword} = this.state
-        
         e.preventDefault()
         if (newPassword !== confirmPassword){
             alert("New and Retyped Passwords Must Match")
@@ -71,6 +71,7 @@ export default class EditProfile extends React.Component {
 
     render(){
         const {user} = this.props
+        //
         const {fetchedUser, loaded, error, showForm, newUsername, newPhone, currPassword, newPassword, confirmPassword} = this.state
         return(
             loaded ? 
