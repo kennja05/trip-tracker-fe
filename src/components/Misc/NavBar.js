@@ -16,7 +16,7 @@ export default class NavBar extends React.Component {
                     <Link className='nav-link' to='/'>Login</Link>}
                 <Link className='nav-link' to='/dashboard'>Dashboard</Link>
                 <Link className='nav-link' to='/alldestinations'>Destinations</Link>
-                {user && <Link className='nav-link' to={{pathname: `/user/${user.id}`}}>Profile</Link>}
+                {/* {user && <Link className='nav-link' to={{pathname: `/user/${user.id}`}}>Profile</Link>} */}
             </div>
         )
     }
