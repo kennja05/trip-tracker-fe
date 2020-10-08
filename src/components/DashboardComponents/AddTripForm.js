@@ -1,7 +1,7 @@
 import React from 'react'
 import PleaseLogin from '../Misc/PleaseLogin'
 import DatePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
+import "react-datepicker/dist/react-datepicker.css"
 
 export default class AddTripForm extends React.Component {
 
@@ -94,7 +94,7 @@ export default class AddTripForm extends React.Component {
                 </div>
             </div> 
             : 
-            <PleaseLogin location='add' />
+            <PleaseLogin direction='left' location='add' />
         )
     }
 

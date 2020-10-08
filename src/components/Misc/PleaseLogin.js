@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import styled, {keyframes} from 'styled-components'
+import { fadeInLeft, fadeInRight } from 'react-animations'
 
 class PleaseLogin extends React.Component {
     
@@ -9,7 +11,8 @@ class PleaseLogin extends React.Component {
     }
 
     componentDidMount(){
-        switch(this.props.location){
+        const {location} = this.props
+        switch(location){
             case 'past' :
                 this.setState({
                     location: 'Past Trips',
@@ -36,14 +39,37 @@ class PleaseLogin extends React.Component {
     
     render(){
         const {location, message} = this.state
-            return(
-                <div className='dashboard-container'>
-                        <div className='sub-dash-container-div'>
-                        <h2><u>{location}</u></h2>
-                            <Link className='link' to='/'><b>{message}</b></Link>
-                        </div>
-                </div>
-            )        
+        const {direction} = this.props
+        console.log(this.props)
+        const fadeAnimationLeft = keyframes`${fadeInLeft}`
+        const FadeInDivLeft = styled.div`
+            animation: 1s ${fadeAnimationLeft};
+        `
+        const fadeAnimationRight = keyframes`${fadeInRight}`
+        const FadeInDivRight = styled.div`
+            animation: 1s ${fadeAnimationRight};
+        `
+        return(
+            this.props.direction === 'left' ? 
+            <div className='dashboard-container'>
+                <FadeInDivLeft>
+                    <div className='sub-dash-container-div'>
+                    <h2><u>{location}</u></h2>
+                        <Link className='link' to='/'><b>{message}</b></Link>
+                    </div>
+                </FadeInDivLeft>
+            </div>
+            :
+            <div className='dashboard-container'>
+                <FadeInDivRight>
+                    <div className='sub-dash-container-div'>
+                    <h2><u>{location}</u></h2>
+                        <Link className='link' to='/'><b>{message}</b></Link>
+                    </div>
+                </FadeInDivRight>
+            </div>
+
+        )        
     }
 }
 
