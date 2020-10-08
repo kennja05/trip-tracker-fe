@@ -2,6 +2,8 @@ import React from 'react'
 import PleaseLogin from '../Misc/PleaseLogin'
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css"
+import styled, {keyframes} from 'styled-components'
+import {fadeInLeft} from 'react-animations'
 
 export default class AddTripForm extends React.Component {
 
@@ -68,30 +70,36 @@ export default class AddTripForm extends React.Component {
     render(){
         const {user} = this.props
         const {startDate, endDate, destinations}= this.state
+        const animation = keyframes`${fadeInLeft}`
+        const FadeInDivLeft = styled.div`
+            animation: 1s ${animation}
+        `
         return(
             user ? 
             <div id='add-trip' className='dashboard-container'>
-                <div className='sub-dash-container-div'>
-                    <h2 style={{fontFamily: 'Racing Sans One'}}><u>Add A New Trip</u></h2>
-                    <form className='add-trip-form' onSubmit={this.handleFormSubmit}>
-                        <label>Start Date:</label> 
-                        <DatePicker dateFormat='MM/dd/yy' name='startDate' 
-                            selected={startDate} onChange={this.handleStartDateChange} />
-                        <div className='form-break'></div>
-                        <label>End Date:</label>
-                        <DatePicker dateFormat='MM/dd/yy' name='endDate' 
-                            selected={endDate} onChange={this.handleEndDateChange} />
-                        <div className='form-break'></div>
-                        <label>Location:</label>
-                        <select style={{width: '153px'}} name='selectedDestination' onChange={this.handleFormChange}>
-                            {destinations.length > 0 && 
-                            destinations.map(dest => <option key={dest.id} 
-                            value={dest.name}>{dest.name}</option>)}
-                        </select>
-                        <div className='form-break'></div>
-                        <input type='submit' value='Add Trip' />
-                    </form>
-                </div>
+                <FadeInDivLeft>
+                    <div className='sub-dash-container-div'>
+                        <h2 style={{fontFamily: 'Racing Sans One'}}><u>Add A New Trip</u></h2>
+                        <form className='add-trip-form' onSubmit={this.handleFormSubmit}>
+                            <label>Start Date:</label> 
+                            <DatePicker dateFormat='MM/dd/yy' name='startDate' 
+                                selected={startDate} onChange={this.handleStartDateChange} />
+                            <div className='form-break'></div>
+                            <label>End Date:</label>
+                            <DatePicker dateFormat='MM/dd/yy' name='endDate' 
+                                selected={endDate} onChange={this.handleEndDateChange} />
+                            <div className='form-break'></div>
+                            <label>Location:</label>
+                            <select style={{width: '153px'}} name='selectedDestination' onChange={this.handleFormChange}>
+                                {destinations.length > 0 && 
+                                destinations.map(dest => <option key={dest.id} 
+                                value={dest.name}>{dest.name}</option>)}
+                            </select>
+                            <div className='form-break'></div>
+                            <input type='submit' value='Add Trip' />
+                        </form>
+                    </div>
+                </FadeInDivLeft>
             </div> 
             : 
             <PleaseLogin direction='left' location='add' />

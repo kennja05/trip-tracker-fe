@@ -40,7 +40,6 @@ class PleaseLogin extends React.Component {
     render(){
         const {location, message} = this.state
         const {direction} = this.props
-        console.log(this.props)
         const fadeAnimationLeft = keyframes`${fadeInLeft}`
         const FadeInDivLeft = styled.div`
             animation: 1s ${fadeAnimationLeft};
@@ -50,7 +49,7 @@ class PleaseLogin extends React.Component {
             animation: 1s ${fadeAnimationRight};
         `
         return(
-            this.props.direction === 'left' ? 
+            direction === 'left' ? 
             <div className='dashboard-container'>
                 <FadeInDivLeft>
                     <div className='sub-dash-container-div'>

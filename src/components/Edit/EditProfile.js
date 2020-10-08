@@ -61,7 +61,7 @@ export default class EditProfile extends React.Component {
     }
 
     handlePasswordSubmit = e => {
-        //
+        // eslint-disable-next-line
         const {currPassword, newPassword, confirmPassword} = this.state
         e.preventDefault()
         if (newPassword !== confirmPassword){

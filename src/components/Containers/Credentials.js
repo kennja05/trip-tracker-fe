@@ -3,7 +3,7 @@ import LoginForm from '../CredentialsComponents/LoginForm'
 import SignupForm from '../CredentialsComponents/SignupForm'
 import Title from '../CredentialsComponents/Title'
 import styled, { keyframes } from 'styled-components'
-import { zoomIn } from 'react-animations'
+import { fadeIn } from 'react-animations'
 export default class Credentials extends React.Component {
 
     componentDidMount(){
@@ -16,7 +16,7 @@ export default class Credentials extends React.Component {
     }
 
     render(){
-        const fadeInAnimation = keyframes`${zoomIn}`
+        const fadeInAnimation = keyframes`${fadeIn}`
         const FadeInDiv = styled.div`
             animation: 2s ${fadeInAnimation}
         `
