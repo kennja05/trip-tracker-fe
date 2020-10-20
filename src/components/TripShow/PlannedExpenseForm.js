@@ -1,6 +1,7 @@
 import React from 'react'
 import DatePicker from 'react-datepicker'
-
+import styled, {keyframes} from 'styled-components'
+import fadeIn from 'react-animations'
 export default class PlannedExpenseForm extends React.Component {
 
     state = {
@@ -55,8 +56,13 @@ export default class PlannedExpenseForm extends React.Component {
     render(){
         const {name, cost, category, date} = this.state
         const {trip} = this.props
+        const animation = keyframes`${fadeIn}`
+        const FadeInDiv = styled.component`
+            animate: 1s ${animation}
+        `
         return(
             <div className='planned-expense-div'>
+                <FadeInDiv>
                 <h2 className='pe-h2'>Input Your Planned Expense(s) Below</h2>
                 <form className='planned-expense-form' onSubmit={this.handleAddPlannedExpense}>  
                     
@@ -84,6 +90,7 @@ export default class PlannedExpenseForm extends React.Component {
                     
                     <input disabled={this.disableForm()} type='submit' value='Add Expense' />   
                 </form>
+                </FadeInDiv>
             </div>
         )
     }
