@@ -1,9 +1,10 @@
 import React from 'react'
+import Logo from '../../images/Logo.svg;'
 
 const Title = () => {
 
     return(
-        <h1 className='title'>TripTracker</h1>
+        <img className='title' src={Logo} alt='Logo'/>
     )
 }
 
