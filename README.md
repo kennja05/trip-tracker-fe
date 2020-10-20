@@ -7,14 +7,7 @@ Languages/Tech Used
 ===================
 
 Javascript, HTML, CSS, React, brypt gem for password hashing, Netlify/Heroku Deployment, Fixer.io API for exhange rate information, restcountries.eu API for country information, Cronjobs/Heroku Scheduler for obtaining exchange rate information automatically
-
-Background
-==========
-
-When planning a trip a lot of people like to make a budget for their expenses. Someone like myself could budget $500 for food and $1000 for the hotel stay, or a better planner than I might want to build out a table with various types of expenses detailing exactly how much will be spent for each expense. I would say that either way is fine, but something that many would not consider during the planning process of a trip to the foreign country, is that the exchange rate of the United States Dollar to the foreign currency is constantly changing. Now all of the sudden that dinner that I had planned for 30 euros, which originally was going to cost me 54 USD will now cost me 55 USD! 
-
-On a small scale I think we can all agree that it will not have that much of an effect. However, what if we were going to stay for a long time, or were planning a stay in a high-end boutique hotel? That 1.8% change that I mentioned above could start to make a difference once the scope of the spending gets larger. 
-
+ 
 Purpose
 =======
 
