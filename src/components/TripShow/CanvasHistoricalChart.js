@@ -2,6 +2,8 @@ import React from 'react'
 import CanvasJSReact from '../../canvasjs.react';
 // var CanvasJSReact = require('./canvasjs.react');
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+import styled, {keyframes} from 'styled-components'
+import fadeIn from 'react-animations'
 
 export default class CanvasHistoricalChart extends React.Component {
 
@@ -46,9 +48,15 @@ export default class CanvasHistoricalChart extends React.Component {
                       dataPoints: this.state.coordinates
              }]
         }
+        const animation = keyframes`${fadeIn}`
+        const FadeInDiv = styled.div`
+            animate: 1s ${animation}
+        `
         return (
             <div className='canvas-chart-container'>
-                <CanvasJSChart className='canvas-chart' options={options}/>
+                <FadeInDiv>
+                    <CanvasJSChart className='canvas-chart' options={options}/>
+                </FadeInDiv>
             </div>
         )
     }
