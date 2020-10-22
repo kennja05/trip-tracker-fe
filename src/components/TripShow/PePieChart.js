@@ -1,10 +1,10 @@
 import React from 'react'
 import CanvasJSReact from '../../canvasjs.react';
+import styled, {keyframes} from 'styled-components'
+import fadeIn from 'react-animations'
 //var CanvasJSReact = require('./canvasjs.react');
 // var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-import styled, {keyframes} from 'styled-components'
-import fadeIn from 'react-animations'
 
 export default class PePieChart extends React.Component {
     

@@ -27,6 +27,9 @@ export default class Credentials extends React.Component {
                 </FadeInDiv>
                 <LoginForm handleLogin={this.login} />
                 <SignupForm handleLogin={this.login} />
+                <div id='icon-credit'>Airplane icon made by <a href="https://www.flaticon.com/authors/freepik" 
+                title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 
+                title="Flaticon"> www.flaticon.com</a></div>
             </div>
         )
     }

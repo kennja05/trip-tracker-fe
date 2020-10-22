@@ -59,6 +59,10 @@ html, body {margin:0;padding:0;height:100%;}
   margin:2%;
 }
 
+#icon-credit{
+  margin-top: 5%
+}
+
 .login-form-div {
   border-style: solid;
   border-color: #27333f;

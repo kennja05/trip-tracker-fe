@@ -1,9 +1,9 @@
 import React from 'react'
 import CanvasJSReact from '../../canvasjs.react';
-// var CanvasJSReact = require('./canvasjs.react');
-var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 import styled, {keyframes} from 'styled-components'
 import fadeIn from 'react-animations'
+// var CanvasJSReact = require('./canvasjs.react');
+var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class CanvasHistoricalChart extends React.Component {
 
