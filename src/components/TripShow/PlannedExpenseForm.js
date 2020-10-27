@@ -57,7 +57,7 @@ export default class PlannedExpenseForm extends React.Component {
         const {name, cost, category, date} = this.state
         const {trip} = this.props
         const animation = keyframes`${fadeIn}`
-        const FadeInDiv = styled.component`
+        const FadeInDiv = styled.div`
             animate: 1s ${animation}
         `
         return(
