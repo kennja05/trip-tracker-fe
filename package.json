@@ -22,7 +22,7 @@
     "react-scripts": "3.4.0",
     "react-tooltip": "^4.2.9",
     "styled-components": "^5.2.0",
-    "victory": "^34.3.12"
+    "victory": "^36.6.8"
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
